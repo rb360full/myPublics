@@ -4,11 +4,12 @@ let idCounter = parseInt(localStorage.getItem("idCounter")) || 0;
 let db = null;
 let dbStore = null;
 
-const btnSubmit = document.querySelector("button");
+const btnSubmit = document.querySelector("form");
 const nameInput = document.querySelector('input[type="text"]');
 const passInput = document.querySelector('input[type="password"]');
 const emailInput = document.querySelector('input[type="email"]');
 const tbody = document.querySelector("tbody");
+// const removeElement = document.querySelectorAll(".delete");
 
 let dbOpenReq = indexedDB.open("Reza", dbVersion);
 
@@ -20,13 +21,13 @@ dbOpenReq.addEventListener("error", (e) => console.log(e));
 dbOpenReq.addEventListener("upgradeneeded", (e) => {
     db = e.target.result;
 
-    //  db.deleteObjectStore('users')
     dbStore = !db.objectStoreNames.contains("users") ? db.createObjectStore("users", { keyPath: "id" }) : null;
 
     localStorage.setItem("dbVersion", dbVersion + 1);
 });
 
-btnSubmit.addEventListener("click", (e) => {
+btnSubmit.addEventListener("submit", (e) => {
+    e.preventDefault();
     let tx = db.transaction("users", "readwrite");
     tx.addEventListener("comleted", (e) => {
         console.log("sub suc");
@@ -52,8 +53,12 @@ btnSubmit.addEventListener("click", (e) => {
 
 function getUsers() {
     let tx = db.transaction("users", "readonly");
-    tx.addEventListener("complete", console.log("tx completed"));
-    tx.addEventListener("error", console.log("tx error"));
+    tx.addEventListener("complete", () => {
+        console.log("tx completed");
+    });
+    tx.addEventListener("error", () => {
+        console.log("tx error");
+    });
 
     let store = tx.objectStore("users");
 
@@ -69,14 +74,33 @@ function getUsers() {
             <td>${user.name}</td>
             <td>${user.pass}</td>
             <td>${user.email}</td>
+            <td><a href="##" id="${user.id}" class="delete">Remove</a></td>
             </tr>`;
             })
             .join("");
-        console.log(mapArray);
+
         tbody.innerHTML = mapArray;
     });
     request.addEventListener("error", (err) => console.log("request error : ", err));
 }
+
+function removeItem(e) {
+    let id = Number(e.target.id);
+    console.log(e.target.id);
+    let tx = db.transaction("users", "readwrite");
+    tx.addEventListener("error", (e) => {
+        console.log("tx Remove error", e);
+    });
+    tx.addEventListener("complete", (e) => {
+        console.log("tx Remove completed");
+    });
+    let req = tx.objectStore("users").delete(id);
+}
+
+tbody.addEventListener("click", (e) => {
+    removeItem(e);
+    getUsers();
+});
 
 function clearValues() {
     nameInput.value = "";
