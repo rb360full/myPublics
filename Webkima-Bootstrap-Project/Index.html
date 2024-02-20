@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Webkima-Bootstrap</title>
+    <link rel="icon" href="images/New-Mini-Webkima-Logo.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="lib/css/bootstrap.rtl.css" />
+    <link rel="stylesheet" href="lib/css/bootstrapExtra.rtl.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="">
+    <!-- HEADER Start -->
+    <div class="" id="gotop"></div>
+    <div class="header sticky-top border-bottom border-secondary">
+        <div class="top-bar container-fluid">
+            <div class="row d-flex justify-content-center align-items-center bg-primary position-relative p-1" id="nav1">
+                <button class="btn-close btn-close-white position-absolute start-0 ms-3" data-bs-toggle="collapse" data-bs-target="#nav1"></button>
+                <div class="row d-flex justify-content-center">
+                    <div class="col-auto d-flex align-items-center">
+                        <span class="text-light text-center fs-6l"><span class="mtsnb-text" style="">جشنواره بزرگ فروش ... تا 67 درصد تخفیف روی تمامی دوره‌ها
+                                ...</span></span>
+                    </div>
+                    <div class="col-auto">
+                        <button class="btn btn-info text-white my-2 fs-5s py-1 rounded-1" href="#" aria-current="page">تخفیف‌تو بگیر!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <nav class="sticky-top navbar navbar-expand-lg navbar-dark bg-secondary py-4 navbar-top">
+            <div class="container-fluid">
+                <a class="navbar-brand position-relative start-50 start-lg-0 w-lg-10 translate-middle-x" href="https://webkima.com">
+                    <img class="col-10" src="images/dark-logo-min.png" alt="" />
+                </a>
+
+                <button class="navbar-toggler d-lg-none position-absolute start-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasId2">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="offcanvas offcanvas-start d-block d-lg-none w-75 w-md-50" data-bs-backdrop="true" tabindex="-1" id="offcanvasId2"
+                    aria-labelledby="staticBackdropLabel">
+                    <div class="offcanvas-header">
+                        <div class="d-flex border px-3 py-1 rounded rounded-5">
+                            <input class="border-0 w-100" type="text" placeholder="جستجو در آکادمی وبکیما" />
+                            <a href=""><i class="bi bi-search fs-6 me-3"></i> </a>
+                        </div>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <div class="list-group list-group-flush clearfix">
+                            <a href="#"
+                                class="rounded-3 border-0 border-bottom list-group-item list-group-item-action py-3 link-secondary link-opacity-25">آکادمی
+                                <i class="bi bi-chevron-left float-end"></i>
+                            </a>
+                            <a href="#" class="rounded-3 list-group-item list-group-item-action py-3 link-secondary link-opacity-25">مقالات
+                                <i class="bi bi-chevron-left float-end"></i>
+                            </a>
+                            <a href="#" class="rounded-3 list-group-item list-group-item-action py-3 link-secondary link-opacity-25">آموزش ورد پرس</a>
+                            <a href="#" class="rounded-3 list-group-item list-group-item-action py-3 link-secondary link-opacity-25">آموزش المنتور</a>
+                            <a href="#" class="rounded-3 list-group-item list-group-item-action py-3 link-secondary link-opacity-25">تماس با ما
+                                <i class="bi bi-chevron-left float-end"></i>
+                            </a>
+                            <a href="#" class="rounded-3 list-group-item list-group-item-action py-3 link-secondary link-opacity-25">قالب کیمیا کالا</a>
+                            <a href="#" class="rounded-3 list-group-item list-group-item-action py-3 link-secondary link-opacity-25">ابزار ها</a>
+                            <a href="#" class="rounded-3 list-group-item list-group-item-action py-3 link-secondary link-opacity-25">چگونه؟
+                                <i class="bi bi-chevron-left float-end"></i>
+                            </a>
+                        </div>
+                        <div class="social mb-4">
+                            <i class="bi bi-instagram me-2 opacity-50"></i>
+                            <i class="bi bi-telegram opacity-50"></i>
+                        </div>
+                        <a href=""> <i class="bi bi-moon fs-5 text-light bg-dark-subtle px-2 py-1 rounded" style=""></i> </a>
+                    </div>
+                </div>
+
+                <div class="container-fluid d-flex position-relative" id="collapsibleNavId">
+                    <ul class="navbar-nav me-auto align-items-center navbar-collapse collapse">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" href="#" id="dropdownId1" data-bs-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">آکادمی</a>
+                            <div class="dropdown-menu py-4 ps-3 pe-2 border border-2 border-dark" aria-labelledby="dropdownId1">
+                                <div class="row column-gap-1">
+                                    <div class="col-md border-end border-blue2">
+                                        <a class="dropdown-item text-light rounded py-2 px-1 small" href="#">دوره‌های حرفه‌ای</a>
+                                        <a class="dropdown-item text-light rounded py-2 px-1 small" href="#">دوره پلاگین نویسی و برنامه‌نویسی وردپرس</a>
+                                        <a class="dropdown-item text-light rounded py-2 px-1 small" href="#">دوره آموزش طراحی سایت 0 تا 100</a>
+                                        <a class="dropdown-item text-light rounded py-2 px-1 small" href="#">دوره جامع آموزش UI و UX</a>
+                                        <a class="dropdown-item text-light rounded py-2 px-1 small" href="#">دوره جامع آموزش Html و CSS</a>
+                                        <a class="dropdown-item text-light rounded py-2 px-1 small" href="#">دوره آموزش جاوا اسکریپت واقعی</a>
+                                        <a class="dropdown-item text-light rounded py-2 px-1 small" href="#">دوره آموزش طراحی قالب وردپرس</a>
+                                    </div>
+                                    <div class="col-md border-end border-blue2">
+                                        <a class="dropdown-item text-light rounded py-2 px-1 small" href="#">طراحی‌سایت بدون برنامه‌نویسی</a>
+                                        <a class="dropdown-item text-light rounded py-2 px-1 small" href="#">طراحی سایت فروشگاهی با قالب فلت سام</a>
+                                        <a class="dropdown-item text-light rounded py-2 px-1 small" href="#">دوره طراحی سایت ثبت آگهی (خودرو)</a>
+                                        <a class="dropdown-item text-light rounded py-2 px-1 small" href="#">طراحی سایت دیجی‌کالا با المنتور</a>
+                                        <a class="dropdown-item text-light rounded py-2 px-1 small" href="#">دوره آموزش امنیت وردپرس</a>
+                                        <a class="dropdown-item text-light rounded py-2 px-1 small" href="#">دوره آموزش افزایش سرعت سایت</a>
+                                        <a class="dropdown-item text-light rounded py-2 px-1 small" href="#">دوره آموزش طراحی اسلایدرهای حرفه‌ای</a>
+                                    </div>
+                                    <div class="col-md">
+                                        <a class="dropdown-item text-light rounded py-2 px-1 small" href="#">دوره‌های رایگان</a>
+                                        <a class="dropdown-item text-light rounded py-2 px-1 small" href="#">آموزش برنامه نویسی وردپرس</a>
+                                        <a class="dropdown-item text-light rounded py-2 px-1 small" href="#">آموزش المنتور</a>
+                                        <a class="dropdown-item text-light rounded py-2 px-1 small" href="#">آموزش وردپرس</a>
+                                        <a class="dropdown-item text-light rounded py-2 px-1 small" href="#">آموزش سئو</a>
+                                        <a class="dropdown-item text-light rounded py-2 px-1 small" href="#">آموزش روولوشن اسلایدر رایگان</a>
+                                        <a class="dropdown-item text-light rounded py-2 px-1 small" href="#">آموزش HTML و CSS رایگان</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" href="#" id="dropdownId2" data-bs-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">مقالات</a>
+                            <div class="dropdown-menu py-4 ps-3 pe-5 border border-2 border-dark" aria-labelledby="dropdownId2">
+                                <div class="dropdown-submenu w-100">
+                                    <a class="dropdown-item text-light rounded p-2 small" href="#">آموزش سئو</a>
+                                    <a class="dropdown-item text-light rounded p-2 small" href="#">آموزش UI و UX</a>
+                                    <a class="dropdown-item text-light rounded p-2 small" href="#">کسب و کار اینترنتی</a>
+                                    <a class="dropdown-item text-light rounded p-2 small" href="#">آموزش طراحی سایت</a>
+                                    <a class="dropdown-item text-light rounded p-2 small" href="#">امنیت وردپرس</a>
+                                    <a class="dropdown-item text-light rounded p-2 small" href="#">قالب رایگان وردپرس</a>
+                                    <a class="dropdown-item text-light rounded p-2 small" href="#">بهترین افزونه های وردپرس</a>
+                                    <a class="dropdown-item text-light rounded p-2 small" href="#">سورس کدهای طراحی سایت</a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#" aria-expanded="false">آموزش وردپرس</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#" aria-expanded="false">آموزش المنتور</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" href="#" id="dropdownId4" data-bs-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">تماس ‌با ما</a>
+                            <div class="dropdown-menu py-4 ps-3 pe-5 border border-2 border-dark" aria-labelledby="dropdownId1">
+                                <div class="dropdown-submenu w-100">
+                                    <a class="dropdown-item text-light rounded p-2 small" href="#">درباره ما</a>
+                                    <a class="dropdown-item text-light rounded p-2 small" href="#">همکاری با ما</a>
+                                    <a class="dropdown-item text-light rounded p-2 small" href="#">مشاوره خصوصی</a>
+                                    <a class="dropdown-item text-light rounded p-2 small" href="#">قوانین و مقررات سایت</a>
+                                    <a class="dropdown-item text-light rounded p-2 small" href="#">طراحی سایت</a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#" aria-expanded="false">قالب کیماکالا</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#" aria-expanded="false">ابزارها</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" href="#" id="dropdownId1" data-bs-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">چگونه؟</a>
+                            <div class="dropdown-menu py-4 ps-3 pe-5 border border-2 border-dark" aria-labelledby="dropdownId1">
+                                <div class="dropdown-submenu w-100">
+                                    <a class="dropdown-item text-light rounded p-2 small" href="#">طراحی سایت چیست؟</a>
+                                    <a class="dropdown-item text-light rounded p-2 small" href="#">وردپرس چیست؟</a>
+                                    <a class="dropdown-item text-light rounded p-2 small" href="#">از کجا دامنه بخرم؟</a>
+                                    <a class="dropdown-item text-light rounded p-2 small" href="#">آموزش ثبت دامنه .ir و .com</a>
+                                    <a class="dropdown-item text-light rounded p-2 small" href="#">از کجا هاست بخرم؟ + کد تخفیف</a>
+                                    <a class="dropdown-item text-light rounded p-2 small text-wrap" href="#">مسیر یادگیری طراحی سایت با برنامه‌نویسی</a>
+                                </div>
+                            </div>
+                        </li>
+                        <a href=""><i class="bi bi-search fs-6 text-light px-2 mx-2"></i> </a>
+                        <a href=""> <i class="bi bi-moon fs-5l text-light bg-blue2 px-2 py-1 rounded" style=""></i> </a>
+                    </ul>
+                    <ul class="navbar-nav mt-2 mt-lg-0">
+                        <li class="nav-item me-lg-auto basket">
+                            <a class="nav-link" href="#">
+                                <i class="bi bi-basket-fill" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip2"
+                                    data-bs-title="هیچ محصولی در سبد خرید نیست"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item navbar-collapse collapse">
+                            <a class="nav-link active" href="#" aria-current="page">ورود / عضویت<span class="visually-hidden">(current)</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- HEADER End-->
+
+    <div class="my-4"></div>
+
+    <!-- Main-Top Start -->
+    <div class="container-fluid">
+        <div class="main-top container-lg p-0">
+            <div class="learning mb-5">
+                <div class="row bg-secondary rounded-3 py-5 px-4">
+                    <div class="col-sm-5 px-1">
+                        <h2 class="text-light">آموزش طراحی سایت</h2>
+                        <h2 class="text-light">و کسب درآمد از آن به زبان ساده</h2>
+                        <h5 class="text-light mt-4">به آکادمی وبکیـــما خوش آمدید… 👋</h5>
+                        <p class="text-light fs-6">
+                            اینجا یاد می‌گیرید که چگونه سایت خود را از صفر تا صد طراحی کنید و بعد از آن مشتریان را به سایت خود از روش های مارکتینگ مختلف مثل
+                            سئو، جذب کنید و
+                            در نهایت کسب و کار اینترنتی خود را راه ‌اندازی کنید و به رویای کسب درآمد آنلاین و کسب درآمد در خواب برسید…
+                        </p>
+                        <div class="row gap-3 px-4 my-5">
+                            <button class="btn btn-primary col-12 col-sm my-sm-2" type="button">آموزش رایگان ساخت سایت</button>
+                            <button class="btn btn-outline-primary col-12 col-sm my-sm-2" type="button">آموزش حرفه ای</button>
+                        </div>
+                    </div>
+                    <div class="col-sm-7">
+                        <img class="img-fluid rounded" src="images/create-website-custom-plugin.jpg" alt="" />
+                    </div>
+                </div>
+
+                <h3 class="text-light text-center my-5">دنبال یادگیری و پیشرفت در چه زمینه‌ای هستید؟</h3>
+
+                <div class="row row-gap-4 gx-4 px-4">
+                    <div class="col-6 col-lg-3">
+                        <div class="text-center py-2 px-3 p-sm-4 bg-secondary rounded h-100 trans1">
+                            <a href=""><img class="img-fluid col-9 col-sm-7 col-md-5 col-lg-10 col-xl-7" src="images/01.svg" alt="" /></a>
+                            <a href="" class="link-light link-underline-opacity-0 a-hover">
+                                <h4 class="fs-sm-4 my-3">آموزش وردپرس</h4>
+                            </a>
+                            <p class="text-light smaller px-3">
+                                اگر می خواهید طراحی سایت با وردپرس را از ابتدا فرا بگیرید کافیست سری به بخش آموزش وردپرس آکادمی وبکیما بزنید.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="text-center py-2 px-3 p-sm-4 bg-secondary rounded h-100 trans1">
+                            <a href=""><img class="img-fluid col-9 col-sm-7 col-md-5 col-lg-10 col-xl-7" src="images/02.svg" alt="" /></a>
+                            <a href="" class="link-light link-underline-opacity-0 a-hover">
+                                <h4 class="fs-sm-4 my-3">آموزش المنتور</h4>
+                            </a>
+                            <small class="text-light smaller px-3">
+                                طراحی فوق حرفه ای سایت را با استفاده از افزونه صفحه ساز المنتور از مقدماتی تا پیشرفته را در آکادمی وبکیما فرا بگیرید.
+                            </small>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="text-center py-2 px-3 p-sm-4 bg-secondary rounded h-100 trans1">
+                            <a href=""> <img class="img-fluid col-9 col-sm-7 col-md-5 col-lg-10 col-xl-7" src="images/03-html-css-learn.svg" alt="" /></a>
+                            <a href="" class="link-light link-underline-opacity-0 a-hover">
+                                <h4 class="fs-sm-4 my-3">آموزش HTML و CSS</h4>
+                            </a>
+                            <small class="text-light smaller px-3">
+                                اگر می‌خواهید وارد دنیای جذاب برنامه‌نویسی وب شوید، صفحه آموزش HTML و CSS وبکیما اولین قدم شماست!
+                            </small>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="text-center py-2 px-3 p-sm-4 bg-secondary rounded h-100 trans1">
+                            <a href=""> <img class="img-fluid col-9 col-sm-7 col-md-5 col-lg-10 col-xl-7" src="images/04.svg" alt="" /></a>
+                            <a href="" class="link-light link-underline-opacity-0 a-hover">
+                                <h4 class="fs-sm-4 my-3">برنامه نویسی وردپرس</h4>
+                            </a>
+                            <small class="text-light smaller px-3">
+                                برنامه نویسی و توسعه وب سایت ها در بستر وردپرس یک کار کاملا تخصصی است، در این بخش به برنامه‌نویسی وردپرس می‌پردازیم.
+                            </small>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="text-center py-2 px-3 p-sm-4 bg-secondary rounded h-100 trans1">
+                            <a href=""><img class="img-fluid col-9 col-sm-7 col-md-5 col-lg-10 col-xl-7" src="images/05-revslider-tutorials.svg" alt="" /></a>
+                            <a href="" class="link-light link-underline-opacity-0 a-hover">
+                                <h4 class="fs-sm-4 my-3">آموزش رولوشن اسلایدر</h4>
+                            </a>
+                            <small class="text-light smaller px-3">
+                                رولوشن اسلایدر، بهترین افزونه‌ طراحی اسلایدر است، در این دوره طراحی اسلایدر با اسلایدر رولوشن را آموزش می‌دهیم.
+                            </small>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="text-center py-2 px-3 p-sm-4 bg-secondary rounded h-100 trans1">
+                            <a href=""><img class="img-fluid col-9 col-sm-7 col-md-5 col-lg-10 col-xl-7" src="images/06.svg" alt="" /></a>
+                            <a href="" class="link-light link-underline-opacity-0 a-hover">
+                                <h4 class="fs-sm-4 my-3">آموزش UI و UX</h4>
+                            </a>
+                            <small class="text-light smaller px-3">
+                                آموزش UI و UX را جدی بگیرید، چون به طرز شگفت انگیزی مهارت شما در طراحی سایت‌های جذاب افزایش خواهد یافت.
+                            </small>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="text-center py-2 px-3 p-sm-4 bg-secondary rounded h-100 trans1">
+                            <a href=""><img class="img-fluid col-9 col-sm-7 col-md-5 col-lg-10 col-xl-7" src="images/07.svg" alt="" /></a>
+                            <a href="" class="link-light link-underline-opacity-0 a-hover">
+                                <h4 class="fs-sm-4 my-3">آموزش سئو</h4>
+                            </a>
+                            <small class="text-light smaller px-3">
+                                بهترین و جدیدترین متدهای بهینه سازی سایت در موتورهای جستجو را در بخش آموزش سئو آکادمی وبکیما فرا بگیرید.
+                            </small>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="text-center py-2 px-3 p-sm-4 bg-secondary rounded h-100 trans1">
+                            <a href=""><img class="img-fluid col-9 col-sm-7 col-md-5 col-lg-10 col-xl-7" src="images/08.svg" alt="" /></a>
+                            <a href="" class="link-light link-underline-opacity-0 a-hover">
+                                <h4 class="fs-sm-4 my-3">کسب و کار اینترنتی</h4>
+                            </a>
+                            <small class="text-light smaller px-3">
+                                اگر می‌خواهید برای خود یک تجارت آنلاین راه‌اندازی کنید پیشنهاد می‌کنیم حتما مقالات این بخش را با دقت مطالعه کنید.
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="idea mb-5">
+                <div class="row">
+                    <div class="col-sm-6 p-3 h-100 order-sm-1">
+                        <img class="img-fluid" src="images/idea1.svg" alt="" />
+                    </div>
+                    <div class="col-sm-6 p-3 d-flex align-items-center order-sm-0">
+                        <div class="">
+                            <h3 class="text-light">چرا کسب و کار اینترنتی؟</h3>
+                            <p class="text-light">
+                                در دنیای امروز که همه کارها روز به روز بیشتر اینترنتی می شود و هر چه می گذرد زندگی ما بیشتر از پیش به اینترنت و فضای مجازی
+                                وابسته می شود عقل
+                                حکم می کند که کسب و کارهای ما نیز اینترنتی شوند تا ما نیز بتوانیم در این دنیای عظیم پیشرفت سهمی داشته باشیم، پس اگر هنوز کسب و
+                                کار خود را
+                                اینترنتی نکرده اید، هر چه سریعتر دست به کار شوید تا از قافله تکنولوژی و کسب درآمد های اینترنتی عقب نمانید…
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 order-sm-2">
+                        <img class="img-fluid" src="images/idea2.svg" alt="" />
+                    </div>
+                    <div class="col-sm-6 d-flex align-items-center order-sm-3">
+                        <div class="">
+                            <h3 class="text-light">ایده های راه اندازی کسب و کار اینترنتی</h3>
+                            <p class="text-light">
+                                درصد بسیار زیادی از کسب و کارهای اینترنتی در حد یک ایده باقی می مانند چون باید توجه داشته باشید که داشتن ایده برای راه اندازی یک
+                                کسب و کار
+                                اینترنتی موفق نه تنها کافی نیست بلکه الزاما مهم هم نیست یعنی شما می توانید با همین ایده هایی که تا کنون بارها اجرا شده اند نیز
+                                یک تجارت آنلاین
+                                موفق راه اندازی کنید. فقط باید شروع کنید…
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main-Top End -->
+
+    <!-- Main-Bottom Start -->
+
+    <div class="container-fluid">
+        <div class="main-Bottom container-lg px-0">
+            <div class="row d-flex align-items-baseline justify-content-between">
+                <div class="col-sm-auto">
+                    <i class="bi bi-check-lg text-light fs-3 me-2"></i>
+                    <span class="text-light h6 me-auto">جدید ترین دوره ها</span>
+                </div>
+
+                <div class="col-sm-auto text-end">
+                    <a href="#" class="link-light link-underline-opacity-0 h6">مشاهده دوره ها</a>
+                    <i class="bi bi-chevron-compact-left text-light"></i>
+                </div>
+            </div>
+            <hr class="text-light opacity-25" />
+
+            <div class="vip-courses container-fluid p-0">
+                <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner" role="listbox">
+                        <div class="carousel-item active">
+                            <div class="row g-3">
+                                <div class="col-6 col-md-3 d-flex justify-content-center">
+                                    <div class="bg-secondary text-center rounded position-relative">
+                                        <a href=""><img src="images/01-slide-UIUX-banner.jpg" class="img-fluid rounded-top mb-3" alt="First slide" /></a>
+                                        <div class="content px-3 pb-4">
+                                            <a href="##" class="a-hover link-light link-underline-opacity-0"> دوره جامع آموزش UI و UX | آموزش طراحی تجربه و رابط
+                                                کاربری </a>
+                                            <div>
+                                                <span class="text-danger text-decoration-line-through mt-3"><strong>1,95</strong><small>میلیون
+                                                        تومان</small></span>
+                                                <span class="text-warning mt-3"><strong>599<small>هزار تومان</small></strong></span>
+                                            </div>
+                                        </div>
+                                        <!-- <span class="badge1 text-white fw-bold p-2 bg-primary position-absolute start-0 bottom-0">%54</span> -->
+                                    </div>
+                                </div>
+
+                                <div class="col-6 col-md-3 d-flex justify-content-center">
+                                    <div class="bg-secondary text-center rounded position-relative">
+                                        <a href=""><img src="images/02-slide-digikala-banner.jpg" class="img-fluid rounded-top mb-3" alt="First slide" /></a>
+                                        <div class="content px-3 pb-4">
+                                            <a href="##" class="a-hover link-light link-underline-opacity-0"> دوره آموزش طراحی فروشگاه اینترنتی دیجی کالا </a>
+                                            <div>
+                                                <span class="text-danger text-decoration-line-through mt-3"><strong>1,95</strong><small>میلیون
+                                                        تومان</small></span>
+                                                <span class="text-warning mt-3"><strong>599<small>هزار تومان</small></strong></span>
+                                            </div>
+                                        </div>
+                                        <span class="badge1 text-white fw-bold p-2 bg-primary position-absolute start-0 bottom-0">%69</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 col-md-3 d-flex justify-content-center">
+                                    <div class="bg-secondary text-center rounded position-relative">
+                                        <a href=""><img src="images/03-slide-WordPress-Security.jpg" class="img-fluid rounded-top mb-3" alt="First slide" /></a>
+                                        <div class="content px-3">
+                                            <a href="##" class="a-hover link-light link-underline-opacity-0"> دوره جامع آموزش امنیت وردپرس | متخصص امنیت وردپرس
+                                                شوید! </a>
+                                            <div>
+                                                <span class="text-danger text-decoration-line-through mt-3"><strong>1,95</strong><small>میلیون
+                                                        تومان</small></span>
+                                                <span class="text-warning mt-3"><strong>599<small>هزار تومان</small></strong></span>
+                                            </div>
+                                        </div>
+                                        <span class="badge1 text-white fw-bold p-2 bg-primary position-absolute start-0 bottom-0">%54</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 col-md-3 d-flex justify-content-center">
+                                    <div class="bg-secondary text-center rounded position-relative">
+                                        <a href=""><img src="images/04-slide-SpeedUp-WP.jpg" class="img-fluid rounded-top mb-3" alt="First slide" /></a>
+                                        <div class="content px-3 pb-4">
+                                            <a href="##" class="a-hover link-light link-underline-opacity-0">
+                                                دوره آموزش بهینه سازی و افزایش سرعت سایت (جامع ترین دوره در ایران)
+                                            </a>
+                                            <div>
+                                                <span class="text-danger text-decoration-line-through mt-3"><strong>1,95</strong><small>میلیون
+                                                        تومان</small></span>
+                                                <span class="text-warning mt-3"><strong>599<small>هزار تومان</small></strong></span>
+                                            </div>
+                                        </div>
+                                        <span class="badge1 text-white fw-bold p-2 bg-primary position-absolute start-0 bottom-0">%54</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                                <div class="col-6 col-md-3 d-flex justify-content-center">
+                                    <div class="bg-secondary text-center rounded position-relative">
+                                        <a href=""><img src="images/05-slide-kimakhodro-banner.jpg" class="img-fluid rounded-top mb-3" alt="First slide" /></a>
+                                        <div class="content px-3 pb-4">
+                                            <a href="##" class="a-hover link-light link-underline-opacity-0"> دوره آموزش طراحی سایت ثبت آگهی با المنتور </a>
+                                            <div>
+                                                <span class="text-danger text-decoration-line-through mt-3"><strong>1,95</strong><small>میلیون
+                                                        تومان</small></span>
+                                                <span class="text-warning mt-3"><strong>599<small>هزار تومان</small></strong></span>
+                                            </div>
+                                        </div>
+                                        <span class="badge1 text-white fw-bold p-2 bg-primary position-absolute start-0 bottom-0">%54</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 col-md-3 d-flex justify-content-center">
+                                    <div class="bg-secondary text-center rounded position-relative">
+                                        <a href=""><img src="images/06-slide-WordPress-Theme-Dev.jpg" class="img-fluid rounded-top mb-3"
+                                                alt="First slide" /></a>
+                                        <div class="content px-3 pb-4">
+                                            <a href="##" class="a-hover link-light link-underline-opacity-0"> آموزش جامع طراحی قالب وردپرس [0 تا 100 طراحی قالب
+                                                WordPress] </a>
+                                            <div>
+                                                <span class="text-danger text-decoration-line-through mt-3"><strong>1,95</strong><small>میلیون
+                                                        تومان</small></span>
+                                                <span class="text-warning mt-3"><strong>599<small>هزار تومان</small></strong></span>
+                                            </div>
+                                        </div>
+                                        <span class="badge1 text-white fw-bold p-2 bg-primary position-absolute start-0 bottom-0">%54</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 col-md-3 d-flex justify-content-center">
+                                    <div class="bg-secondary text-center rounded position-relative">
+                                        <a href=""><img src="images/07-slide-html-css-banner.jpg" class="img-fluid rounded-top mb-3" alt="First slide" /></a>
+                                        <div class="content px-3 pb-4">
+                                            <a href="##" class="a-hover link-light link-underline-opacity-0"> دوره آموزش جامع Html و Css (پروژه محور) </a>
+                                            <div>
+                                                <span class="text-danger text-decoration-line-through mt-3"><strong>1,95</strong><small>میلیون
+                                                        تومان</small></span>
+                                                <span class="text-warning mt-3"><strong>599<small>هزار تومان</small></strong></span>
+                                            </div>
+                                        </div>
+                                        <span class="badge1 text-white fw-bold p-2 bg-primary position-absolute start-0 bottom-0">%54</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 col-md-3 d-flex justify-content-center">
+                                    <div class="bg-secondary text-center rounded position-relative">
+                                        <a href=""><img src="images/08-slide-webdesign-0-100-banner.jpg" class="img-fluid rounded-top mb-3"
+                                                alt="First slide" /></a>
+                                        <div class="content px-3 pb-4">
+                                            <a href="##" class="a-hover link-light link-underline-opacity-0"> دوره 0 تا 100 آموزش طراحی سایت و فروشگاه اینترنتی
+                                            </a>
+                                            <div>
+                                                <span class="text-danger text-decoration-line-through mt-3"><strong>1,95</strong><small>میلیون
+                                                        تومان</small></span>
+                                                <span class="text-warning mt-3"><strong>599<small>هزار تومان</small></strong></span>
+                                            </div>
+                                        </div>
+                                        <span class="badge1 text-white fw-bold p-2 bg-primary position-absolute start-0 bottom-0">%54</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                                <div class="col-6 col-md-3 d-flex justify-content-center">
+                                    <div class="bg-secondary text-center rounded position-relative">
+                                        <a href=""><img src="images/09-slide-javascript-course-tut-1.jpg" class="img-fluid rounded-top mb-3"
+                                                alt="First slide" /></a>
+                                        <div class="content px-3 pb-4">
+                                            <a href="##" class="a-hover link-light link-underline-opacity-0"> دوره آموزش جاوا اسکریپت واقعی (پروژه محور) </a>
+                                            <div>
+                                                <span class="text-danger text-decoration-line-through mt-3"><strong>1,95</strong><small>میلیون
+                                                        تومان</small></span>
+                                                <span class="text-warning mt-3"><strong>599<small>هزار تومان</small></strong></span>
+                                            </div>
+                                        </div>
+                                        <span class="badge1 text-white fw-bold p-2 bg-primary position-absolute start-0 bottom-0">%54</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 col-md-3 d-flex justify-content-center">
+                                    <div class="bg-secondary text-center rounded position-relative">
+                                        <a href=""><img src="images/10-slide-kima-style-webdesign.jpg" class="img-fluid rounded-top mb-3"
+                                                alt="First slide" /></a>
+                                        <div class="content px-3 pb-4">
+                                            <a href="##" class="a-hover link-light link-underline-opacity-0"> آموزش طراحی سایت فروشگاهی با قالب فلت سام </a>
+                                            <div>
+                                                <span class="text-danger text-decoration-line-through mt-3"><strong>1,95</strong><small>میلیون
+                                                        تومان</small></span>
+                                                <span class="text-warning mt-3"><strong>599<small>هزار تومان</small></strong></span>
+                                            </div>
+                                        </div>
+                                        <span class="badge1 text-white fw-bold p-2 bg-primary position-absolute start-0 bottom-0">%54</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 col-md-3 d-flex justify-content-center">
+                                    <div class="bg-secondary text-center rounded position-relative">
+                                        <a href=""><img src="images/11-slide-wp-development-banner.jpg" class="img-fluid rounded-top mb-3"
+                                                alt="First slide" /></a>
+                                        <div class="content px-3 pb-4">
+                                            <a href="##" class="a-hover link-light link-underline-opacity-0"> دوره جادوی وردپرس | پلاگین نویسی و برنامه‌نویسی
+                                                وردپرس </a>
+                                            <div>
+                                                <span class="text-danger text-decoration-line-through mt-3"><strong>1,95</strong><small>میلیون
+                                                        تومان</small></span>
+                                                <span class="text-warning mt-3"><strong>599<small>هزار تومان</small></strong></span>
+                                            </div>
+                                        </div>
+                                        <span class="badge1 text-white fw-bold p-2 bg-primary position-absolute start-0 bottom-0">%54</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 col-md-3 d-flex justify-content-center">
+                                    <div class="bg-secondary text-center rounded position-relative">
+                                        <a href=""><img src="images/03-slide-WordPress-Security.jpg" class="img-fluid rounded-top mb-3" alt="First slide" /></a>
+                                        <div class="content px-3 pb-4">
+                                            <a href="##" class="a-hover link-light link-underline-opacity-0"> دوره آموزش جامع Html و Css (پروژه محور) </a>
+                                            <div>
+                                                <span class="text-danger text-decoration-line-through mt-3"><strong>1,95</strong><small>میلیون
+                                                        تومان</small></span>
+                                                <span class="text-warning mt-3"><strong>599<small>هزار تومان</small></strong></span>
+                                            </div>
+                                        </div>
+                                        <span class="badge1 text-white fw-bold p-2 bg-primary position-absolute start-0 bottom-0">%54</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev w-2" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next w-2" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="free-courses-doc p-lg-3 my-3">
+                <div class="row p-0 rounded overflow-hidden">
+                    <div class="col-lg-6 order-1 order-lg-0 d-flex flex-column justify-content-around py-4 bg-secondary">
+                        <a class="h3 text-light lh-lg" href="#">دوره رایگان آموزش وردپرس</a>
+                        <p class="text-light text-opacity-80">
+                            بدون شک وردپرس یکی از بهترین سیستم های مدیریت محتوا سایت ساز در جهان است. اگر می خواهید با استفاده از بهترین سیستم سایت ساز جهان کسب
+                            و کار
+                            اینترنتی خود را راه اندازی کنید، دوره رایگان آموزش وردپرس را از دست ندهید.
+                        </p>
+                        <button class="btn btn-primary col-8 col-sm-4 col-lg-6">برو به آموزش وردپرس</button>
+                    </div>
+                    <div class="col-lg-6 order-0 order-lg-1 text-center bg-light">
+                        <img class="h-100 col-12 col-sm-6 col-sm-6" src="images/freedoc.png" alt="" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row d-flex align-items-baseline justify-content-between">
+                <div class="col-sm-auto">
+                    <i class="bi bi-check-lg text-light fs-3 me-2"></i>
+                    <span class="text-light h6 me-auto">آموزش های رایگان جدید</span>
+                </div>
+
+                <div class="col-sm-auto text-end">
+                    <a href="#" class="link-light link-underline-opacity-0 h6">همه آموزش های رایگان</a>
+                    <i class="bi bi-chevron-compact-left text-light"></i>
+                </div>
+            </div>
+            <hr class="text-light opacity-25" />
+
+            <div class="free-new-courses position-relative">
+                <div class="row row-gap-3">
+                    <div class="col-md-6">
+                        <div class="row g-0 rounded overflow-hidden">
+                            <div class="col-sm-6">
+                                <a href="#"><img class="img-fluid" src="images/01-free-add-wordpress-user-roles-webkima.jpg" alt="" /></a>
+                            </div>
+                            <div class="col-sm-6 pt-3 bg-secondary d-flex justify-content-center align-items-center">
+                                <a class="h6 link-light link-underline-opacity-0 w-90" href="#">ایجاد نقش کاربری جدید در وردپرس بدون افزونه</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="row g-0 rounded overflow-hidden">
+                            <div class="col-sm-6">
+                                <a href=""><img class="img-fluid" src="images/02-free-sadafbeauty-secrets-e1698389900802.jpg" alt="" /></a>
+                            </div>
+                            <div class="col-sm-6 pt-3 bg-secondary d-flex justify-content-center align-items-center">
+                                <a class="h6 link-light link-underline-opacity-0 w-90" href="#">صدف بیوتی کیست؟ 3 راز موفقیت صدف بیوتی</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="row g-0 rounded overflow-hidden">
+                            <div class="col-sm-6">
+                                <a href=""><img class="img-fluid" src="images/03-free-best-rank-tracker-tools.jpg" alt="" /></a>
+                            </div>
+                            <div class="col-sm-6 pt-3 bg-secondary d-flex justify-content-center align-items-center">
+                                <a class="h6 link-light link-underline-opacity-0 w-90" href="#">بهترین ابزار ردیاب رتبه در گوگل</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="row g-0 rounded overflow-hidden">
+                            <div class="col-sm-6">
+                                <a href=""><img class="img-fluid" src="images/04-free-what-is-ui.jpg" alt="" /></a>
+                            </div>
+                            <div class="col-sm-6 pt-3 bg-secondary d-flex justify-content-center align-items-center">
+                                <a class="h6 link-light link-underline-opacity-0 w-90" href="#">طراحی UI چیست؟ اصول اصلی طراحی UI را بدانید!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Main-Bottom End  -->
+
+    <div class="my-5"></div>
+
+    <!-- Footer Start  -->
+
+    <div class="Footer container-lg">
+        <div class="email-container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <img class="img-fluid" src="images/email.svg" alt="" />
+                </div>
+                <div class="col-sm-6 d-flex flex-column justify-content-center">
+                    <h3 class="text-light">عضویت در خبرنامه</h3>
+                    <p class="text-light text-justify pe-4">
+                        با عضویت در خبرنامه آکادمی وبکیما، علاوه بر دریافت جدیدترین آموزش ها در زمینه دیجیتال مارکتینگ و کسب و کار اینترنتی، از تخفیف ها و
+                        جشنواره های
+                        فروش زودتر از همه با خبر شوید…
+                    </p>
+                    <div class="row g-2 g-sm-0 gy-md-2 input-group mb-3 rounded overflow-hidden gy-lg-0">
+                        <input class="col-sm-12 col-md-12 col-lg-8 form-control bg-secondary border-0 rounded rounded-sm rounded-md mb-2 mb-md-0 rounded-lg-0"
+                            type="text" name="" id="" placeholder="ایمیل خود را وارد کنید ..." />
+                        <span class="col-sm-12 col-md-12 col-lg-4 p-0 d-flex justify-content-md-end justify-content-lg-start">
+                            <button class="btn btn-primary rounded rounded-sm rounded-md m-0 col-12 col-md-6 col-lg-12">عضویت در خبر نامه</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="my-5"></div>
+
+        <div class="about container-fluid px-0">
+            <div class="container-lg bg-secondary rounded-3 text-justify">
+                <div class="row g-3 p-3">
+                    <div class="col-lg-4 col-sm-6">
+                        <h6 class="text-light">درباره وبکیما</h6>
+                        <p class="text-light smaller">
+                            آکادمی وبکیما مجموعه ای از آموزش ها و ابزارها و مرجعی برای پاسخگویی به نیازهای دیجیتال مارکتینگ و کسب و کار اینترنتی شماست. تیم
+                            وبکیما همیشه در
+                            تلاش است تا بهترین دوره های آموزشی، با بالاترین کیفیت و بیشترین بازدهی را برای رشد و رونق کسب و کار اینترنتی شما تولید کند. هدف
+                            آکادمی وبکیما
+                            رشد و ارتقای تجارت آنلاین و دیجیتال مارکتینگ در ایران به اندازه سهم خویش است. امیدواریم با کمک شما همراهان گرانقدر به این هدف دست
+                            یابیم. اطلاعات
+                            بیشتر...
+                        </p>
+                    </div>
+                    <div class="col-6 col-lg-2 col-sm-6">
+                        <h6 class="text-light lh-lg">لینک های مفید</h6>
+                        <a class="smaller link-light link-underline-opacity-0 d-block a-hover" href="">بلاگ</a>
+                        <a class="smaller link-light link-underline-opacity-0 d-block a-hover" href="">حساب کاربری</a>
+                        <a class="smaller link-light link-underline-opacity-0 d-block a-hover" href="">ارسال مقاله</a>
+                        <a class="smaller link-light link-underline-opacity-0 d-block a-hover" href="">استخدام</a>
+                        <a class="smaller link-light link-underline-opacity-0 d-block a-hover" href="">ارتباط با ما</a>
+                        <a class="smaller link-light link-underline-opacity-0 d-block a-hover" href="">درباره ما</a>
+                        <a class="smaller link-light link-underline-opacity-0 d-block a-hover" href="">راهنمای استفاده از دوره‌ها</a>
+                    </div>
+                    <div class="col-6 col-lg-2 col-sm-6">
+                        <h6 class="text-light lh-lg">آموزش‌های رایگان</h6>
+                        <a class="smaller link-light link-underline-opacity-0 d-block a-hover" href="">آموزش وردپرس</a>
+                        <a class="smaller link-light link-underline-opacity-0 d-block a-hover" href="">آموزش المنتور</a>
+                        <a class="smaller link-light link-underline-opacity-0 d-block a-hover" href="">آموزش سئو</a>
+                        <a class="smaller link-light link-underline-opacity-0 d-block a-hover" href="">آموزش طراحی سایت</a>
+                        <a class="smaller link-light link-underline-opacity-0 d-block a-hover" href="">کسب و کار اینترنتی</a>
+                        <a class="smaller link-light link-underline-opacity-0 d-block a-hover" href="">بهترین هاست ایران </a>
+                        <a class="smaller link-light link-underline-opacity-0 d-block a-hover" href="">آموزش HTML و CSS</a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <h6 class="row text-light lh-lg mt-5 mt-md-0 mb-3">ما را در شبکه‌های اجتماعی دنبال کنید</h6>
+                        <div class="row column-gap-3">
+                            <a href="" class="col-2 rounded bg-light d-flex justify-content-center align-items-center py-2"><i class="bi bi-instagram fs-2 h-70"
+                                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                                    data-bs-title="ما را در اینستاگرام دنبال کنید"></i></a>
+                            <a href="" class="col-2 rounded bg-light d-flex justify-content-center align-items-center py-2"><i class="bi bi-youtube fs-2 h-70"
+                                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                                    data-bs-title="ما را در پوتیوب دنبال کنید"></i></a>
+                            <a href="" class="col-2 rounded bg-light d-flex justify-content-center align-items-center py-2"><i class="bi bi-telegram fs-2 h-70"
+                                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                                    data-bs-title="ما را در تلگرام دنبال کنید"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright text-light text-center small p-3">تمامی حقوق برای آکادمی وبکیما محفوظ است. © 2023</div>
+    </div>
+
+    <div class="go-top">
+        <a href="#gotop" class="btn btn-outline-primary-subtle fs-6 position-fixed start-1 bottom-2 bottom-0 border-light border-2"><i
+                class="bi bi-chevron-up text-light"></i></a>
+    </div>
+
+    <div class="new-youtube row text-center d-flex flex-column justify-content-center align-items-center" id="ad">
+        <div class="col-8">
+            <a href="" data-bs-dismiss=""><i class="fi-xnsuxl-times-solid text-light d-block fs-4"></i></a>
+            <a href="" class="bg-primary rounded link-light link-underline-opacity-0 d-block fw-bold">
+                <p class="py-2">آموزش های ویدئویی جدید در یوتیوب</p>
+            </a>
+        </div>
+    </div>
+
+    <script defer src="https://friconix.com/cdn/friconix.js"></script>
+    <script src="lib/js/bootstrap_5.3.2.bundle.min.js"></script>
+    <script src="js/javascript.js"></script>
+</body>
+
+</html>
