@@ -59,7 +59,7 @@ const foods = [
         categoryId: 4,
         price: [127, 120, 110],
         isOptional: true,
-        OptionType: "نوع شومفخ مرغ",
+        OptionType: "نوع پخت مرغ",
         options: ["مرغ گریل", "مرغ سوخاری", "مرغ پخته"],
         imgName: "Halloumi.jpg",
         description:
