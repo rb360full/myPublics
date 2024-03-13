@@ -40,71 +40,71 @@ const category = [
 
 
 
-// const foods = [
-//     {
-//         id: 1,
-//         title: "هالومی 🌶| Halloumi",
-//         categoryId: 4,
-//         price: [127],
-//         isOptional: false,
-//         OptionType: false,
-//         options: [null],
-//         imgName: "Halloumi.jpg",
-//         description:
-//             "سینه مرغ، بیبی اسفناج، کاهو رسمی، پنیر هالومی، سس سبز  Grilled Chicken, Grilled Halloumi, Cheese, Lettuce, Apples, Baby Spinach, Strawberry Dressing",
-//     },
-//     {
-//         id: 2,
-//         title: "هالومی 🌶| Halloumi",
-//         categoryId: 4,
-//         price: [127, 120, 110],
-//         isOptional: true,
-//         OptionType: "نوع شومفخ مرغ",
-//         options: ["مرغ گریل", "مرغ سوخاری", "مرغ پخته"],
-//         imgName: "Halloumi.jpg",
-//         description:
-//             "سینه مرغ، بیبی اسفناج، کاهو رسمی، پنیر هالومی، سس سبز  Grilled Chicken, Grilled Halloumi, Cheese, Lettuce, Apples, Baby Spinach, Strawberry Dressing",
-//     },
-//     {
-//         id: 3,
-//         title: "هالومی 🌶| Halloumi",
-//         categoryId: 4,
-//         price: [127],
-//         isOptional: false,
-//         OptionType: "نوع پخت مرغ",
-//         options: ["مرغ گریل", "مرغ سوخاری"],
-//         imgName: "Halloumi.jpg",
-//         description:
-//             "سینه مرغ، بیبی اسفناج، کاهو رسمی، پنیر هالومی، سس سبز  Grilled Chicken, Grilled Halloumi, Cheese, Lettuce, Apples, Baby Spinach, Strawberry Dressing",
-//     },
-//     {
-//         id: 4,
-//         title: "آووکادو تست🥑 | Avocado Toast",
-//         categoryId: 7,
-//         price: [187],
-//         isOptional: false,
-//         OptionType: "",
-//         options: [],
-//         imgName: "avocado-toast-normal.jpg",
-//         description:
-//             "آووکادو تست  یک تست خامه‌ای و کریسپی و ترد است که یک صبحانه و میان وعده به شمار می‌رود و یا یک غذای خوشمزه و ساده است و بهتر است بلافاصله مصرف شود زیرا آووکادو با گذشت زمان تغییر رنگ می‌دهد و قهوه‌ای و فاسد می‌شود Avocado toast is creamy, crisp and so satisfying. Its a delicious and simple breakfast, snack or light meal! Its best consumed immediately, since the avocado browns over time",
-//     },
-//     {
-//         id: 5,
-//         title: "آووکادو تست🥑 | Avocado Toast",
-//         categoryId: 7,
-//         price: [187],
-//         isOptional: false,
-//         OptionType: "",
-//         options: [],
-//         imgName: "avocado-toast-normal.jpg",
-//         description:
-//             "آووکادو تست  یک تست خامه‌ای و کریسپی و ترد است که یک صبحانه و میان وعده به شمار می‌رود و یا یک غذای خوشمزه و ساده است و بهتر است بلافاصله مصرف شود زیرا آووکادو با گذشت زمان تغییر رنگ می‌دهد و قهوه‌ای و فاسد می‌شود Avocado toast is creamy, crisp and so satisfying. Its a delicious and simple breakfast, snack or light meal! Its best consumed immediately, since the avocado browns over time",
-//     },
-// ];
+const foods = [
+    {
+        id: 1,
+        title: "هالومی 🌶| Halloumi",
+        categoryId: 4,
+        price: [127],
+        isOptional: false,
+        OptionType: false,
+        options: [null],
+        imgName: "Halloumi.jpg",
+        description:
+            "سینه مرغ، بیبی اسفناج، کاهو رسمی، پنیر هالومی، سس سبز  Grilled Chicken, Grilled Halloumi, Cheese, Lettuce, Apples, Baby Spinach, Strawberry Dressing",
+    },
+    {
+        id: 2,
+        title: "هالومی 🌶| Halloumi",
+        categoryId: 4,
+        price: [127, 120, 110],
+        isOptional: true,
+        OptionType: "نوع شومفخ مرغ",
+        options: ["مرغ گریل", "مرغ سوخاری", "مرغ پخته"],
+        imgName: "Halloumi.jpg",
+        description:
+            "سینه مرغ، بیبی اسفناج، کاهو رسمی، پنیر هالومی، سس سبز  Grilled Chicken, Grilled Halloumi, Cheese, Lettuce, Apples, Baby Spinach, Strawberry Dressing",
+    },
+    {
+        id: 3,
+        title: "هالومی 🌶| Halloumi",
+        categoryId: 4,
+        price: [127],
+        isOptional: false,
+        OptionType: "نوع پخت مرغ",
+        options: ["مرغ گریل", "مرغ سوخاری"],
+        imgName: "Halloumi.jpg",
+        description:
+            "سینه مرغ، بیبی اسفناج، کاهو رسمی، پنیر هالومی، سس سبز  Grilled Chicken, Grilled Halloumi, Cheese, Lettuce, Apples, Baby Spinach, Strawberry Dressing",
+    },
+    {
+        id: 4,
+        title: "آووکادو تست🥑 | Avocado Toast",
+        categoryId: 7,
+        price: [187],
+        isOptional: false,
+        OptionType: "",
+        options: [],
+        imgName: "avocado-toast-normal.jpg",
+        description:
+            "آووکادو تست  یک تست خامه‌ای و کریسپی و ترد است که یک صبحانه و میان وعده به شمار می‌رود و یا یک غذای خوشمزه و ساده است و بهتر است بلافاصله مصرف شود زیرا آووکادو با گذشت زمان تغییر رنگ می‌دهد و قهوه‌ای و فاسد می‌شود Avocado toast is creamy, crisp and so satisfying. Its a delicious and simple breakfast, snack or light meal! Its best consumed immediately, since the avocado browns over time",
+    },
+    {
+        id: 5,
+        title: "آووکادو تست🥑 | Avocado Toast",
+        categoryId: 7,
+        price: [187],
+        isOptional: false,
+        OptionType: "",
+        options: [],
+        imgName: "avocado-toast-normal.jpg",
+        description:
+            "آووکادو تست  یک تست خامه‌ای و کریسپی و ترد است که یک صبحانه و میان وعده به شمار می‌رود و یا یک غذای خوشمزه و ساده است و بهتر است بلافاصله مصرف شود زیرا آووکادو با گذشت زمان تغییر رنگ می‌دهد و قهوه‌ای و فاسد می‌شود Avocado toast is creamy, crisp and so satisfying. Its a delicious and simple breakfast, snack or light meal! Its best consumed immediately, since the avocado browns over time",
+    },
+];
 
 
-let foods = []
+// let foods = []
 
 let foodsInStorage = JSON.parse(localStorage.getItem("foods"));
 let foodsArray = !foodsInStorage ? [...foods] : foodsInStorage;
