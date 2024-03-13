@@ -106,9 +106,9 @@ const foods = [
 
 // let foods = []
 
-let foodsInStorage = JSON.parse(localStorage.getItem("foods"));
-let foodsArray = !foodsInStorage ? [...foods] : foodsInStorage;
-foods.push(...foodsArray) 
+// let foodsInStorage = JSON.parse(localStorage.getItem("foods"));
+// let foodsArray = !foodsInStorage ? [...foods] : foodsInStorage;
+// foods.push(...foodsArray) 
 
 
 // Functions
