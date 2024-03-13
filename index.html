@@ -1,58 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="far" dir="rtl">
+
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Menu</title>
+    <!-- <link rel="stylesheet" href="css/Bootstrap-Used.css"> -->
+    <link rel="stylesheet" href="css/bootstrap.rtl.css" />
+    <link rel="stylesheet" href="css/bootstrapExtra.rtl.css" />
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 
-<body>
+<body class="bg-secondary">
 
-    <form action="">
-        <div class="row justify-content-center">
-            <h1 class="text-center text-primary mt-5">Register Form</h1>
-            <div class="col-4 mb-5 border border-1 py-4 rounded-4">
-                <input type="text" name="" id="" class="form-control mb-3" placeholder="Name" required />
-                <input type="password" name="" id="" class="form-control mb-3" placeholder="Password" required />
-                <input type="email" name="" id="" class="form-control mb-3" placeholder="Email" required />
-                <input type="submit" class="btn btn-success col-12 d-flex mx-auto justify-content-center" name="" id="" value="Submit">
+    <div class="header container-fluid mx-auto bg-primary row sticky-top">
+        <div class="brand row"></div>
+        <div class="top-nav row justify-content-center">
+            <div class="all-cat row justify-content-center">
+                <a href="#main-container" id="allCategoriesBtn" class="bg-primary-subtle col-auto rounded rounded-5 px-5 py-1 mt-3"> همه دسته‌بندی‌ها در یک نگاه
+                </a>
+            </div>
+            <div class="category row d-flex flex-column mx-auto  justify-content-center align-items-center my-5 " dir="ltr">
+                <!-- Category Item -->
+
+
+                <!-- <div class="cat-item bg-primary-subtle2 rounded rounded-4 ms-4 pt-2">
+                    <a href="#cat-4" class="d-flex flex-column justify-content-center align-items-center">
+                        <img class="w-60" src="images/icons/${catItem.imgName}" alt="" />
+                        <p class="text-center">REZA</p>
+                    </a>
+                </div> -->
+
+
+
+
+                <!-- Category Item -->
             </div>
         </div>
-    </form>
-
-
-    <div class="table-responsive col-8 mx-auto">
-        <table class="table table-primary text-center table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Password</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Option</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="">
-
-
-                </tr>
-
-            </tbody>
-        </table>
     </div>
+    <div id="main-container" class="main container-fluid px-4">
+        <!-- <div class="emptyBox"></div> -->
+        <!-- Foods Items -->
+
+        <!-- Menu Item -->
+
+        <!-- Menu Item -->
 
 
+    </div>
+    <!-- Foods Items -->
+    <div class="footer"></div>
 
-
-
-
-    <script type="" src="app.js"></script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>
