@@ -142,7 +142,7 @@ const generateMenuItems = (...categoryArray) => {
                     "beforeend",
                     `
         <!-- item -->
-        <div class="menu-item row bg-secondary-subtle2 text-white w-lg-50 my-4  pt-2 px-0 rounded rounded-4 overflow-hidden">
+        <div class="menu-item row bg-secondary-subtle2 text-white w-lg-50 mx-auto my-4  pt-2 px-0 rounded rounded-4 overflow-hidden">
             <div class="col-4 col-sm-3 d-flex flex-column p-0 justify-content-center align-items-center">
                 <div class="ps-2 pb-2">
                     <img class="img-fluid  rounded rounded-2" src="images/${item.imgName}" alt="" />
@@ -187,7 +187,7 @@ const generateMenuItems = (...categoryArray) => {
                     "beforeend",
                     `
         <!-- item -->
-        <div class="menu-item row bg-secondary-subtle2 text-white w-lg-50 my-4  pt-2 px-0 rounded rounded-4 overflow-hidden">
+        <div class="menu-item row bg-secondary-subtle2 text-white w-lg-50 mx-auto my-4  pt-2 px-0 rounded rounded-4 overflow-hidden">
             <div class="col-4 col-sm-3 d-flex flex-column p-0 justify-content-center align-items-center">
                 <div class="ps-2 pb-2">
                     <img class="img-fluid  rounded rounded-2" src="images/${item.imgName}" alt="" />
