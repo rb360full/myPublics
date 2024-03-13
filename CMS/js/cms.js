@@ -1,6 +1,7 @@
 // variables
 
 let foodPhotoName;
+const myFirebaseApi = 'https://digital-online-menu-default-rtdb.firebaseio.com/'
 const categoryElement = document.getElementById("category-selection");
 const mainContainer = document.getElementById("main-container");
 const formSubmit = document.querySelector("form");
@@ -12,99 +13,110 @@ const foodPrice = document.getElementById("food-price");
 const foodDesc = document.getElementById("food-desc");
 const foodPhoto = document.getElementById("food-photo");
 
-// let foodPhotoName ;
 
 // DataBase
-const category = [
-    { id: 1, title: "توضیحات | NOTE", imgName: "schedule.svg" },
-    { id: 2, title: "پرطرفدارها | POPULAR", imgName: "popular.svg" },
-    { id: 3, title: "پیش غذا | APPETIZER", imgName: "APPETIZER.svg" },
-    { id: 4, title: "سالاد | SALAD", imgName: "SALAD.svg" },
-    { id: 5, title: "غذای اصلی | MAIN COURSE", imgName: "MAIN-COURSE.svg" },
-    { id: 6, title: "پیتزا | PIZZA", imgName: "PIZZA.svg" },
-    { id: 7, title: "صبحانه‌ | BREAKFAST", imgName: "BREAKFAST.svg" },
-    { id: 8, title: "دسر | DESSERT", imgName: "DESSERT.svg" },
-    { id: 9, title: "نوشیدنی‌های سرد | COLD DRINKS", imgName: "COLD-DRINKS.svg" },
-    { id: 10, title: "قهوه | COFFEE", imgName: "COFFEE.svg" },
-];
 
-const foods = [
-    {
-        id: 1,
-        title: "هالومی 🌶| Halloumi",
-        categoryId: 4,
-        price: [127, 120],
-        isOptional: true,
-        OptionType: "نوع پخت مرغ",
-        options: ["مرغ گریل", "مرغ سوخاری"],
-        imgName: "Halloumi.jpg",
-        description:
-            "سینه مرغ، بیبی اسفناج، کاهو رسمی، پنیر هالومی، سس سبز  Grilled Chicken, Grilled Halloumi, Cheese, Lettuce, Apples, Baby Spinach, Strawberry Dressing",
-    },
-    {
-        id: 2,
-        title: "هالومی 🌶| Halloumi",
-        categoryId: 4,
-        price: [127, 120, 110],
-        isOptional: true,
-        OptionType: "نوع شومفخ مرغ",
-        options: ["مرغ گریل", "مرغ سوخاری", "مرغ پخته"],
-        imgName: "Halloumi.jpg",
-        description:
-            "سینه مرغ، بیبی اسفناج، کاهو رسمی، پنیر هالومی، سس سبز  Grilled Chicken, Grilled Halloumi, Cheese, Lettuce, Apples, Baby Spinach, Strawberry Dressing",
-    },
-    {
-        id: 3,
-        title: "هالومی 🌶| Halloumi",
-        categoryId: 4,
-        price: [127],
-        isOptional: false,
-        OptionType: "نوع پخت مرغ",
-        options: ["مرغ گریل", "مرغ سوخاری"],
-        imgName: "Halloumi.jpg",
-        description:
-            "سینه مرغ، بیبی اسفناج، کاهو رسمی، پنیر هالومی، سس سبز  Grilled Chicken, Grilled Halloumi, Cheese, Lettuce, Apples, Baby Spinach, Strawberry Dressing",
-    },
-    {
-        id: 4,
-        title: "آووکادو تست🥑 | Avocado Toast",
-        categoryId: 7,
-        price: [187],
-        isOptional: false,
-        OptionType: "",
-        options: [],
-        imgName: "avocado-toast-normal.jpg",
-        description:
-            "آووکادو تست  یک تست خامه‌ای و کریسپی و ترد است که یک صبحانه و میان وعده به شمار می‌رود و یا یک غذای خوشمزه و ساده است و بهتر است بلافاصله مصرف شود زیرا آووکادو با گذشت زمان تغییر رنگ می‌دهد و قهوه‌ای و فاسد می‌شود Avocado toast is creamy, crisp and so satisfying. Its a delicious and simple breakfast, snack or light meal! Its best consumed immediately, since the avocado browns over time",
-    },
-    {
-        id: 5,
-        title: "آووکادو تست🥑 | Avocado Toast",
-        categoryId: 7,
-        price: [187],
-        isOptional: false,
-        OptionType: "",
-        options: [],
-        imgName: "avocado-toast-normal.jpg",
-        description:
-            "آووکادو تست  یک تست خامه‌ای و کریسپی و ترد است که یک صبحانه و میان وعده به شمار می‌رود و یا یک غذای خوشمزه و ساده است و بهتر است بلافاصله مصرف شود زیرا آووکادو با گذشت زمان تغییر رنگ می‌دهد و قهوه‌ای و فاسد می‌شود Avocado toast is creamy, crisp and so satisfying. Its a delicious and simple breakfast, snack or light meal! Its best consumed immediately, since the avocado browns over time",
-    },
-];
+let category = []
+// const category = [
+//     { id: 1, title: "توضیحات | NOTE", imgName: "schedule.svg" },
+//     { id: 2, title: "پرطرفدارها | POPULAR", imgName: "popular.svg" },
+//     { id: 3, title: "پیش غذا | APPETIZER", imgName: "APPETIZER.svg" },
+//     { id: 4, title: "سالاد | SALAD", imgName: "SALAD.svg" },
+//     { id: 5, title: "غذای اصلی | MAIN COURSE", imgName: "MAIN-COURSE.svg" },
+//     { id: 6, title: "پیتزا | PIZZA", imgName: "PIZZA.svg" },
+//     { id: 7, title: "صبحانه‌ | BREAKFAST", imgName: "BREAKFAST.svg" },
+//     { id: 8, title: "دسر | DESSERT", imgName: "DESSERT.svg" },
+//     { id: 9, title: "نوشیدنی‌های سرد | COLD DRINKS", imgName: "COLD-DRINKS.svg" },
+//     { id: 10, title: "قهوه | COFFEE", imgName: "COFFEE.svg" },
+// ];
 
-let foodsInStorage = JSON.parse(localStorage.getItem("foods"));
 
-let foodsArray = !foodsInStorage ? [...foods] : foodsInStorage;
+let foods = []
+// let foods = [
+//     {
+//         id: 1,
+//         title: "هالومی 🌶| Halloumi",
+//         categoryId: 4,
+//         price: [127, 120],
+//         isOptional: true,
+//         OptionType: "نوع پخت مرغ",
+//         options: ["مرغ گریل", "مرغ سوخاری"],
+//         imgName: "Halloumi.jpg",
+//         description:
+//             "سینه مرغ، بیبی اسفناج، کاهو رسمی، پنیر هالومی، سس سبز  Grilled Chicken, Grilled Halloumi, Cheese, Lettuce, Apples, Baby Spinach, Strawberry Dressing",
+//     },
+//     {
+//         id: 2,
+//         title: "هالومی 🌶| Halloumi",
+//         categoryId: 4,
+//         price: [127, 120, 110],
+//         isOptional: true,
+//         OptionType: "نوع شومفخ مرغ",
+//         options: ["مرغ گریل", "مرغ سوخاری", "مرغ پخته"],
+//         imgName: "Halloumi.jpg",
+//         description:
+//             "سینه مرغ، بیبی اسفناج، کاهو رسمی، پنیر هالومی، سس سبز  Grilled Chicken, Grilled Halloumi, Cheese, Lettuce, Apples, Baby Spinach, Strawberry Dressing",
+//     },
+//     {
+//         id: 3,
+//         title: "هالومی 🌶| Halloumi",
+//         categoryId: 4,
+//         price: [127],
+//         isOptional: false,
+//         OptionType: "نوع پخت مرغ",
+//         options: ["مرغ گریل", "مرغ سوخاری"],
+//         imgName: "Halloumi.jpg",
+//         description:
+//             "سینه مرغ، بیبی اسفناج، کاهو رسمی، پنیر هالومی، سس سبز  Grilled Chicken, Grilled Halloumi, Cheese, Lettuce, Apples, Baby Spinach, Strawberry Dressing",
+//     },
+//     {
+//         id: 4,
+//         title: "آووکادو تست🥑 | Avocado Toast",
+//         categoryId: 7,
+//         price: [187],
+//         isOptional: false,
+//         OptionType: "",
+//         options: [],
+//         imgName: "avocado-toast-normal.jpg",
+//         description:
+//             "آووکادو تست  یک تست خامه‌ای و کریسپی و ترد است که یک صبحانه و میان وعده به شمار می‌رود و یا یک غذای خوشمزه و ساده است و بهتر است بلافاصله مصرف شود زیرا آووکادو با گذشت زمان تغییر رنگ می‌دهد و قهوه‌ای و فاسد می‌شود Avocado toast is creamy, crisp and so satisfying. Its a delicious and simple breakfast, snack or light meal! Its best consumed immediately, since the avocado browns over time",
+//     },
+//     {
+//         id: 5,
+//         title: "آووکادو تست🥑 | Avocado Toast",
+//         categoryId: 7,
+//         price: [187],
+//         isOptional: false,
+//         OptionType: "",
+//         options: [],
+//         imgName: "avocado-toast-normal.jpg",
+//         description:
+//             "آووکادو تست  یک تست خامه‌ای و کریسپی و ترد است که یک صبحانه و میان وعده به شمار می‌رود و یا یک غذای خوشمزه و ساده است و بهتر است بلافاصله مصرف شود زیرا آووکادو با گذشت زمان تغییر رنگ می‌دهد و قهوه‌ای و فاسد می‌شود Avocado toast is creamy, crisp and so satisfying. Its a delicious and simple breakfast, snack or light meal! Its best consumed immediately, since the avocado browns over time",
+//     },
+// ];
+
+// let foodsInStorage = JSON.parse(localStorage.getItem("foods"));
+// let foodsArray = !foodsInStorage ? [...foods] : foodsInStorage;
+
 let foodIds = [];
 
-const foodOptionType = [
-    { type: "طعم", options: ["نیویورکی", "فندق", "کارامل", "نوتلا"] },
-    { type: "نوع مرغ", options: ["سینه", "ران"] },
-    { type: "نوع پخت مرغ", options: ["مرغ گریل", "مرغ سوخاری"] },
-    { type: "ادویه مخصوص", options: ["مالایی", "هندی (تند)", "ایرانی"] },
-    { type: "نوع پروتئین", options: ["گوشت", "مرغ"] },
-    { type: "طعم بستنی", options: ["شاتوت", "بلوبری", "تمشک"] },
-    { type: "کاپ", options: ["سینگل", "دبل"] },
-];
+let foodOptionType = []
+// const foodOptionType = [
+//     { type: "طعم", options: ["نیویورکی", "فندق", "کارامل", "نوتلا"] },
+//     { type: "نوع مرغ", options: ["سینه", "ران"] },
+//     { type: "نوع پخت مرغ", options: ["مرغ گریل", "مرغ سوخاری"] },
+//     { type: "ادویه مخصوص", options: ["مالایی", "هندی (تند)", "ایرانی"] },
+//     { type: "نوع پروتئین", options: ["گوشت", "مرغ"] },
+//     { type: "طعم بستنی", options: ["شاتوت", "بلوبری", "تمشک"] },
+//     { type: "کاپ", options: ["سینگل", "دبل"] },
+// ];
+
+
+
+
+
+
+
 
 // functions
 
@@ -115,7 +127,7 @@ function generateCategoryItems() {
         categoryElement.insertAdjacentHTML("beforeend", itemElem);
     });
 }
-function generateFoodOptionallity() {
+async function generateFoodOptionallity() {
     optionallity.innerHTML = `<option selected value="">Select one</option>`
     foodOptionType.forEach((item) => {
         let itemElem = `<option value="${item.type}">${item.type}</option>`;
@@ -130,10 +142,11 @@ function generateFoodOptions(optionType) {
     });
 }
 
-const generateMenuItems = (...categoryArray) => {
-    mainContainer.innerHTML = "";
-    categoryArray.forEach((cat) => {
-        foodsArray.some((item) => item.categoryId == cat.id)
+const generateMenuItems = (cat) => {
+    mainContainer.innerHTML = `<h2 class="text-center fw-bolder">لیست کامل محصولات</h2>`;
+    console.log('cat ', cat);
+    cat.forEach((cat) => {
+        foods.some((item) => item.categoryId == cat.id)
             ? mainContainer.insertAdjacentHTML(
                 "beforeend",
                 `
@@ -144,10 +157,9 @@ const generateMenuItems = (...categoryArray) => {
     </div>
     <!-- Title -->
     `
-            )
-            : null;
+            ) : null;
 
-        const catFoods = foodsArray.filter((item) => item.categoryId === cat.id);
+        const catFoods = foods.filter((item) => item.categoryId === cat.id);
 
         catFoods.forEach((item) => {
             if (item.isOptional) {
@@ -227,25 +239,82 @@ const generateMenuItems = (...categoryArray) => {
     });
 };
 
-function setFoods() { }
+
 
 function clearForm() {
     generateMenuItems(...category);
     generateCategoryItems();
     generateFoodOptionallity();
-    foodName.value=''
+    foodName.value = ''
     foodOption.innerHTML = `<option selected value="">Select one</option>`
     foodPrice.value = ''
-    foodDesc.value=''
-    foodPhoto.value=''
+    foodDesc.value = ''
+    foodPhoto.value = ''
 }
+
+
+
+// API Functions 
+
+async function postRequest(array, arrayStringName) {
+
+    let req = `${myFirebaseApi}${arrayStringName}.json`
+    let res = await fetch(req, {
+        method: 'POST',
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify(array)
+    })
+
+    return res
+}
+
+
+async function getRequest(arrayStringName) {
+    let req = `${myFirebaseApi}${arrayStringName}.json`
+    let res = await fetch(req)
+    let resJson = await res.json()
+
+    return Object.values(resJson)[0]
+}
+
+async function deleteRequest(arrayStringName) {
+
+    let req = `${myFirebaseApi}${arrayStringName}.json`
+    let res = await fetch(req, {
+        method: 'DELETE'
+    })
+
+    return res
+}
+
+
+async function callApiFunctions() {
+    await getRequest('category').then(result => {
+        category = [...result]
+        generateCategoryItems();
+    }).catch(err => { callApiFunctions() })
+    await getRequest('foods').then(result => {
+        foods = [...result]
+        generateMenuItems(category);
+    }).catch(err => { callApiFunctions() })
+
+    await getRequest('foodOptionType').then(result => {
+        foodOptionType = [...result]
+        generateFoodOptionallity()
+    }).catch(err => { callApiFunctions() })
+
+}
+
+
 
 // Call Functions
 
-generateCategoryItems();
-generateFoodOptionallity();
 
-generateMenuItems(...category);
+callApiFunctions()
+
+
+
+
 
 optionallity.addEventListener("change", (e) => {
     const optionallityValue = optionallity.value;
@@ -272,14 +341,14 @@ formSubmit.addEventListener("submit", (e) => {
     // const foodPhotoName = foodPhoto.files[0].name;
     const catId = categorySelectionValue.split("-")[0];
 
-    let duplicateFood = foodsArray.find((food) => food.title === foodNameValue);
-    let duplicateFoodIndex = foodsArray.indexOf(duplicateFood);
-    console.log(foodsArray);
-    console.log(foodsArray[1]);
-    console.log(foodsArray[duplicateFoodIndex]);
+    let duplicateFood = foods.find((food) => food.title === foodNameValue);
+    let duplicateFoodIndex = foods.indexOf(duplicateFood);
+    // console.log(foods);
+    // console.log(foods[1]);
+    // console.log(foods[duplicateFoodIndex]);
     if (duplicateFood) {
-        foodsArray[duplicateFoodIndex] = {
-            id: foodsArray[duplicateFoodIndex].id,
+        foods[duplicateFoodIndex] = {
+            id: foods[duplicateFoodIndex].id,
             title: foodNameValue,
             categoryId: Number(catId),
             price: [...duplicateFood.price, foodPriceValue],
@@ -291,7 +360,7 @@ formSubmit.addEventListener("submit", (e) => {
         };
     } else {
         // Generate Food id
-        foodsArray.forEach((food) => {
+        foods.forEach((food) => {
             foodIds.push(food.id);
         });
         let lastId = Math.max(...foodIds);
@@ -311,11 +380,15 @@ formSubmit.addEventListener("submit", (e) => {
             description: foodDescValue,
         };
 
-        foodsArray.push(foodObject);
+        foods.push(foodObject);
     }
 
-    localStorage.setItem("foods", JSON.stringify(foodsArray));
-    generateMenuItems(...category);
-    console.log(foodsArray);
+    localStorage.setItem("foods", JSON.stringify(foods));
+
+    deleteRequest('foods')
+    postRequest(foods, 'foods')
+    callApiFunctions()
+
     clearForm()
 });
+
