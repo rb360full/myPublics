@@ -213,7 +213,7 @@ const generateMenuItems = (...categoryArray) => {
 async function callApiFunctions() {
     await getRequest("category")
         .then((result) => {
-            category = [...result];
+            category = result.filter(item => item);
             generateCatogoryItems();
         })
         .catch((err) => {
@@ -221,7 +221,7 @@ async function callApiFunctions() {
         });
     await getRequest("foods")
         .then((result) => {
-            foods = [...result];
+            foods = result.filter(item => item);
             generateMenuItems(...category);
         })
         .catch((err) => {
@@ -275,34 +275,50 @@ async function carouselHandler() {
 
 // API Functions
 
+// API Functions 
 async function postRequest(array, arrayStringName) {
     let req = `${myFirebaseApi}${arrayStringName}.json`;
     let res = await fetch(req, {
-        method: "POST",
-        headers: { "Content-type": "application/json" },
-        body: JSON.stringify(array),
+      method: "POST",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify(array)
     });
-
+  
     return res;
-}
-
-async function getRequest(arrayStringName) {
-    let req = `${myFirebaseApi}${arrayStringName}.json`;
+  }
+  async function setRequest(array, arrayStringName, index) {
+  
+    // let req = `${myFirebaseApi}${arrayStringName}.json`;
+    let req = index ? `${myFirebaseApi}${arrayStringName}/${index}.json` : `${myFirebaseApi}${arrayStringName}.json`
+    console.log(req);
+    let res = await fetch(req, {
+      method: "PUT",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify(array)
+    });
+  
+    return res;
+  }
+  
+  async function getRequest(arrayStringName, index) {
+    let req = index ? `${myFirebaseApi}${arrayStringName}/${index}.json` : `${myFirebaseApi}${arrayStringName}.json`
+    // let req = `${myFirebaseApi}${arrayStringName}.json`;
+    console.log(req);
     let res = await fetch(req);
     let resJson = await res.json();
-
-    return Object.values(resJson)[0];
-}
-
-async function deleteRequest(arrayStringName) {
-    let req = `${myFirebaseApi}${arrayStringName}.json`;
+  
+    return Object.values(resJson);
+  }
+  
+  async function deleteRequest(arrayStringName,index) {
+    let req = index ? `${myFirebaseApi}${arrayStringName}/${index}.json` : `${myFirebaseApi}${arrayStringName}.json`
+    // let req = `${myFirebaseApi}${arrayStringName}.json`;
     let res = await fetch(req, {
-        method: "DELETE",
+      method: "DELETE",
     });
-
+  
     return res;
-}
-
+  }
 // Call Faunctions
 
 callApiFunctions();

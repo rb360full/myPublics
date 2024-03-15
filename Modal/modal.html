@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="modal.css">
+</head>
+
+<body>
+
+    <div class="dialog-container simple-menew">
+        <div class="dialog bounce-in-fwd" style="opacity: 1;">
+            <div id="dialog" class="dialog-scroll">
+                <div class="dialog-header">
+                    <div class="dialog-header-icons float-right w-100 py-3 px-4"><!----> <!----></div>
+                    <div class="swiper-inner" style="opacity: 1; transform: translate(0px, 0px);">
+                        <div class="swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events swiper-container-rtl"
+                            dir="rtl" style="cursor: grab;">
+                            <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
+                                <div class="threed-slide swiper-slide swiper-slide-active">
+                                    <div id="player"
+                                        style="padding: 0px; word-spacing: normal; position: relative; box-sizing: content-box !important; text-align: left; user-select: none; font-family: sans-serif; min-height: 15px; font-size: 14px; line-height: 1em; direction: ltr;">
+                                        <pjsdiv id="oframeplayer"
+                                            style="position: absolute; box-sizing: content-box !important; background-color: rgb(0, 0, 0); color: rgb(255, 255, 255); width: 100%; height: 100%; overflow: hidden; left: 0px; top: 0px; font-size: 14px; line-height: 1em; cursor: default;">
+                                            <iframe id="pjsfrrsplayer" scrolling="no" title="" allowfullscreen="true" allowtransparency="true"
+                                                allow-scripts="true"
+                                                style="position: absolute; width: 100%; height: 100%; border: 0px; pointer-events: none;"></iframe>
+                                            <pjsdiv
+                                                style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; transition: transform 0.2s linear 0s; text-align: center;">
+                                                <video src="https://files.menew.ir/60/116317/115969/stream/video_115969.m3u8" x-webkit-airplay="allow"
+                                                    preload="none"
+                                                    style="width: 100%; height: 100%; object-fit: contain; transition: filter 0.2s linear 0s; min-height: auto; max-height: none; min-width: auto; max-width: none;"></video>
+                                            </pjsdiv>
+                                            <pjsdiv
+                                                style="pointer-events: none; opacity: 1; transition: opacity 0.5s ease 0s; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background: url(&quot;https://files.menew.ir/60/116317/115969/stream/video_115969.png&quot;) center center / cover no-repeat; visibility: visible;">
+                                            </pjsdiv>
+                                            <pjsdiv
+                                                style="position: absolute; left: 0px; top: 365px; width: 100%; height: 54px; pointer-events: none; font-size: 14px; line-height: 1em;">
+                                                <pjsdiv
+                                                    style="height: 98px; opacity: 1; display: block; margin-left: 0px; margin-right: 0px; border-radius: 0px; background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAADGCAYAAAAT+OqFAAAAdklEQVQoz42QQQ7AIAgEF/T/D+kbq/RWAlnQyyazA4aoAB4FsBSA/bFjuF1EOL7VbrIrBuusmrt4ZZORfb6ehbWdnRHEIiITaEUKa5EJqUakRSaEYBJSCY2dEstQY7AuxahwXFrvZmWl2rh4JZ07z9dLtesfNj5q0FU3A5ObbwAAAABJRU5ErkJggg==&quot;) 50% 100% / auto repeat-x;">
+                                                </pjsdiv>
+                                            </pjsdiv>
+                                            <pjsdiv style="position: absolute; left: 0px; bottom: 0px; width: 100%; height: 34px; display: block;"></pjsdiv>
+                                            <pjsdiv
+                                                style="position: absolute; left: 9px; top: 6px; opacity: 1; font-size: 14px; line-height: 1em; pointer-events: none; display: none;">
+                                                <pjsdiv>
+                                                    <pjsdiv
+                                                        style="position: absolute; top: -6px; left: -9px; width: 18px; height: 12px; border-radius: 0px; background: rgb(0, 0, 0); opacity: 0.4; transition: opacity 0.1s linear 0s, background 0.1s linear 0s, transform 0.1s linear 0s; cursor: default; transform: scale(1);">
+                                                    </pjsdiv>
+                                                </pjsdiv>
+                                                <pjsdiv
+                                                    style="position: absolute; top: 0px; left: -3px; pointer-events: none; opacity: 1; transition: opacity 0.1s linear 0s, transform 0.1s linear 0s; color: rgb(255, 255, 255); font-size: 12px; font-family: Verdana; letter-spacing: 0px; padding: 0px 3px; white-space: nowrap; transform: scale(1);">
+                                                </pjsdiv>
+                                            </pjsdiv>
+                                            <pjsdiv style="position: absolute; left: 33px; top: 446px; opacity: 1; font-size: 14px; line-height: 1em;">
+                                                <pjsdiv>
+                                                    <pjsdiv
+                                                        style="position: absolute; top: -10px; left: -10px; width: 20px; height: 20px; border-radius: 0px; background: rgb(0, 0, 0); opacity: 0; transition: opacity 0.1s linear 0s, background 0.1s linear 0s, transform 0.1s linear 0s; transform: scale(1.2);">
+                                                    </pjsdiv>
+                                                </pjsdiv>
+                                                <pjsdiv
+                                                    style="position: absolute; top: -10px; left: -10px; pointer-events: none; opacity: 1; transition: opacity 0.1s linear 0s, transform 0.1s linear 0s; width: 20px; height: 20px; transform: scale(1.2);">
+                                                    <svg width="20" height="20">
+                                                        <g transform="translate(5, 3)">
+                                                            <polyline points="0.59375 0.48438 0.5625 13.51563 11.4375 7 0.59375 0.48438" fill="#ffffff">
+                                                            </polyline>
+                                                        </g>
+                                                    </svg></pjsdiv>
+                                                <pjsdiv
+                                                    style="position: absolute; top: -10px; left: -10px; pointer-events: none; opacity: 1; transition: opacity 0.1s linear 0s, transform 0.1s linear 0s; width: 20px; height: 20px; visibility: hidden; transform: scale(1.2);">
+                                                    <svg width="20" height="20">
+                                                        <g fill-rule="nonzero" transform="translate(5, 4)">
+                                                            <rect x="0" y="0" width="3.5" height="12" fill="#ffffff"></rect>
+                                                            <rect x="6.5" y="0" width="3.5" height="12" fill="#ffffff"></rect>
+                                                        </g>
+                                                    </svg></pjsdiv>
+                                                <pjsdiv
+                                                    style="position: absolute; top: -17.5px; left: -17.5px; width: 35px; height: 35px; cursor: pointer; pointer-events: auto;">
+                                                </pjsdiv>
+                                            </pjsdiv>
+                                            <pjsdiv
+                                                style="position: absolute; top: 427px; left: 362px; opacity: 1; font-size: 14px; line-height: 1em; z-index: 5;">
+                                                <pjsdiv
+                                                    style="position: absolute; top: -7px; left: -352px; width: 704px; height: 14px; border-radius: 0px; background-color: rgb(0, 0, 0); opacity: 0; pointer-events: auto; transition: opacity 0.1s linear 0s, background 0.1s linear 0s; cursor: pointer;">
+                                                </pjsdiv>
+                                                <pjsdiv style="position: absolute; bottom: -2px; left: -352px; width: 704px;">
+                                                    <pjsdiv
+                                                        style="position: absolute; bottom: 0px; left: 0px; width: 704px; height: 4px; background: rgb(255, 255, 255); border-radius: 0px; opacity: 0.3; pointer-events: none; transition: transform 0.2s ease-in-out 0s;">
+                                                    </pjsdiv>
+                                                    <pjsdiv
+                                                        style="position: absolute; bottom: 0px; left: 0px; width: 0px; height: 4px; background: rgb(255, 255, 255); border-radius: 0px; opacity: 0.4; pointer-events: none; transition: transform 0.2s ease-in-out 0s;">
+                                                    </pjsdiv>
+                                                    <pjsdiv
+                                                        style="position: absolute; bottom: 0px; left: 0px; width: 0px; height: 4px; background: rgb(255, 255, 255); border-radius: 0px; opacity: 1; pointer-events: none; transition: transform 0.2s ease-in-out 0s;">
+                                                    </pjsdiv>
+                                                </pjsdiv>
+                                                <pjsdiv
+                                                    style="position: absolute; left: 0px; top: 0px; height: auto; pointer-events: none; opacity: 0; transition: opacity 0.1s linear 0s;">
+                                                    <pjsdiv
+                                                        style="position: absolute; left: 0px; top: 0px; width: 100%; height: 30px; background-color: rgb(0, 0, 0); opacity: 0.7; border-radius: 0px;">
+                                                    </pjsdiv>
+                                                    <pjsdiv
+                                                        style="position: absolute; left: 5px; top: 5px; color: rgb(255, 255, 255); font-family: sans-serif; font-size: 10px; letter-spacing: 0px; line-height: 1; opacity: 1;">
+                                                    </pjsdiv>
+                                                </pjsdiv>
+                                                <pjsdiv
+                                                    style="position: absolute; top: -10px; left: -362px; pointer-events: none; height: 20px; width: 20px; opacity: 1; transition: transform 0.1s linear 0s, opacity 0.1s linear 0s;">
+                                                    <svg width="20" height="20">
+                                                        <g>
+                                                            <ellipse ry="5" rx="5" cy="10" cx="10" fill="#fff"></ellipse>
+                                                        </g>
+                                                    </svg></pjsdiv>
+                                            </pjsdiv>
+                                            <pjsdiv
+                                                style="position: absolute; left: 88px; top: 446px; opacity: 1; font-size: 14px; line-height: 1em; pointer-events: none;">
+                                                <pjsdiv>
+                                                    <pjsdiv
+                                                        style="position: absolute; top: -7px; left: -15px; width: 30px; height: 14px; border-radius: 0px; background: rgb(0, 0, 0); opacity: 0; transition: opacity 0.1s linear 0s, background 0.1s linear 0s, transform 0.1s linear 0s; cursor: default; transform: scale(1);">
+                                                    </pjsdiv>
+                                                </pjsdiv>
+                                                <pjsdiv
+                                                    style="position: absolute; top: -7px; left: -15px; pointer-events: none; opacity: 1; transition: opacity 0.1s linear 0s, transform 0.1s linear 0s; color: rgb(255, 255, 255); font-size: 10px; font-family: Verdana; letter-spacing: 0px; padding: 0px 3px; white-space: nowrap; transform: scale(1);">
+                                                    0:00</pjsdiv>
+                                            </pjsdiv>
+                                            <pjsdiv
+                                                style="position: absolute; left: 122px; top: 446px; opacity: 1; font-size: 14px; line-height: 1em; pointer-events: none;">
+                                                <pjsdiv>
+                                                    <pjsdiv
+                                                        style="position: absolute; top: -7px; left: -19px; width: 38px; height: 14px; border-radius: 0px; background: rgb(0, 0, 0); opacity: 0; transition: opacity 0.1s linear 0s, background 0.1s linear 0s, transform 0.1s linear 0s; cursor: default; transform: scale(1);">
+                                                    </pjsdiv>
+                                                </pjsdiv>
+                                                <pjsdiv
+                                                    style="position: absolute; top: -7px; left: -19px; pointer-events: none; opacity: 1; transition: opacity 0.1s linear 0s, transform 0.1s linear 0s; color: rgb(255, 255, 255); font-size: 10px; font-family: Verdana; letter-spacing: 0px; padding: 0px 3px; white-space: nowrap; transform: scale(1);">
+                                                    / 0:00</pjsdiv>
+                                            </pjsdiv>
+                                            <pjsdiv
+                                                style="position: absolute; left: 362px; top: 231.5px; opacity: 1; font-size: 14px; line-height: 1em; pointer-events: none; display: none;">
+                                                <pjsdiv style="animation-play-state: paused;">
+                                                    <pjsdiv
+                                                        style="position: absolute; top: -10px; left: -10px; width: 20px; height: 20px; border-radius: 0px; background: rgb(0, 0, 0); opacity: 0; transition: opacity 0.1s linear 0s, background 0.1s linear 0s, transform 0.1s linear 0s; animation-play-state: paused; transform: scale(1);">
+                                                    </pjsdiv>
+                                                </pjsdiv>
+                                                <pjsdiv
+                                                    style="position: absolute; top: -25px; left: -25px; pointer-events: none; opacity: 1; transition: opacity 0.1s linear 0s, transform 0.1s linear 0s; animation-play-state: paused; transform: scale(1);">
+                                                    <div class="loader400500" style="animation-play-state: paused;"><svg class="circular400500"
+                                                            viewBox="25 25 50 50" style="animation-play-state: paused;">
+                                                            <circle class="path400500" stroke="#ffffff" cx="50" cy="50" r="20" fill="none" stroke-width="2"
+                                                                stroke-miterlimit="10" style="animation-play-state: paused;"></circle>
+                                                        </svg></div>
+                                                </pjsdiv>
+                                                <pjsdiv
+                                                    style="position: absolute; top: -17.5px; left: -17.5px; width: 35px; height: 35px; cursor: default; animation-play-state: paused;">
+                                                </pjsdiv>
+                                            </pjsdiv>
+                                            <pjsdiv
+                                                style="position: absolute; left: 19px; top: 231.5px; opacity: 1; font-size: 14px; line-height: 1em; display: none;">
+                                                <pjsdiv>
+                                                    <pjsdiv
+                                                        style="position: absolute; top: -13px; left: -13px; width: 26px; height: 26px; border-radius: 0px; background: rgb(0, 0, 0); opacity: 0.4; transition: opacity 0.1s linear 0s, background 0.1s linear 0s, transform 0.1s linear 0s; cursor: pointer; pointer-events: auto; transform: scale(1.5);">
+                                                    </pjsdiv>
+                                                </pjsdiv>
+                                                <pjsdiv
+                                                    style="position: absolute; top: -10px; left: -10px; pointer-events: none; opacity: 1; transition: opacity 0.1s linear 0s, transform 0.1s linear 0s; width: 20px; height: 20px; transform: scale(1.5);">
+                                                    <svg width="20" height="20">
+                                                        <g transform="translate(2, 3)">
+                                                            <path
+                                                                d="M0,0 L16,0 L16,2 L0,2 L0,0 Z M0,6 L16,6 L16,8 L0,8 L0,6 Z M0,12 L16,12 L16,14 L0,14 L0,12 Z"
+                                                                fill="#ffffff"></path>
+                                                        </g>
+                                                    </svg></pjsdiv>
+                                            </pjsdiv>
+                                            <pjsdiv style="position: absolute; left: 362px; top: 231.5px; opacity: 1; font-size: 14px; line-height: 1em;">
+                                                <pjsdiv>
+                                                    <pjsdiv
+                                                        style="position: absolute; top: -17px; left: -17px; width: 34px; height: 34px; border-radius: 17px; background: rgb(0, 0, 0); opacity: 0.3; transition: opacity 0.1s linear 0s, background 0.1s linear 0s, transform 0.1s linear 0s; cursor: pointer; pointer-events: auto; transform: scale(2);">
+                                                    </pjsdiv>
+                                                </pjsdiv>
+                                                <pjsdiv
+                                                    style="position: absolute; top: -10px; left: -8px; pointer-events: none; opacity: 1; transition: opacity 0.1s linear 0s, transform 0.1s linear 0s; width: 20px; height: 20px; transform: scale(2);">
+                                                    <svg width="20" height="20">
+                                                        <g transform="translate(5, 3)">
+                                                            <polyline points="0.59375 0.48438 0.5625 13.51563 11.4375 7 0.59375 0.48438" fill="#ffffff">
+                                                            </polyline>
+                                                        </g>
+                                                    </svg></pjsdiv>
+                                            </pjsdiv>
+                                            <pjsdiv
+                                                style="position: absolute; left: 141px; top: 446px; opacity: 1; font-size: 14px; line-height: 1em; pointer-events: none; display: none;">
+                                                <pjsdiv>
+                                                    <pjsdiv
+                                                        style="position: absolute; top: -7px; left: -18.5px; width: 37px; height: 14px; border-radius: 0px; background: rgb(0, 0, 0); opacity: 0; transition: opacity 0.1s linear 0s, background 0.1s linear 0s, transform 0.1s linear 0s; cursor: default; transform: scale(1);">
+                                                    </pjsdiv>
+                                                </pjsdiv>
+                                                <pjsdiv
+                                                    style="position: absolute; top: -7px; left: -18px; pointer-events: none; opacity: 0.5; transition: opacity 0.1s linear 0s, transform 0.1s linear 0s; color: rgb(255, 255, 255); font-size: 10px; font-family: Verdana; letter-spacing: 2px; padding: 0px 3px; white-space: nowrap; transform: scale(1);">
+                                                    LIVE</pjsdiv>
+                                            </pjsdiv>
+                                            <pjsdiv
+                                                style="position: absolute; left: 676px; top: 446px; opacity: 1; font-size: 14px; line-height: 1em; display: none;">
+                                                <pjsdiv>
+                                                    <pjsdiv
+                                                        style="position: absolute; top: -10px; left: -10px; width: 20px; height: 20px; border-radius: 0px; background: rgb(0, 0, 0); opacity: 0; transition: opacity 0.1s linear 0s, background 0.1s linear 0s, transform 0.1s linear 0s; transform: scale(1);">
+                                                    </pjsdiv>
+                                                </pjsdiv>
+                                                <pjsdiv
+                                                    style="position: absolute; top: -10px; left: -10px; pointer-events: none; opacity: 1; transition: opacity 0.1s linear 0s, transform 0.1s linear 0s; width: 20px; height: 20px; transform: scale(1);">
+                                                    <svg width="20" height="20">
+                                                        <g transform="translate(2, 2)">
+                                                            <path
+                                                                d="M12.5176036,14.5995982 L11.8913249,12.408042 C12.0748622,12.2470857 12.2471403,12.0748421 12.4097532,11.8905347 L14.6001245,12.5166878 C14.8311603,12.1802803 15.0299924,11.8229223 15.2079001,11.4519067 L13.5777858,9.87443978 C13.6558739,9.64265338 13.7234998,9.40684231 13.7717953,9.16377877 L15.9686033,8.61327723 C15.9847153,8.41046035 16,8.20683651 16,7.99919809 C16,7.79155968 15.9839082,7.58872262 15.9686033,7.38591582 L13.7717953,6.83541428 C13.7226826,6.59235074 13.6550567,6.35652958 13.5777858,6.12474318 L15.2087072,4.54728635 C15.0299924,4.17705752 14.8311603,3.81891277 14.6001245,3.48248508 L12.4097532,4.10784135 C12.2479474,3.92434084 12.0748622,3.75210737 11.8913249,3.590334 L12.5176036,1.3995848 C12.1811286,1.16941229 11.8228918,0.969803035 11.4518018,0.791941088 L9.87401862,2.4225356 C9.64298276,2.34446315 9.40631729,2.27765775 9.16321511,2.22856491 L8.61340021,0.0313802823 C8.40973554,0.0160885729 8.20687798,0 7.99919793,0 C7.79151788,0 7.58864015,0.0160885729 7.38579268,0.0313802823 L6.83518076,2.22856491 C6.59206848,2.27765775 6.35620004,2.34446315 6.12436716,2.4225356 L4.54659402,0.791941088 C4.17629095,0.972233973 3.81888151,1.17101611 3.48238635,1.40200565 L4.10866504,3.59274476 C3.92512773,3.75371118 3.75206271,3.92676169 3.59105392,4.10944516 L1.39986544,3.48329203 C1.16882958,3.81971972 0.969997497,4.17786447 0.792099885,4.54889016 L2.42302136,6.12635708 C2.34573028,6.35814348 2.27811446,6.59395455 2.22901177,6.83701809 L0.0313865746,7.38751963 C0.0160917989,7.59033652 0,7.79396035 0,8.00080191 C0,8.20764346 0.0160917989,8.41125721 0.0313865746,8.61488105 L2.22901177,9.16538259 C2.27811446,9.40844612 2.34573028,9.64424711 2.42302136,9.8760436 L0.792099885,11.4535105 C0.969997497,11.8237393 1.16882958,12.1818841 1.39986544,12.5183118 L3.59105392,11.8921586 C3.75205262,12.0764661 3.92512773,12.2478926 4.10866504,12.409666 L3.48238635,14.6012222 C3.81888151,14.8313947 4.17709807,15.030197 4.54740113,15.2088659 L6.12517427,13.5782713 C6.35700715,13.6563438 6.5928756,13.7239561 6.83598787,13.772242 L7.38659979,15.9686096 C7.58945735,15.9847184 7.79311193,16 8.00080207,16 C8.20849221,16 8.41133967,15.9839114 8.61500434,15.9686096 L9.16481924,13.772242 C9.40793152,13.7231492 9.64458689,13.6555469 9.87562275,13.5782713 L11.453406,15.2088659 C11.8228918,15.028573 12.1811185,14.8297908 12.5176036,14.5995982 L12.5176036,14.5995982 Z M7.99999496,10.7356172 C6.48902044,10.7356172 5.26382416,9.51066656 5.26382416,7.99999496 C5.26382416,6.48932335 6.48902044,5.26517965 7.99999496,5.26517965 C9.51096947,5.26517965 10.7353586,6.48933344 10.7353586,7.99999496 C10.7353586,9.51065647 9.51095939,10.7356172 7.99999496,10.7356172 Z"
+                                                                fill="#ffffff"></path>
+                                                        </g>
+                                                    </svg></pjsdiv>
+                                                <pjsdiv
+                                                    style="position: absolute; top: -17.5px; left: -17.5px; width: 35px; height: 35px; cursor: pointer; pointer-events: auto;">
+                                                </pjsdiv>
+                                            </pjsdiv>
+                                            <pjsdiv style="position: absolute; left: 701px; top: 446px; opacity: 1; font-size: 14px; line-height: 1em;">
+                                                <pjsdiv>
+                                                    <pjsdiv
+                                                        style="position: absolute; top: -10px; left: -10px; width: 20px; height: 20px; border-radius: 0px; background: rgb(0, 0, 0); opacity: 0; transition: opacity 0.1s linear 0s, background 0.1s linear 0s, transform 0.1s linear 0s; transform: scale(1);">
+                                                    </pjsdiv>
+                                                </pjsdiv>
+                                                <pjsdiv
+                                                    style="position: absolute; top: -10px; left: -10px; pointer-events: none; opacity: 1; transition: opacity 0.1s linear 0s, transform 0.1s linear 0s; width: 20px; height: 20px; transform: scale(1); visibility: visible;">
+                                                    <svg width="20" height="20">
+                                                        <g fill-rule="nonzero" transform="translate(-1, -1)">
+                                                            <path
+                                                                d="M10.9007191,14.8361421 L7.70806906,12.1869821 C7.52690906,12.0367021 7.38790906,11.8662321 7.11408906,11.8662321 C6.74284906,11.8662321 6.52010906,12.1727221 6.52010906,12.4602121 L6.52010906,14.2421521 L2.36223906,14.2421521 C2.03554906,14.2421521 1.76825906,14.5094421 1.76825906,14.8361321 L1.76825906,16.0240921 C1.76825906,16.3507821 2.03554906,16.6180721 2.36223906,16.6180721 L6.52010906,16.6180721 L6.52010906,18.4000121 C6.52010906,18.6875021 6.74284906,18.9939921 7.11408906,18.9939921 C7.38791906,18.9939921 7.52690906,18.8235221 7.70806906,18.6732421 L10.9007191,16.0240821 C11.1282091,15.8387621 11.2719591,15.6944221 11.2719591,15.4301021 C11.2719591,15.1657821 11.1282191,15.0220421 10.9007191,14.8361221 L10.9007191,14.8361421 Z"
+                                                                transform="translate(6.520109, 15.430112) rotate(-225.000000) translate(-6.520109, -15.430112) "
+                                                                fill="#ffffff"></path>
+                                                            <path
+                                                                d="M19.9050304,5.9347708 L16.7123904,3.2856108 C16.5312204,3.1353308 16.3922304,2.9648608 16.1184104,2.9648608 C15.7471704,2.9648608 15.5244204,3.2713508 15.5244204,3.5588408 L15.5244204,5.3407808 L11.3665604,5.3407808 C11.0398704,5.3407808 10.7725804,5.6080808 10.7725804,5.9347708 L10.7725804,7.1227308 C10.7725804,7.4494208 11.0398704,7.7167108 11.3665604,7.7167108 L15.5244204,7.7167108 L15.5244204,9.4986508 C15.5244204,9.7861408 15.7471704,10.0926308 16.1184104,10.0926308 C16.3922304,10.0926308 16.5312204,9.9221608 16.7123904,9.7718808 L19.9050304,7.1227308 C20.1325304,6.9374108 20.2762704,6.7930708 20.2762704,6.5287508 C20.2762704,6.2644308 20.1325304,6.1206808 19.9050304,5.9347708 L19.9050304,5.9347708 Z"
+                                                                transform="translate(15.524425, 6.528746) rotate(-45.000000) translate(-15.524425, -6.528746) "
+                                                                fill="#ffffff"></path>
+                                                        </g>
+                                                    </svg></pjsdiv>
+                                                <pjsdiv
+                                                    style="position: absolute; top: -10px; left: -10px; pointer-events: none; opacity: 1; transition: opacity 0.1s linear 0s, transform 0.1s linear 0s; width: 20px; height: 20px; visibility: hidden; transform: scale(1);">
+                                                    <svg width="20" height="20">
+                                                        <g fill-rule="nonzero" transform="translate(-1, -1)">
+                                                            <path
+                                                                d="M7.70806906,12.1869821 C7.52690906,12.0367021 7.38790906,11.8662321 7.11408906,11.8662321 C6.74284906,11.8662321 6.52010906,12.1727221 6.52010906,12.4602121 L6.52010906,14.2421521 L2.36223906,14.2421521 C2.03554906,14.2421521 1.76825906,14.5094421 1.76825906,14.8361321 L1.76825906,16.0240921 C1.76825906,16.3507821 2.03554906,16.6180721 2.36223906,16.6180721 L6.52010906,16.6180721 L6.52010906,18.4000121 C6.52010906,18.6875021 6.74284906,18.9939921 7.11408906,18.9939921 C7.38791906,18.9939921 7.52690906,18.8235221 7.70806906,18.6732421 L10.9007191,16.0240821 C11.1282091,15.8387621 11.2719591,15.6944221 11.2719591,15.4301021 C11.2719591,15.1657821 11.1282191,15.0220421 10.9007191,14.8361221 L7.70806906,12.1869821 Z"
+                                                                transform="translate(6.520109, 15.430112) rotate(-45.000000) translate(-6.520109, -15.430112) "
+                                                                fill="#ffffff"></path>
+                                                            <path
+                                                                d="M19.9050304,5.9347708 L16.7123904,3.2856108 C16.5312204,3.1353308 16.3922304,2.9648608 16.1184104,2.9648608 C15.7471704,2.9648608 15.5244204,3.2713508 15.5244204,3.5588408 L15.5244204,5.3407808 L11.3665604,5.3407808 C11.0398704,5.3407808 10.7725804,5.6080808 10.7725804,5.9347708 L10.7725804,7.1227308 C10.7725804,7.4494208 11.0398704,7.7167108 11.3665604,7.7167108 L15.5244204,7.7167108 L15.5244204,9.4986508 C15.5244204,9.7861408 15.7471704,10.0926308 16.1184104,10.0926308 C16.3922304,10.0926308 16.5312204,9.9221608 16.7123904,9.7718808 L19.9050304,7.1227308 C20.1325304,6.9374108 20.2762704,6.7930708 20.2762704,6.5287508 C20.2762704,6.2644308 20.1325304,6.1206808 19.9050304,5.9347708 L19.9050304,5.9347708 Z"
+                                                                transform="translate(15.524425, 6.528746) rotate(-225.000000) translate(-15.524425, -6.528746) "
+                                                                fill="#ffffff"></path>
+                                                        </g>
+                                                    </svg></pjsdiv>
+                                                <pjsdiv
+                                                    style="position: absolute; top: -17.5px; left: -17.5px; width: 35px; height: 35px; cursor: pointer; pointer-events: auto;">
+                                                </pjsdiv>
+                                            </pjsdiv>
+                                            <pjsdiv
+                                                style="overflow: hidden; display: block; opacity: 0; border-radius: 0px; z-index: 100; max-height: 365px; position: absolute; right: -17px; top: -2000px; visibility: hidden;">
+                                                <pjsdiv
+                                                    style="position: relative; top: 0px; left: 0px; display: block; width: 100%; padding: 0px 20px 0px 0px; color: rgb(255, 255, 255); font-size: 12px; font-family: arial, helvetica, sans-serif; letter-spacing: 0px; overflow-y: scroll; max-height: 365px;">
+                                                    <pjsdiv style="display: block; overflow: hidden; border-radius: 0px;">
+                                                        <pjsdiv fid="1"
+                                                            style="position: absolute; right: 0px; top: -100px; cursor: pointer; height: auto; width: 100%; overflow: hidden; display: block; line-height: 1.5em; visibility: hidden;">
+                                                            <pjsdiv
+                                                                style="position: absolute; right: 0px; top: 0px; width: 100%; height: 100%; background-color: rgb(0, 0, 0); opacity: 0.7; pointer-events: none; transition: opacity 0.2s linear 0s, background 0.2s linear 0s;">
+                                                            </pjsdiv>
+                                                            <pjsdiv
+                                                                style="position: absolute; right: 0px; top: 0px; width: 100%; height: 100%; pointer-events: none;">
+                                                            </pjsdiv>
+                                                            <pjsdiv
+                                                                style="position: relative; right: 0px; top: 0px; float: left; color: rgb(255, 255, 255); padding: 7px 10px 7px 15px; pointer-events: none; opacity: 1; transition: opacity 0.2s linear 0s, color 0.2s linear 0s; white-space: nowrap;">
+                                                                Quality</pjsdiv>
+                                                            <pjsdiv
+                                                                style="position: relative; right: 0px; top: 0px; float: right; padding-top: 8px; padding-right: 10px; padding-left: 15px; pointer-events: none; font-size: 10px; opacity: 1; color: rgb(255, 221, 31); transition: opacity 0.2s linear 0s, color 0.2s linear 0s; white-space: nowrap;">
+                                                                1 &nbsp;<svg width="5px" height="7px" viewBox="-1 -1 5 8" version="1.1"
+                                                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                                    <polyline stroke="#ffdd1f" stroke-width="1" fill="none" points="0 0 3 3 0 6"></polyline>
+                                                                </svg></pjsdiv>
+                                                        </pjsdiv>
+                                                        <pjsdiv fid="2"
+                                                            style="position: absolute; right: 0px; top: -100px; cursor: pointer; height: auto; width: 100%; overflow: hidden; display: block; line-height: 1.5em; visibility: hidden;">
+                                                            <pjsdiv
+                                                                style="position: absolute; right: 0px; top: 0px; width: 100%; height: 100%; background-color: rgb(0, 0, 0); opacity: 0.7; pointer-events: none; transition: opacity 0.2s linear 0s, background 0.2s linear 0s;">
+                                                            </pjsdiv>
+                                                            <pjsdiv
+                                                                style="position: absolute; right: 0px; top: 0px; width: 100%; height: 100%; pointer-events: none;">
+                                                            </pjsdiv>
+                                                            <pjsdiv
+                                                                style="position: relative; right: 0px; top: 0px; float: left; color: rgb(255, 255, 255); padding: 7px 10px 7px 15px; pointer-events: none; opacity: 1; transition: opacity 0.2s linear 0s, color 0.2s linear 0s; white-space: nowrap;">
+                                                                Audio</pjsdiv>
+                                                            <pjsdiv
+                                                                style="position: relative; right: 0px; top: 0px; float: right; padding-top: 8px; padding-right: 10px; padding-left: 15px; pointer-events: none; font-size: 10px; opacity: 1; color: rgb(255, 221, 31); transition: opacity 0.2s linear 0s, color 0.2s linear 0s; white-space: nowrap;">
+                                                            </pjsdiv>
+                                                        </pjsdiv>
+                                                        <pjsdiv fid="3"
+                                                            style="position: absolute; right: 0px; top: -100px; cursor: pointer; height: auto; width: 100%; overflow: hidden; display: block; line-height: 1.5em; visibility: hidden;">
+                                                            <pjsdiv
+                                                                style="position: absolute; right: 0px; top: 0px; width: 100%; height: 100%; background-color: rgb(0, 0, 0); opacity: 0.7; pointer-events: none; transition: opacity 0.2s linear 0s, background 0.2s linear 0s;">
+                                                            </pjsdiv>
+                                                            <pjsdiv
+                                                                style="position: absolute; right: 0px; top: 0px; width: 100%; height: 100%; pointer-events: none;">
+                                                            </pjsdiv>
+                                                            <pjsdiv
+                                                                style="position: relative; right: 0px; top: 0px; float: left; color: rgb(255, 255, 255); padding: 7px 10px 7px 15px; pointer-events: none; opacity: 1; transition: opacity 0.2s linear 0s, color 0.2s linear 0s; white-space: nowrap;">
+                                                                Subtitle</pjsdiv>
+                                                            <pjsdiv
+                                                                style="position: relative; right: 0px; top: 0px; float: right; padding-top: 8px; padding-right: 10px; padding-left: 15px; pointer-events: none; font-size: 10px; opacity: 1; color: rgb(255, 221, 31); transition: opacity 0.2s linear 0s, color 0.2s linear 0s; white-space: nowrap;">
+                                                            </pjsdiv>
+                                                        </pjsdiv>
+                                                    </pjsdiv>
+                                                </pjsdiv>
+                                                <pjsdiv
+                                                    style="position: absolute; display: inline-block; width: 433px; height: 40px; text-align: center; pointer-events: none; top: -1px; left: 0px; visibility: hidden;">
+                                                    <center>
+                                                        <div
+                                                            style="pointer-events:auto;cursor:pointer;width:20px;height:20px;border-radius:20px;margin-top:10px;">
+                                                            <svg width="20" height="20" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <g>
+                                                                    <line x1="5" y1="12" x2="10" y2="7" stroke="#ffffff" stroke-width="1"
+                                                                        stroke-linecap="round"></line>
+                                                                    <line x1="10" y1="7" x2="15" y2="12" stroke="#ffffff" stroke-width="1"
+                                                                        stroke-linecap="round"></line>
+                                                                </g>
+                                                            </svg></div>
+                                                    </center>
+                                                </pjsdiv>
+                                                <pjsdiv
+                                                    style="position: absolute; display: inline-block; width: 433px; height: 40px; text-align: center; pointer-events: none; bottom: -1px; left: 0px; visibility: hidden;">
+                                                    <center>
+                                                        <div
+                                                            style="pointer-events:auto;cursor:pointer;width:20px;height:20px;border-radius:20px;margin-top:10px;">
+                                                            <svg width="20" height="20" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <g>
+                                                                    <line x1="5" y1="8" x2="10" y2="13" stroke="#ffffff" stroke-width="1"
+                                                                        stroke-linecap="round"></line>
+                                                                    <line x1="10" y1="13" x2="15" y2="8" stroke="#ffffff" stroke-width="1"
+                                                                        stroke-linecap="round"></line>
+                                                                </g>
+                                                            </svg></div>
+                                                    </center>
+                                                </pjsdiv>
+                                            </pjsdiv>
+                                            <pjsdiv
+                                                style="overflow: hidden; display: block; opacity: 0; border-radius: 0px; z-index: 99; visibility: hidden; top: -2000px; max-height: 365px; position: absolute; left: 0px;">
+                                                <pjsdiv id="player_playlist"
+                                                    style="position: relative; top: 0px; left: 0px; display: block; width: 100%; padding: 0px 20px 0px 0px; color: rgb(255, 255, 255); font-size: 12px; font-family: arial, helvetica, sans-serif; letter-spacing: 0px; overflow-y: scroll; max-height: 365px;">
+                                                    <pjsdiv style="display: block; overflow: hidden; border-radius: 0px;"></pjsdiv>
+                                                </pjsdiv>
+                                                <pjsdiv
+                                                    style="position: absolute; display: inline-block; width: 100%; height: 40px; text-align: center; background: linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0)); pointer-events: none; top: -1px; left: 0px; visibility: hidden;">
+                                                    <center>
+                                                        <div
+                                                            style="pointer-events:auto;cursor:pointer;width:20px;height:20px;border-radius:20px;margin-top:10px;">
+                                                            <svg width="20" height="20" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <g>
+                                                                    <line x1="5" y1="12" x2="10" y2="7" stroke="#ffffff" stroke-width="1"
+                                                                        stroke-linecap="round"></line>
+                                                                    <line x1="10" y1="7" x2="15" y2="12" stroke="#ffffff" stroke-width="1"
+                                                                        stroke-linecap="round"></line>
+                                                                </g>
+                                                            </svg></div>
+                                                    </center>
+                                                </pjsdiv>
+                                                <pjsdiv
+                                                    style="position: absolute; display: inline-block; width: 100%; height: 40px; text-align: center; background: linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0)); pointer-events: none; bottom: -1px; left: 0px; visibility: hidden;">
+                                                    <center>
+                                                        <div
+                                                            style="pointer-events:auto;cursor:pointer;width:20px;height:20px;border-radius:20px;margin-top:10px;">
+                                                            <svg width="20" height="20" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <g>
+                                                                    <line x1="5" y1="8" x2="10" y2="13" stroke="#ffffff" stroke-width="1"
+                                                                        stroke-linecap="round"></line>
+                                                                    <line x1="10" y1="13" x2="15" y2="8" stroke="#ffffff" stroke-width="1"
+                                                                        stroke-linecap="round"></line>
+                                                                </g>
+                                                            </svg></div>
+                                                    </center>
+                                                </pjsdiv>
+                                            </pjsdiv>
+                                            <pjsdiv
+                                                style="position: absolute; left: 0px; top: 0px; width: 100%; height: 30px; background-color: rgb(255, 0, 0); opacity: 1; display: none;">
+                                            </pjsdiv>
+                                            <pjsdiv
+                                                style="position: absolute; left: 0px; top: 0px; width: 100%; color: rgb(255, 255, 255); font-size: 10px; padding: 5px 10px; display: none;">
+                                            </pjsdiv>
+                                        </pjsdiv>
+                                    </div>
+                                </div>
+                                <div class="threed-slide swiper-slide swiper-slide-next">
+                                    <div class="pinch-zoom-wrapper" style="overflow: visible; background-color: rgba(0, 0, 0, 0);">
+                                        <div class="pinch-zoom-content"
+                                            style="display: flex; align-items: center; justify-content: center; transform-origin: 0px 0px;"><span
+                                                class="float-right w-100 h-100" draggable="false" style="max-width: 100%; max-height: 100%;"><img
+                                                    src="https://files.menew.ir/60/116317/115967/conversions/%DA%A9%D8%B3%D8%B1%D9%88%D9%84-%D8%AA%D8%B1%DA%A9%DB%8C-%D8%AA%D9%86%D9%88%D8%B1%DB%8C-turkey-casserole-normal.jpg"
+                                                    class="h-100 w-100 v-lazy-image v-lazy-image-loaded" style="object-fit: cover;"></span></div><!---->
+                                    </div>
+                                </div>
+                                <div class="threed-slide swiper-slide">
+                                    <div class="pinch-zoom-wrapper" style="overflow: visible; background-color: rgba(0, 0, 0, 0);">
+                                        <div class="pinch-zoom-content"
+                                            style="display: flex; align-items: center; justify-content: center; transform-origin: 0px 0px;"><span
+                                                class="float-right w-100 h-100" draggable="false" style="max-width: 100%; max-height: 100%;"><img
+                                                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHN0eWxlPSJtYXJnaW46IGF1dG87IGJhY2tncm91bmQ6IHJnYmEoMjU1LCAyNTUsIDI1NSwgMCk7IGRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjIwMHB4IiBoZWlnaHQ9IjIwMHB4IiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIKICAgICBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCI+CiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuNTk4NTQ4Mzg3MDk2Nzc0KSIgc3Ryb2tlLXdpZHRoPSIzIiByPSIxNCIgc3Ryb2tlLWRhc2hhcnJheT0iNjUuOTczNDQ1NzI1Mzg1NjYgMjMuOTkxMTQ4NTc1MTI4NTUyIgogICAgICAgICAgdHJhbnNmb3JtPSJyb3RhdGUoNDIuMDE1MiA1MCA1MCkiPgogICAgPGFuaW1hdGVUcmFuc2Zvcm0gYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIiB0eXBlPSJyb3RhdGUiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiBkdXI9IjFzIiB2YWx1ZXM9IjAgNTAgNTA7MzYwIDUwIDUwIiBrZXlUaW1lcz0iMDsxIj48L2FuaW1hdGVUcmFuc2Zvcm0+CiAgPC9jaXJjbGU+Cjwvc3ZnPgo="
+                                                    class="h-100 w-100 v-lazy-image" style="object-fit: cover;"></span></div><!---->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination swiper-pagination-bullets swiper-pagination-clickable"><span
+                                    class="swiper-pagination-bullet swiper-pagination-bullet-active"></span><span class="swiper-pagination-bullet"></span><span
+                                    class="swiper-pagination-bullet"></span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dialog-content mt-0 float-right w-100"
+                    style="touch-action: pan-x; cursor: grab; user-select: none; transform: translate3d(0px, -197px, 0px);">
+                    <div class="dialog-description float-right w-100 px-4" style="touch-action: pan-x;"><!----> <span class="touch-trigger"
+                            style="touch-action: pan-x;"></span>
+                        <div class="dialog-description-inner float-right w-100 px-3 mt-4 pt-2" style="touch-action: pan-x;"><!---->
+                            <div class="title float-right w-100" style="touch-action: pan-x;">
+                                <h1 class="dialog-title float-right" style="touch-action: pan-x;">
+                                    کسرول ترکی | Turkey Casserole
+                                </h1>
+                                <h1 class="dialog-title float-left" style="touch-action: pan-x;"><!---->
+                                    115
+                                    <small style="color: rgb(209, 170, 75); font-size: 12px; touch-action: pan-x;">
+                                        هزار تومان
+                                    </small>
+                                </h1>
+                            </div>
+                            <div class="dialog-title-splitter-container float-right w-100 mt-3" style="touch-action: pan-x;">
+                                <p class="float-right w-100" style="font-size: 14px; color: rgb(209, 170, 75); touch-action: pan-x;">
+                                    محتویات
+                                </p>
+                            </div>
+                            <div style="touch-action: pan-x;">
+                                <div class="dialog-content-text mt-4" style="overflow-wrap: break-word !important; touch-action: pan-x;">
+                                    <p style="touch-action: pan-x;">بوقلمون دودی، قارچ، زیتون، اسفناج، سیر، پنیر دانمارکی، سس رزا</p>
+                                    <p style="touch-action: pan-x;">Smoked Turkey, Mushroom, Olive, Spinach, Garlic, Mozzarella Cheese, Rosa Sauce</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dialog-cart-action float-right w-100 px-4 pb-5" style="border-radius: 0px 0px 8px 8px; transform: translate(0px, 0px);"><span
+                        class="trigger-drag" style="touch-action: pan-x; cursor: grab; user-select: none;"></span>
+                    <div class="input-group float-right w-100"><button data-clickable="true" class="add py-4"
+                            style="color: rgb(0, 0, 0); background-color: rgb(209, 170, 75);"><span class="d-table mx-auto"><svg version="1.1" width="16"
+                                    height="16" x="0" y="0" viewBox="0 0 510 510" xml:space="preserve" class="float-right ml-2">
+                                    <g>
+                                        <g id="XMLID_316_" xmlns="http://www.w3.org/2000/svg">
+                                            <path id="XMLID_323_"
+                                                d="m390 210.689v-45.689c0-33.084-26.916-60-60-60h-165c-33.084 0-60 26.916-60 60v165c0 33.084 26.916 60 60 60h45.689c-9.291-102.441 76.591-188.627 179.311-179.311z"
+                                                fill="currentColor" data-original="#000000"></path>
+                                            <circle id="XMLID_332_" cx="375" cy="375" r="135" fill="currentColor" data-original="#000000"></circle>
+                                            <path id="XMLID_333_" d="m300 75v-75h-300v300h75v-135c0-49.627 40.373-90 90-90z" fill="currentColor"
+                                                data-original="#000000"></path>
+                                        </g>
+                                    </g>
+                                </svg>
+                                افزودن به یادداشت سفارش
+                            </span></button></div>
+                </div>
+            </div>
+        </div> <!---->
+    </div>
+
+
+</body>
+
+</html>
