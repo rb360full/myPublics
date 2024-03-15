@@ -6,14 +6,14 @@ const categoryElem = document.querySelector(".category");
 const myFirebaseApi = "https://digital-online-menu-default-rtdb.firebaseio.com/";
 
 let headerHeight = document.querySelector(".header").offsetHeight;
-categoryElem.addEventListener("click", (e) => {
-    e.target.closest("a")
-        ? window.scrollTo({
-            top: this.offsetHeight - headerHeight,
-            behavior: "smooth",
-        })
-        : null;
-});
+// categoryElem.addEventListener("click", (e) => {
+//     e.target.closest("a")
+//         ? window.scrollTo({
+//             top: this.offsetHeight - headerHeight,
+//             behavior: "smooth",
+//         })
+//         : null;
+// });
 
 // DataBase
 
@@ -123,7 +123,8 @@ const generateMenuItems = (...categoryArray) => {
                 "beforeend",
                 `
     <!-- Title -->
-    <p id="cat-${cat.id}" class="pt-1" ></p>    
+    <p class="title-p"><a class="title-a" id="cat-${cat.id}"></a></p>
+      
     <div  class="category-title d-flex flex-column justify-content-center align-items-center position-relative mt-5 mb-5 ">
         <span class="bg-secondary text-primary fw-bolder fs-5 position-absolute px-3">« ${cat.title} »</span>
         <div class="bg-secondary-subtle3 p-1s w-80 rounded rounded-1"></div>
@@ -236,7 +237,8 @@ async function carouselHandler() {
     const catItems = document.querySelectorAll(".cat-item");
     catItems.forEach((cat, index) => {
         cat.addEventListener("click", (e) => {
-            e.preventDefault();
+            // e.preventDefault();
+            
             const catLink = e.target.closest(".category a");
             const catHref = catLink.getAttribute("href").split("#")[1];
             const section = document.getElementById(catHref);
@@ -267,6 +269,10 @@ async function carouselHandler() {
                 left: finalScrollX,
                 behavior: "smooth",
             });
+            
+                e.target.click()
+            
+            
         });
     });
 
