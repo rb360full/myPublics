@@ -3,7 +3,14 @@
 const mainContainer = document.querySelector(".main");
 const categoryContainer = document.querySelector(".category");
 const categoryElem = document.querySelector(".category");
+const dialogContainer = document.querySelector('.dialog-container')
 const myFirebaseApi = "https://digital-online-menu-default-rtdb.firebaseio.com/";
+let foodToCard;
+let addedToCart;
+let cardPlus;
+let cardCount;
+let cardMinus;
+let CardItems = []
 
 let headerHeight = document.querySelector(".header").offsetHeight;
 // categoryElem.addEventListener("click", (e) => {
@@ -143,7 +150,7 @@ const generateMenuItems = (...categoryArray) => {
                     "beforeend",
                     `
         <!-- item -->
-        <div class="menu-item row bg-secondary-subtle2 text-white w-lg-50 mx-auto my-4  pt-2 px-0 rounded rounded-4 overflow-hidden">
+        <div class="menu-item row bg-secondary-subtle2 text-white w-lg-50 mx-auto my-4  pt-2 px-0 rounded rounded-4 overflow-hidden" id="food-${item.id}">
             <div class="col-4 col-sm-3 d-flex flex-column p-0 justify-content-center align-items-center">
                 <div class="ps-2 pb-2">
                     <img class="img-fluid  rounded rounded-2" src="images/${item.imgName}" alt="" />
@@ -188,7 +195,7 @@ const generateMenuItems = (...categoryArray) => {
                     "beforeend",
                     `
         <!-- item -->
-        <div class="menu-item row bg-secondary-subtle2 text-white w-lg-50 mx-auto my-4  pt-2 px-0 rounded rounded-4 overflow-hidden">
+        <div class="menu-item row bg-secondary-subtle2 text-white w-lg-50 mx-auto my-4  pt-2 px-0 rounded rounded-4 overflow-hidden" id="food-${item.id}">
             <div class="col-4 col-sm-3 d-flex flex-column p-0 justify-content-center align-items-center">
                 <div class="ps-2 pb-2">
                     <img class="img-fluid  rounded rounded-2" src="images/${item.imgName}" alt="" />
@@ -200,6 +207,10 @@ const generateMenuItems = (...categoryArray) => {
                 <span class="fs-6l mt-2 mb-2  px-4 ">
                     <b>${item.price[0]}</b>
                     <small>هزار تومان</small>
+                    
+                        <a href="##" class="add-btn float-end text-white fs-6 px-4 py-1 bg-primary-dark rounded rounded-5" id="add-food-${item.id}"
+                        onclick="cardPlusFunc(event, ${item.id})">افزودن</a>
+                    
                 </span>
             </div>
         </div>
@@ -210,6 +221,41 @@ const generateMenuItems = (...categoryArray) => {
         });
     });
 };
+
+
+function generateModal(item) {
+    const minPrice = Math.min(...item.price);
+    const smallElem = item.price.length > 1 ? `<small class="text-primary fs-6s"> از </small> ` : ''
+
+    const dialogElement = `
+    <div class="dialog fade-in col-11 col-sm-10 col-md-7 col-lg-5 col-xl-3 w-xl-30 d-flex flex-column mx-auto rounded rounded-4 overflow-hidden position-fixed">
+        <div class=" w-100 d-flex justify-content-center align-items-center rounded rounded-top-4 overflow-hidden ">
+            <img src="images/${item.imgName}" class="rounded-top-4 w-100" alt="" />
+        </div>
+        <div class="dialog-cart py-3 w-100 d-flex justify-content-center  rounded-bottom-4 overflow-hidden align-items-center bg-secondary">
+            <div class="dialog-desc w-90 h-80 rounded rounded-3">
+                <div class="dialog-title-container d-flex justify-content-around w-100 text-white pt-1">
+                <h1 class="dialog-title fs-6s fs-sm-6l">${item.title}</h1>
+                <h1 class="dialog-title fs-6s fs-sm-6l">
+                        ${smallElem}
+                        ${minPrice}
+                        <small class="text-primary fs-6s"> هزار تومان </small>
+                    </h1>
+                </div>
+
+                <div class="d-flex justify-content-center w-100">
+                    <button class="bg-primary py-3 w-80 border-0 rounded rounded-5 user-select-none mt-4 fs-6s fs-sm-6l" id="add-to-card">افزودن به یادداشت
+                        سفارش</button>
+                </div>
+            </div>
+         </div>
+    </div>
+    `
+
+    dialogContainer.insertAdjacentHTML('afterbegin', dialogElement)
+    dialogContainer.querySelector('.dialog').classList.add('dialog-show');
+
+}
 
 async function callApiFunctions() {
     await getRequest("category")
@@ -238,7 +284,7 @@ async function carouselHandler() {
     catItems.forEach((cat, index) => {
         cat.addEventListener("click", (e) => {
             // e.preventDefault();
-            
+
             const catLink = e.target.closest(".category a");
             const catHref = catLink.getAttribute("href").split("#")[1];
             const section = document.getElementById(catHref);
@@ -269,62 +315,187 @@ async function carouselHandler() {
                 left: finalScrollX,
                 behavior: "smooth",
             });
-            
-                e.target.click()
-            
-            
+
+            e.target.click()
+
+
         });
     });
 
     categoryContainer.scrollLeft = categoryElem.scrollWidth - categoryElem.clientWidth;
 }
 
-// API Functions
+function cardPlusFunc(event, foodId) {
+    foodToCard = foods.find(item => item.id == foodId)
+    const index = CardItems.indexOf(foodToCard)
+    cardCount = event.target.nextElementSibling;
+    const isInCard = CardItems.some(item => item == foodToCard)
+    if (!isInCard) {
+        foodToCard.quantity = 1;
+        CardItems.push(foodToCard)
+    }
+    else {
+        CardItems[index].quantity++
+        cardCount.innerHTML = CardItems[index].quantity
+    }
+    console.log(CardItems);
+}
+
+function cardMinusFunc(event, foodId) {
+    foodToCard = foods.find(item => item.id == foodId)
+    const index = CardItems.indexOf(foodToCard)
+    cardCount = event.target.previousElementSibling;
+    // const isInCard = CardItems.some(item => item == foodToCard)
+    foodToCard.quantity--;
+    cardCount.innerHTML = CardItems[index].quantity
+
+    if (foodToCard.quantity == 0) {
+        CardItems[index].quantity = 0
+        CardItems.splice(index, 1)
+
+
+        const addCard = event.target.closest('.added-to-card')
+        const addBtn = `
+                <a href="##" class="add-btn fade-in float-end text-white fs-6 px-4 py-1 bg-primary-dark rounded rounded-5" id="add-food-${foodToCard.id}"
+                        onclick="cardPlusFunc(event, ${foodToCard.id})">افزودن</a>`
+
+        addCard.outerHTML = addBtn
+
+    }
+    console.log(CardItems);
+}
+
+
+// Events
+
+document.addEventListener('click', e => {
+    const dialog = document.querySelector('.dialog')
+    const foodItem = e.target.closest('.menu-item')
+    const addBtn = e.target.closest('.add-btn')
+    const addedBtn = e.target.closest('.added-to-card')
+    if (foodItem && !dialog && !addBtn && !addedBtn) {
+        const foodId = foodItem.id.split('-')[1]
+        const food = foods.find(item => item.id == foodId)
+        let isSummaryClicked = e.target.closest('details')
+        !isSummaryClicked && generateModal(food)
+    }
+
+
+
+    else {
+        if (!e.target.closest('.dialog')) {
+            dialog && dialog.classList.add('fade-out')
+            dialog && setTimeout(() => {
+                dialog.remove()
+            }, 1000);
+        }
+    }
+})
+
+document.addEventListener('keydown', e => {
+    const dialog = document.querySelector('.dialog')
+    if (e.key == 'Escape') {
+        dialog && dialog.classList.add('fade-out');
+        dialog && setTimeout(() => {
+            dialog.remove()
+        }, 1000);
+    }
+})
+
+
+mainContainer.addEventListener('click', e => {
+
+    const addBtn = e.target.closest('.add-btn')
+    if (addBtn) {
+        const foodId = addBtn.id.split('-')[2]
+        foodToCard = foods.find(item => item.id == foodId)
+        const addCard = `
+        <a href="##" class="added-to-card fade-in text-white float-end  fs-6 px-3 py-0 bg-primary-dark border rounded rounded-5" id="added-food-${foodId}">
+            <ul class="d-flex justify-content-between align-items-baseline p-0 pb-1 ">
+                <li class="card-plus pt-2" onclick="cardPlusFunc(event, ${foodId})">+</li>
+                <li class="card-count pt-2 px-3">1</li>
+                <li class="card-minus pt-2 " onclick="cardMinusFunc(event, ${foodId})">-</li>
+            </ul>
+        </a>`
+        addBtn.outerHTML = addCard
+    }
+
+
+})
+
+
+
+document.addEventListener('click', e => {
+
+    addedToCart = e.target.closest('.added-to-cart')
+    if (addedToCart) {
+        cardPlus = e.target.closest('.card-plus')
+        cardCount = e.target.closest('.card-count')
+        cardMinus = e.target.closest('.card-minus')
+    }
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // API Functions 
 async function postRequest(array, arrayStringName) {
     let req = `${myFirebaseApi}${arrayStringName}.json`;
     let res = await fetch(req, {
-      method: "POST",
-      headers: { "Content-type": "application/json" },
-      body: JSON.stringify(array)
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify(array)
     });
-  
+
     return res;
-  }
-  async function setRequest(array, arrayStringName, index) {
-  
+}
+async function setRequest(array, arrayStringName, index) {
+
     // let req = `${myFirebaseApi}${arrayStringName}.json`;
     let req = index ? `${myFirebaseApi}${arrayStringName}/${index}.json` : `${myFirebaseApi}${arrayStringName}.json`
     console.log(req);
     let res = await fetch(req, {
-      method: "PUT",
-      headers: { "Content-type": "application/json" },
-      body: JSON.stringify(array)
+        method: "PUT",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify(array)
     });
-  
+
     return res;
-  }
-  
-  async function getRequest(arrayStringName, index) {
+}
+
+async function getRequest(arrayStringName, index) {
     let req = index ? `${myFirebaseApi}${arrayStringName}/${index}.json` : `${myFirebaseApi}${arrayStringName}.json`
     // let req = `${myFirebaseApi}${arrayStringName}.json`;
     console.log(req);
     let res = await fetch(req);
     let resJson = await res.json();
-  
+
     return Object.values(resJson);
-  }
-  
-  async function deleteRequest(arrayStringName,index) {
+}
+
+async function deleteRequest(arrayStringName, index) {
     let req = index ? `${myFirebaseApi}${arrayStringName}/${index}.json` : `${myFirebaseApi}${arrayStringName}.json`
     // let req = `${myFirebaseApi}${arrayStringName}.json`;
     let res = await fetch(req, {
-      method: "DELETE",
+        method: "DELETE",
     });
-  
+
     return res;
-  }
+}
 // Call Faunctions
 
 callApiFunctions();

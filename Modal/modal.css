@@ -1,8 +1,16 @@
 /*! CSS Used from: Embedded */
-video {
-  display: inline-block;
-  vertical-align: baseline;
+
+
+@font-face {
+  font-family: iranSans;
+  src: url(../fonts/IRANSansWeb.woff);
 }
+
+* {
+  font-family: iranSans;
+}
+
+
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
@@ -83,9 +91,6 @@ small {
 .pt-2 {
   padding-top: 0.5rem !important;
 }
-.mt-3 {
-  margin-top: 1rem !important;
-}
 .px-3 {
   padding-left: 1rem !important;
 }
@@ -157,43 +162,11 @@ img {
 .simple-menew .swiper-inner .swiper-container {
   height: 100%;
 }
-.simple-menew .swiper-inner .swiper-pagination {
-  position: absolute;
-  top: 32px;
-  width: -webkit-fit-content !important;
-  width: -moz-fit-content !important;
-  width: fit-content !important;
-  margin: auto;
-  right: 0;
-  left: 0 !important;
-  background-color: #162741;
-  border-radius: 5px;
-  padding: 0;
-  bottom: auto;
-}
-.simple-menew .swiper-inner .swiper-pagination .swiper-pagination-bullet {
-  background-color: rgba(0, 0, 0, 0) !important;
-  background-color: initial !important;
-  border: 1px solid #fff !important;
-  opacity: 1 !important;
-  float: right;
-  margin: 5px 7px;
-}
-.simple-menew .swiper-inner .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
-  background-color: #fff !important;
-}
 .simple-menew .threed-slide {
   background-position: 50% !important;
   background-size: cover !important;
   width: 100% !important;
   height: 100% !important;
-}
-.simple-menew #player {
-  height: 100% !important;
-}
-.simple-menew #player video {
-  -o-object-fit: cover !important;
-  object-fit: cover !important;
 }
 .simple-menew .bounce-in-fwd {
   -webkit-animation: bounce-in-fwd 0.8s linear both;
@@ -351,16 +324,10 @@ img {
   min-height: 230px;
   height: 100%;
 }
-.simple-menew.dialog-container .dialog .dialog-content-text p {
-  margin: 0 !important;
-}
 .simple-menew.dialog-container .dialog-title {
   color: #fff;
   font-size: 18px;
   text-align: center;
-}
-.simple-menew.dialog-container .dialog-title-splitter-container {
-  color: #fff;
 }
 .simple-menew .pinch-zoom-content,
 .simple-menew .pinch-zoom-wrapper {
@@ -406,39 +373,6 @@ img {
   transition-property: transform;
   transition-property: transform, -webkit-transform;
 }
-.swiper-pagination {
-  position: absolute;
-  text-align: center;
-  -webkit-transition: opacity 0.3s;
-  transition: opacity 0.3s;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  z-index: 10;
-}
-.swiper-container-horizontal > .swiper-pagination-bullets {
-  bottom: 10px;
-  left: 0;
-  width: 100%;
-}
-.swiper-pagination-bullet {
-  width: 8px;
-  height: 8px;
-  display: inline-block;
-  border-radius: 50%;
-  background: #000;
-  opacity: 0.2;
-}
-.swiper-pagination-clickable .swiper-pagination-bullet {
-  cursor: pointer;
-}
-.swiper-pagination-bullet-active {
-  opacity: 1;
-  background: var(--swiper-theme-color);
-  background: var(--swiper-pagination-color, var(--swiper-theme-color));
-}
-.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
-  margin: 0 4px;
-}
 /*! CSS Used from: Embedded */
 .pinch-zoom-wrapper {
   position: relative;
@@ -473,9 +407,6 @@ img {
 .dialog-container .dialog-title small {
   color: #dc5f00 !important;
 }
-.dialog-container .dialog-title-splitter-container p {
-  color: #dc5f00 !important;
-}
 .dialog-container .dialog-cart-action {
   background: linear-gradient(to bottom, #2d2d2e00, #2d2d2ecc 56%, #2d2d2e) !important;
   color: #fff !important;
@@ -483,89 +414,6 @@ img {
 .dialog-container .dialog-cart-action button {
   background-color: #dc5f00 !important;
   color: #000 !important;
-}
-.simple-menew .swiper-inner .swiper-pagination {
-  background-color: #2d2d2e !important;
-}
-/*! CSS Used from: Embedded */
-pjsdiv,
-pjsdiv > * {
-  position: static;
-  top: auto;
-  left: auto;
-  overflow: visible;
-  direction: ltr !important;
-  max-width: none !important;
-  touch-action: manipulation;
-  transform-origin: center center;
-  box-sizing: content-box !important;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  -webkit-tap-highlight-color: transparent;
-}
-pjsdiv > *:focus {
-  outline: none;
-}
-pjsdiv {
-  color: #fff;
-  font-size: 100%;
-}
-pjsdiv iframe {
-  display: block !important;
-  max-height: none !important;
-}
-.loader400500 {
-  position: relative;
-  margin: 0 auto;
-  width: 50px;
-}
-.loader400500:before {
-  content: "";
-  display: block;
-  padding-top: 100%;
-}
-.circular400500 {
-  -webkit-animation: rotate400500 2s linear infinite;
-  height: 100%;
-  -webkit-transform-origin: center center;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-.path400500 {
-  stroke-dasharray: 1, 200;
-  stroke-dashoffset: 0;
-  -webkit-animation: dash400500 1.5s ease-in-out infinite;
-}
-.loader400500 {
-  position: relative;
-  margin: 0 auto;
-  width: 50px;
-}
-.loader400500:before {
-  content: "";
-  display: block;
-  padding-top: 100%;
-}
-.circular400500 {
-  animation: rotate400500 2s linear infinite;
-  height: 100%;
-  transform-origin: center center;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-.path400500 {
-  stroke-dasharray: 1, 200;
-  stroke-dashoffset: 0;
-  animation: dash400500 1.5s ease-in-out infinite;
 }
 /*! CSS Used keyframes */
 @-webkit-keyframes bounce-in-fwd {
@@ -794,43 +642,5 @@ pjsdiv iframe {
   to {
     -webkit-transform: translateZ(0) translateY(0);
     transform: translateZ(0) translateY(0);
-  }
-}
-@-webkit-keyframes rotate400500 {
-  100% {
-    -webkit-transform: rotate(360deg);
-  }
-}
-@keyframes rotate400500 {
-  100% {
-    transform: rotate(360deg);
-  }
-}
-@-webkit-keyframes dash400500 {
-  0% {
-    stroke-dasharray: 1, 200;
-    stroke-dashoffset: 0;
-  }
-  50% {
-    stroke-dasharray: 89, 200;
-    stroke-dashoffset: -35px;
-  }
-  100% {
-    stroke-dasharray: 89, 200;
-    stroke-dashoffset: -124px;
-  }
-}
-@keyframes dash400500 {
-  0% {
-    stroke-dasharray: 1, 200;
-    stroke-dashoffset: 0;
-  }
-  50% {
-    stroke-dasharray: 89, 200;
-    stroke-dashoffset: -35px;
-  }
-  100% {
-    stroke-dasharray: 89, 200;
-    stroke-dashoffset: -124px;
   }
 }

@@ -16,12 +16,13 @@
 <body>
 
     <div class="container-fluid p-3">
-        <div class="row justify-content-around">
+        <div class="row justify-content-around ">
 
-            <h2 class="text-center"><a class="text-center text-dark-emphasis bg-info d-inline-block px-4 py-2 rounded rounded-3 border p-0" href="../index.html">Home</a></h2>
+            <h2 class="text-center "><a class="text-center text-dark-emphasis bg-info d-inline-block px-4 py-2 rounded rounded-3 border p-0"
+                    href="../index.html">Home</a></h2>
 
-            <div class="col-7">
-                <form class="border border-2 rounded rounded-4 p-4 " action="">
+            <div class="col-7 ">
+                <form class="border border-2 rounded rounded-4 p-4 sticky-top " action="">
                     <legend class="text-center mb-4 fw-bold rounded py-2 bg-warning text-primary">پنل مدیریت</legend>
 
                     <!-- Category -->
@@ -36,6 +37,7 @@
                     <div class="mb-3">
                         <label for="" class="form-label fs-5 fw-semibold">نام آیتم</label>
                         <input type="text" name="" id="food-name" class="form-control py-2" placeholder="نام غذا ، سالاد ، قهوه و ..." />
+                        <input type="number" value="" id="food-id-edit" class="d-none">
                     </div>
 
 
@@ -67,8 +69,9 @@
                     <!-- Photo -->
 
                     <div class="mb-3">
-                        <label for="" class="form-label fs-5 fw-semibold">آپلود عکس</label>
-                        <input type="file" class="form-control" name="" id="food-photo" placeholder="" />
+                        <label for="" class="form-label fs-5 fw-semibold " id="upload-photo-label">آپلود عکس</label>
+                        <input type="file" class="form-control" name="" id="food-photo" placeholder=""  />
+                        <!-- <input type="file" class="form-control" name="" id="change-food-photo" style="display: none;" /> -->
                     </div>
 
                     <!-- Description -->
@@ -81,14 +84,14 @@
                     <!-- Submit -->
                     <button type="submit" class="btn btn-primary col-12 py-2 fs-5">تائید</button>
 
-                        
+
 
 
                 </form>
             </div>
 
-            <div class="col-5" id="main-container">
-                <h2 class="text-center fw-bolder">لیست کامل محصولات</h2>
+            <div class="col-5 overflow-y-scroll" id="main-container">
+                <h2 class="text-center fw-bolder ">لیست کامل محصولات</h2>
             </div>
 
 
@@ -102,8 +105,7 @@
 
 
 
-    </script>
-
+    
     <script src="js/cms.js"></script>
 
 </body>
