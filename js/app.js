@@ -6,11 +6,12 @@ const categoryElem = document.querySelector(".category");
 const dialogContainer = document.querySelector('.dialog-container')
 const myFirebaseApi = "https://digital-online-menu-default-rtdb.firebaseio.com/";
 let foodToCard;
-let addedToCart;
+let addedToCard;
 let cardPlus;
 let cardCount;
 let cardMinus;
 let CardItems = []
+let addBtns = []
 
 let headerHeight = document.querySelector(".header").offsetHeight;
 // categoryElem.addEventListener("click", (e) => {
@@ -122,7 +123,7 @@ function generateCatogoryItems() {
     });
 }
 
-const generateMenuItems = (...categoryArray) => {
+async function generateMenuItems(...categoryArray) {
 
     categoryArray.forEach((cat) => {
         foods.some((item) => item.categoryId == cat.id)
@@ -169,7 +170,7 @@ const generateMenuItems = (...categoryArray) => {
                 <summary>
                     <h6>قابلیت انتخاب <span class="text-primary">« ${item.OptionType} »</span></h6>
                 </summary>
-                <ul id="food-${item.id}-option" class="row p-0 justify-content-center">
+                <ul id="food-${item.id}-option" class="row p-0 justify-content-center align-items-center">
 
                 </ul>
             </details>
@@ -183,10 +184,14 @@ const generateMenuItems = (...categoryArray) => {
                     summaryUl.insertAdjacentHTML(
                         "beforeend",
                         `
-                <li class="d-flex  justify-content-between w-80 py-2">
-                    <span class="">${item.options[i]}</span>
+                <li class="d-flex  justify-content-between align-items-center  w-80 py-2 ">
+                    <span id="food-option-${i}">${item.options[i]}</span>
                     <strong class="text-primary fw-bold">${item.price[i]}<small class="fs-7">هزار تومان</small></strong>
+                            
+                            <a href="##" class="add-btn float-end text-white fs-6 px-4 py-2 bg-primary-dark rounded rounded-5" id="add-food-${item.id}"
+                            onclick="cardPlusFunc(event, ${item.id}, ${i},${item.price[i]})">افزودن</a>
                 </li>
+                        
                 `
                     );
                 }
@@ -208,7 +213,7 @@ const generateMenuItems = (...categoryArray) => {
                     <b>${item.price[0]}</b>
                     <small>هزار تومان</small>
                     
-                        <a href="##" class="add-btn float-end text-white fs-6 px-4 py-1 bg-primary-dark rounded rounded-5" id="add-food-${item.id}"
+                        <a href="##" class="add-btn float-end text-white fs-6 px-4 py-2 bg-primary-dark rounded rounded-5" id="add-food-${item.id}"
                         onclick="cardPlusFunc(event, ${item.id})">افزودن</a>
                     
                 </span>
@@ -220,7 +225,14 @@ const generateMenuItems = (...categoryArray) => {
             }
         });
     });
+    // addBtns = document.querySelectorAll('.add-btn')
+
+    // console.log(addBtns);
+
+
 };
+
+
 
 
 function generateModal(item) {
@@ -269,7 +281,8 @@ async function callApiFunctions() {
     await getRequest("foods")
         .then((result) => {
             foods = result.filter(item => item);
-            generateMenuItems(...category);
+            generateMenuItems(...category).then(res => getCardItems());
+
         })
         .catch((err) => {
             callApiFunctions();
@@ -325,46 +338,147 @@ async function carouselHandler() {
     categoryContainer.scrollLeft = categoryElem.scrollWidth - categoryElem.clientWidth;
 }
 
-function cardPlusFunc(event, foodId) {
-    foodToCard = foods.find(item => item.id == foodId)
+function cardPlusFunc(event, foodId, optionIndex, optionPrice) {
+
+    foodToCard = CardItems.find(item => item.id == foodId) || foods.find(item => item.id == foodId)
     const index = CardItems.indexOf(foodToCard)
     cardCount = event.target.nextElementSibling;
-    const isInCard = CardItems.some(item => item == foodToCard)
-    if (!isInCard) {
-        foodToCard.quantity = 1;
+    console.log(event);
+    console.log(cardCount);
+    const isInCard = CardItems.some(item => item.id == foodToCard.id)
+    if (!isInCard || index < 0) {
+        !foodToCard.isOptional ? foodToCard.quantity = 1 : null
+        foodToCard.isOptional ? foodToCard.quantity = [1] : null
         CardItems.push(foodToCard)
     }
     else {
-        CardItems[index].quantity++
-        cardCount.innerHTML = CardItems[index].quantity
+
+        if (!foodToCard.isOptional) {
+            CardItems[index].quantity++
+            cardCount.innerHTML = CardItems[index].quantity
+        }
+        else if (foodToCard.isOptional && CardItems[index].quantity[optionIndex]) {
+            foodToCard.quantity[optionIndex]++
+            cardCount.innerHTML = CardItems[index].quantity[optionIndex]
+        }
+        else if (foodToCard.isOptional && !CardItems[index].quantity[optionIndex]) {
+            foodToCard.quantity[optionIndex] = 1
+            cardCount = event.target.nextElementSibling;
+            console.log(cardCount);
+            cardCount.innerHTML = CardItems[index].quantity[optionIndex]
+        }
+
+
+
     }
     console.log(CardItems);
+    localStorage.setItem('cardItems', JSON.stringify(CardItems))
+    addBtns = document.querySelectorAll('.add-btn')
 }
 
-function cardMinusFunc(event, foodId) {
-    foodToCard = foods.find(item => item.id == foodId)
+function cardMinusFunc(event, foodId,) {
+    foodToCard = CardItems.find(item => item.id == foodId) || foods.find(item => item.id == foodId)
+
+    const optionIndex = event.target.id.split('-')[3]
+    console.log(event);
+    console.log(optionIndex);
     const index = CardItems.indexOf(foodToCard)
     cardCount = event.target.previousElementSibling;
+    if (!foodToCard.isOptional) {
+        CardItems[index].quantity--
+        cardCount.innerHTML = CardItems[index].quantity
+    }
+    else if (foodToCard.isOptional && CardItems[index].quantity[optionIndex]) {
+        foodToCard.quantity[optionIndex]--
+        cardCount.innerHTML = CardItems[index].quantity[optionIndex]
+    }
+    // else if (foodToCard.isOptional && !CardItems[index].quantity[optionIndex]) {
+    //     foodToCard.quantity[optionIndex] = 1
+    //     cardCount = event.target.nextElementSibling;
+    //     console.log(cardCount);
+    //     cardCount.innerHTML = CardItems[index].quantity[optionIndex]
+    // }
     // const isInCard = CardItems.some(item => item == foodToCard)
-    foodToCard.quantity--;
-    cardCount.innerHTML = CardItems[index].quantity
+    // foodToCard.quantity--;
 
-    if (foodToCard.quantity == 0) {
-        CardItems[index].quantity = 0
-        CardItems.splice(index, 1)
+    if (foodToCard.quantity == 0 || CardItems[index].quantity[optionIndex] == 0) {
+        if (CardItems[index].quantity == 0 || CardItems[index].quantity.length == 1) {
+            CardItems.splice(index, 1)
+        }
 
+        else {
+            CardItems[index].quantity.splice(optionIndex, 1)
+
+        }
 
         const addCard = event.target.closest('.added-to-card')
         const addBtn = `
-                <a href="##" class="add-btn fade-in float-end text-white fs-6 px-4 py-1 bg-primary-dark rounded rounded-5" id="add-food-${foodToCard.id}"
+                <a href="##" class="add-btn fade-in float-end text-white fs-6 px-4 py-2 bg-primary-dark rounded rounded-5" id="add-food-${foodToCard.id}"
                         onclick="cardPlusFunc(event, ${foodToCard.id})">افزودن</a>`
 
         addCard.outerHTML = addBtn
-
     }
     console.log(CardItems);
+    localStorage.setItem('cardItems', JSON.stringify(CardItems))
+    addBtns = document.querySelectorAll('.add-btn')
+
 }
 
+function cardUpdateFunc(btns) {
+
+    console.log(btns.length);
+    if (CardItems.length > 0) {
+
+
+
+        btns.forEach((addBtn, index) => {
+
+            const foodId = addBtn.id.split('-')[2]
+            foodId ? foodToCard = CardItems.find(item => item.id == foodId) : null
+            const optionIndex = addBtn.previousElementSibling.previousElementSibling.id.split('-')[2]
+            if (foodToCard) {
+                const addCard = `
+                <a href="##" class="added-to-card fade-in text-white float-end  fs-6 px-3 py-0 bg-primary-dark border rounded rounded-5" id="added-food-${foodId}">
+                    <ul class="d-flex justify-content-between align-items-baseline p-0 pb-1 ">
+                        <li class="card-plus pt-2 pe-2" id="card-plus-option-${optionIndex}" onclick="cardPlusFunc(event, ${foodId} , ${optionIndex})">+</li>
+                        <li class="card-count pt-2 px-1">${foodToCard.isOptional ? foodToCard.quantity[optionIndex] : foodToCard.quantity}</li>
+                        <li class="card-minus pt-2 ps-2" id="card-minus-option-${optionIndex}"  onclick="cardMinusFunc(event, ${foodId},${optionIndex})">-</li>
+                    </ul>
+                </a>`
+                addBtn.outerHTML = addCard
+            }
+        })
+
+    }
+    addBtns = document.querySelectorAll('.add-btn')
+
+}
+
+async function getCardItems() {
+    localStorage.getItem('cardItems') ? CardItems = JSON.parse(localStorage.getItem('cardItems')) : null
+    addBtns = document.querySelectorAll('.add-btn')
+    cardUpdateFunc(addBtns)
+}
+function changeAddBtn(e) {
+    const addBtn = e.target.closest('.add-btn')
+    if (addBtn) {
+        const optionIndex = e.target.previousElementSibling.previousElementSibling.id.split('-')[2]
+        const foodId = addBtn.id.split('-')[2]
+        foodToCard = foods.find(item => item.id == foodId)
+        const addCard = `
+        <a href="##" class="added-to-card fade-in text-white float-end  fs-6 px-3 py-0 bg-primary-dark border rounded rounded-5" id="added-food-${foodId}">
+            <ul class="d-flex justify-content-between align-items-baseline p-0 pb-1 ">
+                <li class="card-plus pt-2 pe-2" id="card-plus-option-${optionIndex}" onclick="cardPlusFunc(event, ${foodId} , ${optionIndex})">+</li>
+                <li class="card-count pt-2 px-1">1</li>
+                <li class="card-minus pt-2 ps-2" id="card-minus-option-${optionIndex}"  onclick="cardMinusFunc(event, ${foodId},${optionIndex})">-</li>
+            </ul>
+        </a>`
+        addBtn.outerHTML = addCard
+        // cardCount = e.target.closest('.card-count')
+    }
+
+
+}
 
 // Events
 
@@ -404,36 +518,21 @@ document.addEventListener('keydown', e => {
 
 
 mainContainer.addEventListener('click', e => {
-
-    const addBtn = e.target.closest('.add-btn')
-    if (addBtn) {
-        const foodId = addBtn.id.split('-')[2]
-        foodToCard = foods.find(item => item.id == foodId)
-        const addCard = `
-        <a href="##" class="added-to-card fade-in text-white float-end  fs-6 px-3 py-0 bg-primary-dark border rounded rounded-5" id="added-food-${foodId}">
-            <ul class="d-flex justify-content-between align-items-baseline p-0 pb-1 ">
-                <li class="card-plus pt-2" onclick="cardPlusFunc(event, ${foodId})">+</li>
-                <li class="card-count pt-2 px-3">1</li>
-                <li class="card-minus pt-2 " onclick="cardMinusFunc(event, ${foodId})">-</li>
-            </ul>
-        </a>`
-        addBtn.outerHTML = addCard
-    }
-
-
+    changeAddBtn(e)
 })
 
 
 
 document.addEventListener('click', e => {
 
-    addedToCart = e.target.closest('.added-to-cart')
-    if (addedToCart) {
+    addedToCard = e.target.closest('.added-to-card')
+    if (addedToCard) {
         cardPlus = e.target.closest('.card-plus')
         cardCount = e.target.closest('.card-count')
         cardMinus = e.target.closest('.card-minus')
     }
 })
+
 
 
 
@@ -499,6 +598,7 @@ async function deleteRequest(arrayStringName, index) {
 // Call Faunctions
 
 callApiFunctions();
+
 // generateCatogoryItems();
 // generateMenuItems(...category);
 
