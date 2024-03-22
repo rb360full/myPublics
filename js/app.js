@@ -363,9 +363,6 @@ function cardPlusFunc(event, foodId, optionIndex, optionPrice) {
         }
         else if (foodToCard.isOptional && !CardItems[index].quantity[optionIndex]) {
             foodToCard.quantity[optionIndex] = 1
-            cardCount = event.target.nextElementSibling;
-            console.log(cardCount);
-            cardCount.innerHTML = CardItems[index].quantity[optionIndex]
         }
 
 
@@ -404,21 +401,35 @@ function cardMinusFunc(event, foodId,) {
     if (foodToCard.quantity == 0 || CardItems[index].quantity[optionIndex] == 0) {
         if (CardItems[index].quantity == 0 || CardItems[index].quantity.length == 1) {
             CardItems.splice(index, 1)
+            const addCard = event.target.closest('.added-to-card')
+            const addBtn = `
+                    <a href="##" class="add-btn fade-in float-end text-white fs-6 px-4 py-2 bg-primary-dark rounded rounded-5" id="add-food-${foodToCard.id}"
+                            onclick="cardPlusFunc(event, ${foodToCard.id})">افزودن</a>`
+
+            addCard.outerHTML = addBtn
         }
 
         else {
-            CardItems[index].quantity.splice(optionIndex, 1)
-
-        }
-
-        const addCard = event.target.closest('.added-to-card')
-        const addBtn = `
+            // CardItems[index].quantity.splice(optionIndex, 1)
+            CardItems[index].quantity[optionIndex] = 0
+            console.log(CardItems[index].quantity);
+            console.log(event);
+            const addCard = event.target.closest('.added-to-card')
+            const addBtn = `
                 <a href="##" class="add-btn fade-in float-end text-white fs-6 px-4 py-2 bg-primary-dark rounded rounded-5" id="add-food-${foodToCard.id}"
                         onclick="cardPlusFunc(event, ${foodToCard.id})">افزودن</a>`
 
-        addCard.outerHTML = addBtn
+
+            addCard.outerHTML = addBtn
+        }
+
+
     }
     console.log(CardItems);
+
+    const quantityArray = foodToCard.quantity[optionIndex]
+    const maxQuantity = quantityArray ? Math.max(...foodToCard.quantity) : null
+    if (!quantityArray && maxQuantity == 0) CardItems.splice(index, 1)
     localStorage.setItem('cardItems', JSON.stringify(CardItems))
     addBtns = document.querySelectorAll('.add-btn')
 
@@ -436,7 +447,20 @@ function cardUpdateFunc(btns) {
             const foodId = addBtn.id.split('-')[2]
             foodId ? foodToCard = CardItems.find(item => item.id == foodId) : null
             const optionIndex = addBtn.previousElementSibling.previousElementSibling.id.split('-')[2]
+            let flag = false
+
+            // foodToCard && console.log(foodToCard.quantity.length);
             if (foodToCard) {
+                if (!foodToCard.quantity.length) { flag = true }
+                else if (foodToCard.quantity[optionIndex] != 0) flag = true
+            }
+
+
+
+
+
+
+            if (flag) {
                 const addCard = `
                 <a href="##" class="added-to-card fade-in text-white float-end  fs-6 px-3 py-0 bg-primary-dark border rounded rounded-5" id="added-food-${foodId}">
                     <ul class="d-flex justify-content-between align-items-baseline p-0 pb-1 ">
