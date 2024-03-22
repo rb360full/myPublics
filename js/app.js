@@ -256,8 +256,9 @@ function generateModal(item) {
                 </div>
 
                 <div class="d-flex justify-content-center w-100">
-                    <button class="bg-primary py-3 w-80 border-0 rounded rounded-5 user-select-none mt-4 fs-6s fs-sm-6l" id="add-to-card">افزودن به یادداشت
-                        سفارش</button>
+                <!-- <button class="bg-primary py-3 w-80 border-0 rounded rounded-5 user-select-none mt-4 fs-6s fs-sm-6l" id="add-to-card">افزودن به یادداشت سفارش</button>  -->
+                <div class="text-white text-justify lh-lg pt-0 fs-6s">${item.description}</div>
+                        
                 </div>
             </div>
          </div>
@@ -525,7 +526,7 @@ document.addEventListener('click', e => {
             dialog && dialog.classList.add('fade-out')
             dialog && setTimeout(() => {
                 dialog.remove()
-            }, 1000);
+            }, 600);
         }
     }
 })
@@ -536,7 +537,7 @@ document.addEventListener('keydown', e => {
         dialog && dialog.classList.add('fade-out');
         dialog && setTimeout(() => {
             dialog.remove()
-        }, 1000);
+        }, 600);
     }
 })
 
