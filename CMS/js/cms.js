@@ -3,6 +3,7 @@
 let foodPhotoName;
 let foodIdEdit = document.getElementById('food-id-edit');
 const myFirebaseApi = "https://digital-online-menu-default-rtdb.firebaseio.com/";
+const myJsonDb = "./databaseJSON/db.json"
 const categoryElement = document.getElementById("category-selection");
 const mainContainer = document.getElementById("main-container");
 const formSubmit = document.querySelector("form");
@@ -438,7 +439,7 @@ async function submit(e) {
 
 // API Functions
 async function postRequest(array, arrayStringName) {
-    let req = `${myFirebaseApi}${arrayStringName}.json`;
+    let req = `${myFirebaseApi}${arrayStringName}.json`; // FireBase
     let res = await fetch(req, {
         method: "POST",
         headers: { "Content-type": "application/json" },
@@ -448,9 +449,8 @@ async function postRequest(array, arrayStringName) {
     return res;
 }
 async function setRequest(array, arrayStringName, index) {
-    // let req = `${myFirebaseApi}${arrayStringName}.json`;
-    let req = index ? `${myFirebaseApi}${arrayStringName}/${index}.json` : `${myFirebaseApi}${arrayStringName}.json`;
-    // let req = index ? `${myFirebaseApi}.auth.${uid}/${arrayStringName}/${index}.json` : `${myFirebaseApi}.auth.${uid}/${arrayStringName}.json`
+
+    let req = index ? `${myFirebaseApi}${arrayStringName}/${index}.json` : `${myFirebaseApi}${arrayStringName}.json`; // FireBase
     let res = await fetch(req, {
         method: "PUT",
         headers: { "Content-type": "application/json" },
@@ -461,7 +461,8 @@ async function setRequest(array, arrayStringName, index) {
 }
 
 async function getRequest(arrayStringName, index) {
-    let req = index ? `${myFirebaseApi}${arrayStringName}/${index}.json` : `${myFirebaseApi}${arrayStringName}.json`;
+    let req = index ? `${myFirebaseApi}${arrayStringName}/${index}.json` : `${myFirebaseApi}${arrayStringName}.json`; // FireBase
+    // let req =index ? `${myJsonDb}/${arrayStringName}/${index}.json` : `${myJsonDb}/${arrayStringName}.json`
     let res = await fetch(req);
     let resJson = await res.json();
     // console.log('res', res);
@@ -471,7 +472,8 @@ async function getRequest(arrayStringName, index) {
 }
 
 async function deleteRequest(arrayStringName, index) {
-    let req = index ? `${myFirebaseApi}${arrayStringName}/${index}.json` : `${myFirebaseApi}${arrayStringName}.json`;
+    // let req = index ? `${myFirebaseApi}${arrayStringName}/${index}.json` : `${myFirebaseApi}${arrayStringName}.json`; // FireBase
+    let req = `./js/db.json`;
     let res = await fetch(req, {
         method: "DELETE",
     });
@@ -511,7 +513,8 @@ async function callApiFunctions() {
 
 // Call Functions
 
-callApiFunctions();
+ callApiFunctions();
+
 
 
 // Events
@@ -630,4 +633,10 @@ formSubmit.addEventListener("submit", (e) => {
 // ];
 
 // setRequest(foods, 'foods')
+
+
+
+
+
+
 

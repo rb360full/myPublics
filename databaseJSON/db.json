@@ -1,0 +1,215 @@
+{
+  "category": [
+    {
+      "id": 1,
+      "imgName": "schedule.svg",
+      "title": "توضیحات | NOTE"
+    },
+    {
+      "id": 2,
+      "imgName": "popular.svg",
+      "title": "پرطرفدارها | POPULAR"
+    },
+    {
+      "id": 3,
+      "imgName": "APPETIZER.svg",
+      "title": "پیش غذا | APPETIZER"
+    },
+    {
+      "id": 4,
+      "imgName": "SALAD.svg",
+      "title": "سالاد | SALAD"
+    },
+    {
+      "id": 5,
+      "imgName": "MAIN-COURSE.svg",
+      "title": "غذای اصلی | MAIN COURSE"
+    },
+    {
+      "id": 6,
+      "imgName": "PIZZA.svg",
+      "title": "پیتزا | PIZZA"
+    },
+    {
+      "id": 7,
+      "imgName": "BREAKFAST.svg",
+      "title": "صبحانه‌ | BREAKFAST"
+    },
+    {
+      "id": 8,
+      "imgName": "DESSERT.svg",
+      "title": "دسر | DESSERT"
+    },
+    {
+      "id": 9,
+      "imgName": "COLD-DRINKS.svg",
+      "title": "نوشیدنی‌های سرد | COLD DRINKS"
+    },
+    {
+      "id": 10,
+      "imgName": "COFFEE.svg",
+      "title": "قهوه | COFFEE"
+    }
+  ],
+  "foodOptionType": [
+    {
+      "options": [
+        "نیویورکی",
+        "فندق",
+        "کارامل",
+        "نوتلا"
+      ],
+      "type": "طعم"
+    },
+    {
+      "options": [
+        "سینه",
+        "ران"
+      ],
+      "type": "نوع مرغ"
+    },
+    {
+      "options": [
+        "مرغ گریل",
+        "مرغ سوخاری"
+      ],
+      "type": "نوع پخت مرغ"
+    },
+    {
+      "options": [
+        "مالایی",
+        "هندی (تند)",
+        "ایرانی"
+      ],
+      "type": "ادویه مخصوص"
+    },
+    {
+      "options": [
+        "گوشت",
+        "مرغ"
+      ],
+      "type": "نوع پروتئین"
+    },
+    {
+      "options": [
+        "شاتوت",
+        "بلوبری",
+        "تمشک"
+      ],
+      "type": "طعم بستنی"
+    },
+    {
+      "options": [
+        "سینگل",
+        "دبل"
+      ],
+      "type": "کاپ"
+    }
+  ],
+  "foods": [
+    {
+      "OptionType": "",
+      "categoryId": 0,
+      "description": "",
+      "id": 0,
+      "imgName": "",
+      "isOptional": false,
+      "price": [
+        0
+      ],
+      "title": "deleted"
+    },
+    {
+      "OptionType": "نوع پخت مرغ",
+      "categoryId": 4,
+      "description": "سینه مرغ، بیبی اسفناج، کاهو رسمی، پنیر هالومی، سس سبز  Grilled Chicken, Grilled Halloumi, Cheese, Lettuce, Apples, Baby Spinach, Strawberry Dressing",
+      "id": 1,
+      "imgName": "Halloumi.jpg",
+      "isOptional": true,
+      "options": [
+        "مرغ گریل",
+        "مرغ سوخاری"
+      ],
+      "price": [
+        130,
+        120
+      ],
+      "title": "هالومی 🌶| Halloumi"
+    },
+    {
+      "OptionType": "نوع پخت مرغ",
+      "categoryId": 4,
+      "description": "سینه مرغ، بیبی اسفناج، کاهو رسمی، پنیر هالومی، سس سبز  Grilled Chicken, Grilled Halloumi, Cheese, Lettuce, Apples, Baby Spinach, Strawberry Dressing",
+      "id": 2,
+      "imgName": "Halloumi.jpg",
+      "isOptional": true,
+      "options": [
+        "مرغ گریل",
+        "مرغ سوخاری"
+      ],
+      "price": [
+        127,
+        120,
+        110
+      ],
+      "title": "هالومی 🌶| Halloumi"
+    },
+    {
+      "OptionType": "نوع پخت مرغ",
+      "categoryId": 4,
+      "description": "سینه مرغ، بیبی اسفناج، کاهو رسمی، پنیر هالومی، سس سبز  Grilled Chicken, Grilled Halloumi, Cheese, Lettuce, Apples, Baby Spinach, Strawberry Dressing",
+      "id": 3,
+      "imgName": "Halloumi.jpg",
+      "isOptional": false,
+      "options": [
+        "مرغ گریل",
+        "مرغ سوخاری"
+      ],
+      "price": [
+        127
+      ],
+      "title": "هالومی 🌶| Halloumi"
+    },
+    {
+      "OptionType": "نوع پروتئین",
+      "categoryId": 7,
+      "description": "آووکادو تست  یک تست خامه‌ای و کریسپی و ترد است که یک صبحانه و میان وعده به شمار می‌رود و یا یک غذای خوشمزه و ساده است و بهتر است بلافاصله مصرف شود زیرا آووکادو با گذشت زمان تغییر رنگ می‌دهد و قهوه‌ای و فاسد می‌شود Avocado toast is creamy, crisp and so satisfying. Its a delicious and simple breakfast, snack or light meal! Its best consumed immediately, since the avocado browns over time",
+      "id": 4,
+      "imgName": "شاتو-بریان-chateaubriand-normal.jpg",
+      "isOptional": true,
+      "options": [
+        "مرغ",
+        "گوشت"
+      ],
+      "price": [
+        100,
+        200
+      ],
+      "title": "آووکادو تست🥑 | Avocado Toast"
+    },
+    {
+      "OptionType": "",
+      "categoryId": 7,
+      "description": "آووکادو تست  یک تست خامه‌ای و کریسپی و ترد است که یک صبحانه و میان وعده به شمار می‌رود و یا یک غذای خوشمزه و ساده است و بهتر است بلافاصله مصرف شود زیرا آووکادو با گذشت زمان تغییر رنگ می‌دهد و قهوه‌ای و فاسد می‌شود Avocado toast is creamy, crisp and so satisfying. Its a delicious and simple breakfast, snack or light meal! Its best consumed immediately, since the avocado browns over time",
+      "id": 5,
+      "imgName": "avocado-toast-normal.jpg",
+      "isOptional": false,
+      "price": [
+        187
+      ],
+      "title": "آووکادو تست🥑 | Avocado Toast"
+    },
+    {
+      "OptionType": "",
+      "categoryId": 0,
+      "description": "",
+      "id": 0,
+      "imgName": "",
+      "isOptional": false,
+      "price": [
+        0
+      ],
+      "title": "deleted"
+    }
+  ]
+}

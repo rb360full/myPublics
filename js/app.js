@@ -5,6 +5,7 @@ const categoryContainer = document.querySelector(".category");
 const categoryElem = document.querySelector(".category");
 const dialogContainer = document.querySelector('.dialog-container')
 const myFirebaseApi = "https://digital-online-menu-default-rtdb.firebaseio.com/";
+const myJsonDb = "./databaseJSON/db.json"
 let foodToCard;
 let addedToCard;
 let cardPlus;
@@ -107,7 +108,7 @@ let foods = [];
 
 // Functions
 
-function generateCatogoryItems() {
+function generateCategoryItems() {
     category.forEach((catItem) => {
         categoryContainer.insertAdjacentHTML(
             "afterbegin",
@@ -274,12 +275,34 @@ async function callApiFunctions() {
     await getRequest("category")
         .then((result) => {
             category = result.filter(item => item);
-            generateCatogoryItems();
+            generateCategoryItems();
         })
         .catch((err) => {
             callApiFunctions();
         });
     await getRequest("foods")
+        .then((result) => {
+            foods = result.filter(item => item);
+            generateMenuItems(...category).then(res => getCardItems());
+
+        })
+        .catch((err) => {
+            callApiFunctions();
+        });
+
+    await carouselHandler();
+}
+
+async function callJsonFunctions() {
+    await getJson("category")
+        .then((result) => {
+            category = result.filter(item => item);
+            generateCategoryItems();
+        })
+        .catch((err) => {
+            callApiFunctions();
+        });
+    await getJson("foods")
         .then((result) => {
             foods = result.filter(item => item);
             generateMenuItems(...category).then(res => getCardItems());
@@ -604,7 +627,6 @@ async function setRequest(array, arrayStringName, index) {
 async function getRequest(arrayStringName, index) {
     let req = index ? `${myFirebaseApi}${arrayStringName}/${index}.json` : `${myFirebaseApi}${arrayStringName}.json`
     // let req = `${myFirebaseApi}${arrayStringName}.json`;
-    console.log(req);
     let res = await fetch(req);
     let resJson = await res.json();
 
@@ -620,11 +642,25 @@ async function deleteRequest(arrayStringName, index) {
 
     return res;
 }
+
+async function getJson(arrayStringName) {
+    let req = `${myJsonDb}`
+    let res = await fetch(req)
+
+    let resJson = await res.json();
+    console.log('res', resJson[arrayStringName]);
+
+    return resJson[arrayStringName];
+    return Object.values(resJson);
+
+}
+
 // Call Faunctions
 
-callApiFunctions();
+// callApiFunctions(); // Fetch data from FireBase 
+callJsonFunctions() // Fetch data from dbJSON
 
-// generateCatogoryItems();
+// generateCategoryItems();
 // generateMenuItems(...category);
 
 // Events
@@ -677,3 +713,15 @@ callApiFunctions();
 
 //  console.log(getRequest('foods'));
 //  console.log(getRequest('category'));
+
+
+
+
+
+
+
+
+
+
+
+
