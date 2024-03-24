@@ -300,7 +300,7 @@ async function callJsonFunctions() {
             generateCategoryItems();
         })
         .catch((err) => {
-            callApiFunctions();
+            console.error('Reading Json file Error : ', err);
         });
     await getJson("foods")
         .then((result) => {
@@ -309,7 +309,7 @@ async function callJsonFunctions() {
 
         })
         .catch((err) => {
-            callApiFunctions();
+            console.error('Reading Json file Error : ', err);
         });
 
     await carouselHandler();
