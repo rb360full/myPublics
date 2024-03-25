@@ -14,12 +14,31 @@
 
 <body class="bg-secondary">
 
-    <div class="header container-fluid mx-auto bg-primary row fixed-top">
+    <div class="header container-fluid mx-auto bg-primary row fixed-top ">
+
+        <!-- سبد سفارش -->
+
+        <div class="order-list-container text-end py-3 px-4 position-absolute ">
+            <img class="order-list-icon w-10 w-sm-6 w-md-5 w-lg-4 w-xl-3 " src="images/icons/order-list.svg" alt="">
+            <div class="order-list-content h-100vh  bg-dark position-absolute end-0 top-0 z-n1 text-white w-0">
+                <p class="order-list-header text-center py-2 fade-out">لیست سفارش مشتری</p>
+                <div class="order-list-body fade-out">
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
         <div class="brand row"></div>
         <div class="top-nav row justify-content-center">
-            <div class="all-cat row justify-content-center">
-                <a href="#main-container" id="allCategoriesBtn" class="bg-primary-subtle col-auto rounded rounded-5 px-5 py-1 mt-3"> همه دسته‌بندی‌ها در یک نگاه
-                </a>
+            <div class="all-cat row justify-content-center ">
+                <a href="#main-container" id="allCategoriesBtn" class="float-start bg-primary-subtle col-auto rounded rounded-5 px-5 py-1 mt-3">
+                    همه دسته‌بندی‌ها</a>
             </div>
             <div class="category row d-flex flex-column mx-auto  justify-content-center align-items-center my-5 " dir="ltr">
                 <!-- Category Item -->
@@ -39,6 +58,7 @@
             </div>
         </div>
     </div>
+
     <div id="main-container" class="main container-fluid px-4 ">
 
         <!-- Foods Items -->
@@ -84,9 +104,9 @@
 
 
 
-     <div class="d-flex justify-content-between align-items-center"></div>
+    <div class="d-flex justify-content-between align-items-center"></div>
 
-    
+
 
     <script src="js/app.js"></script>
 </body>

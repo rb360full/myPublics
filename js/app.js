@@ -4,6 +4,10 @@ const mainContainer = document.querySelector(".main");
 const categoryContainer = document.querySelector(".category");
 const categoryElem = document.querySelector(".category");
 const dialogContainer = document.querySelector('.dialog-container')
+const orderListIcon = document.querySelector('.order-list-icon');
+const orderListContent = document.querySelector('.order-list-content')
+const orderListBody = document.querySelector('.order-list-body')
+const orderListHeader = document.querySelector('.order-list-header')
 const myFirebaseApi = "https://digital-online-menu-default-rtdb.firebaseio.com/";
 const myJsonDb = "./databaseJSON/db.json"
 let foodToCard;
@@ -11,7 +15,7 @@ let addedToCard;
 let cardPlus;
 let cardCount;
 let cardMinus;
-let CardItems = []
+let cardItems = []
 let addBtns = []
 
 let headerHeight = document.querySelector(".header").offsetHeight;
@@ -235,6 +239,131 @@ async function generateMenuItems(...categoryArray) {
 
 
 
+async function generateCard(cardItemsArray) {
+    console.log(cardItemsArray);
+
+
+    cardItemsArray.forEach(item => {
+        orderListBody.innerHTML = ''
+        let addCard;
+        let cardItem;
+
+        if (cardItemsArray.length > 0) {
+            cardItemsArray.forEach((item, index) => {
+
+                let flag = false
+
+                if (!item.isOptional) {
+                    flag = true
+                    const optionIndex = 0
+                    addCard = `
+                    <a href="##" class="added-to-card fade-in text-white float-end  fs-6 px-3 py-0 bg-primary-dark border rounded rounded-5" id="added-food-${item.id}">
+                        <ul class="d-flex justify-content-between align-items-baseline p-0 pb-1 ">
+                            <li class="card-plus pt-2 pe-2" id="card-plus-option-${optionIndex}" onclick="cardPlusFunc(event, ${item.id} , ${optionIndex})">+</li>
+                            <li class="card-count pt-2 px-1">${item.isOptional ? item.quantity[optionIndex] : item.quantity}</li>
+                            <li class="card-minus pt-2 ps-2" id="card-minus-option-${optionIndex}"  onclick="cardMinusFunc(event, ${item.id},${optionIndex})">-</li>
+                        </ul>
+                    </a>`
+                    cardItem = `
+                    <div class="menu-item h-7vh row w-95  bg-secondary-subtle2 text-white mx-auto my-2  px-4 rounded rounded-5 overflow-hidden" id="food-${item.id}">
+                        <div class="menu-item-text col-8 col-sm-9 d-flex align-items-center p-0 h-100">
+                            ${addCard}
+                            <span class="fs-6l mt-2 mb-2  px-4 ">
+                                <b>${item.price[0]}</b>
+                                <small>هزار تومان</small>
+                            </span>
+                        </div>
+                        <div class="col-4 col-sm-3 d-flex p-0 py-2 align-items-center">
+                            <h5 class="menu-item-title p-0 m-0">${item.title}</h5>
+                        </div>
+                    </div>`
+                    orderListBody.insertAdjacentHTML('beforeend', cardItem)
+                }
+                else if (item.isOptional) {
+
+                    item.quantity.forEach((quantity, optionIndex) => {
+
+                        if (item.quantity[optionIndex] != 0) {
+                            flag = true
+                            addCard = `
+                            <a href="##" class="added-to-card fade-in text-white float-end  fs-6 px-3 py-0 bg-primary-dark border rounded rounded-5" id="added-food-${item.id}">
+                                <ul class="d-flex justify-content-between align-items-baseline p-0 pb-1 ">
+                                    <li class="card-plus pt-2 pe-2" id="card-plus-option-${optionIndex}" onclick="cardPlusFunc(event, ${item.id} , ${optionIndex})">+</li>
+                                    <li class="card-count pt-2 px-1">${item.isOptional ? item.quantity[optionIndex] : item.quantity}</li>
+                                    <li class="card-minus pt-2 ps-2" id="card-minus-option-${optionIndex}"  onclick="cardMinusFunc(event, ${item.id},${optionIndex})">-</li>
+                                </ul>
+                            </a>`
+
+                            cardItem = `
+                            <div class="menu-item h-7vh row w-95  bg-secondary-subtle2 text-white mx-auto my-2  px-4 rounded rounded-5 overflow-hidden" id="food-${item.id}">
+                                <div class="menu-item-text col-8 col-sm-9 d-flex align-items-center p-0 h-100">
+                                    ${addCard}
+                                    <span class="fs-6l mt-2 mb-2  px-4 ">
+                                        <b>${item.price[optionIndex]}</b>
+                                        <small>هزار تومان</small>
+                                    </span>
+                                </div>
+                                <div class="col-4 col-sm-3 d-flex p-0 py-2 align-items-center">
+                                    <h5 class="menu-item-title p-0 m-0">${item.title}</h5>
+                                    <small class="ps-4 m-0 text-primary">${item.options[optionIndex]}</small>
+                                </div>
+                            </div>`
+                            orderListBody.insertAdjacentHTML('beforeend', cardItem)
+
+                        }
+                    })
+
+                }
+
+
+
+
+
+
+
+
+
+                // if (flag) {
+
+                //     cardItem = `
+                //     <div class="menu-item h-7vh row w-95  bg-secondary-subtle2 text-white mx-auto my-2  px-4 rounded rounded-5 overflow-hidden" id="food-${item.id}">
+                //         <div class="menu-item-text col-8 col-sm-9 d-flex align-items-center p-0 h-100">
+                //             ${addCard}
+                //             <span class="fs-6l mt-2 mb-2  px-4 ">
+                //                 <b>${item.price[0]}</b>
+                //                 <small>هزار تومان</small>
+                //             </span>
+                //         </div>
+                //         <div class="col-4 col-sm-3 d-flex p-0 py-2 align-items-center">
+                //             <h5 class="menu-item-title p-0 m-0">${item.title}</h5>
+                //         </div>
+                //     </div>`
+                //     orderListBody.insertAdjacentHTML('beforeend', cardItem)
+
+                // }
+            })
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    })
+}
+
+
+
 
 function generateModal(item) {
     const minPrice = Math.min(...item.price);
@@ -305,7 +434,11 @@ async function callJsonFunctions() {
     await getJson("foods")
         .then((result) => {
             foods = result.filter(item => item);
-            generateMenuItems(...category).then(res => getCardItems());
+            generateMenuItems(...category).then(res => {
+
+                getCardItems()
+
+            })
 
         })
         .catch((err) => {
@@ -364,67 +497,83 @@ async function carouselHandler() {
 
 function cardPlusFunc(event, foodId, optionIndex, optionPrice) {
 
-    foodToCard = CardItems.find(item => item.id == foodId) || foods.find(item => item.id == foodId)
-    const index = CardItems.indexOf(foodToCard)
+    foodToCard = cardItems.find(item => item.id == foodId) || foods.find(item => item.id == foodId)
+    const index = cardItems.indexOf(foodToCard)
     cardCount = event.target.nextElementSibling;
     console.log(event);
     console.log(cardCount);
-    const isInCard = CardItems.some(item => item.id == foodToCard.id)
+    const isInCard = cardItems.some(item => item.id == foodToCard.id)
     if (!isInCard || index < 0) {
         !foodToCard.isOptional ? foodToCard.quantity = 1 : null
-        foodToCard.isOptional ? foodToCard.quantity = [1] : null
-        CardItems.push(foodToCard)
+        if (foodToCard.isOptional) {
+            foodToCard = { ...foodToCard, quantity: [] }
+            foodToCard.price.forEach((price, priceIndex) => {
+                if (foodToCard.isOptional && optionIndex == priceIndex) {
+
+                    foodToCard.quantity[priceIndex] = 1
+                }
+                else if (foodToCard.isOptional && optionIndex != priceIndex) {
+
+                    foodToCard.quantity[priceIndex] = 0
+                }
+            })
+        }
+
+        // foodToCard.isOptional ? foodToCard.quantity = [1] : null
+        cardItems.push(foodToCard)
     }
     else {
 
         if (!foodToCard.isOptional) {
-            CardItems[index].quantity++
-            cardCount.innerHTML = CardItems[index].quantity
+            cardItems[index].quantity++
+            cardCount.innerHTML = cardItems[index].quantity
         }
-        else if (foodToCard.isOptional && CardItems[index].quantity[optionIndex]) {
+        else if (foodToCard.isOptional && cardItems[index].quantity[optionIndex]) {
             foodToCard.quantity[optionIndex]++
-            cardCount.innerHTML = CardItems[index].quantity[optionIndex]
+            cardCount.innerHTML = cardItems[index].quantity[optionIndex]
         }
-        else if (foodToCard.isOptional && !CardItems[index].quantity[optionIndex]) {
+        else if (foodToCard.isOptional && !cardItems[index].quantity[optionIndex]) {
             foodToCard.quantity[optionIndex] = 1
         }
 
 
 
     }
-    console.log(CardItems);
-    localStorage.setItem('cardItems', JSON.stringify(CardItems))
+    console.log(cardItems);
+    localStorage.setItem('cardItems', JSON.stringify(cardItems))
     addBtns = document.querySelectorAll('.add-btn')
+    addedBtns = document.querySelectorAll('.added-to-card')
+    btnUpdateFunc(foodId, cardCount.innerHTML, optionIndex)
 }
 
 function cardMinusFunc(event, foodId,) {
-    foodToCard = CardItems.find(item => item.id == foodId) || foods.find(item => item.id == foodId)
+    foodToCard = cardItems.find(item => item.id == foodId) || foods.find(item => item.id == foodId)
 
     const optionIndex = event.target.id.split('-')[3]
     console.log(event);
     console.log(optionIndex);
-    const index = CardItems.indexOf(foodToCard)
+    const index = cardItems.indexOf(foodToCard)
     cardCount = event.target.previousElementSibling;
     if (!foodToCard.isOptional) {
-        CardItems[index].quantity--
-        cardCount.innerHTML = CardItems[index].quantity
+        cardItems[index].quantity--
+        cardCount.innerHTML = cardItems[index].quantity
     }
-    else if (foodToCard.isOptional && CardItems[index].quantity[optionIndex]) {
+    else if (foodToCard.isOptional && cardItems[index].quantity[optionIndex]) {
         foodToCard.quantity[optionIndex]--
-        cardCount.innerHTML = CardItems[index].quantity[optionIndex]
+        cardCount.innerHTML = cardItems[index].quantity[optionIndex]
     }
-    // else if (foodToCard.isOptional && !CardItems[index].quantity[optionIndex]) {
+    // else if (foodToCard.isOptional && !cardItems[index].quantity[optionIndex]) {
     //     foodToCard.quantity[optionIndex] = 1
     //     cardCount = event.target.nextElementSibling;
     //     console.log(cardCount);
-    //     cardCount.innerHTML = CardItems[index].quantity[optionIndex]
+    //     cardCount.innerHTML = cardItems[index].quantity[optionIndex]
     // }
-    // const isInCard = CardItems.some(item => item == foodToCard)
+    // const isInCard = cardItems.some(item => item == foodToCard)
     // foodToCard.quantity--;
 
-    if (foodToCard.quantity == 0 || CardItems[index].quantity[optionIndex] == 0) {
-        if (CardItems[index].quantity == 0 || CardItems[index].quantity.length == 1) {
-            CardItems.splice(index, 1)
+    if (foodToCard.quantity == 0 || cardItems[index].quantity[optionIndex] == 0) {
+        if (cardItems[index].quantity == 0 || cardItems[index].quantity.length == 1) {
+            cardItems.splice(index, 1)
             const addCard = event.target.closest('.added-to-card')
             const addBtn = `
                     <a href="##" class="add-btn fade-in float-end text-white fs-6 px-4 py-2 bg-primary-dark rounded rounded-5" id="add-food-${foodToCard.id}"
@@ -434,9 +583,9 @@ function cardMinusFunc(event, foodId,) {
         }
 
         else {
-            // CardItems[index].quantity.splice(optionIndex, 1)
-            CardItems[index].quantity[optionIndex] = 0
-            console.log(CardItems[index].quantity);
+            // cardItems[index].quantity.splice(optionIndex, 1)
+            cardItems[index].quantity[optionIndex] = 0
+            console.log(cardItems[index].quantity);
             console.log(event);
             const addCard = event.target.closest('.added-to-card')
             const addBtn = `
@@ -449,28 +598,49 @@ function cardMinusFunc(event, foodId,) {
 
 
     }
-    console.log(CardItems);
+    console.log(cardItems);
 
     const quantityArray = foodToCard.quantity[optionIndex]
-    const maxQuantity = quantityArray ? Math.max(...foodToCard.quantity) : null
-    if (!quantityArray && maxQuantity == 0) CardItems.splice(index, 1)
-    localStorage.setItem('cardItems', JSON.stringify(CardItems))
+    const maxQuantity = Math.max(...foodToCard.quantity)
+    if (!quantityArray && maxQuantity == 0) cardItems.splice(index, 1)
+    localStorage.setItem('cardItems', JSON.stringify(cardItems))
     addBtns = document.querySelectorAll('.add-btn')
 
 }
 
-function cardUpdateFunc(btns) {
+
+function btnUpdateFunc(foodId, cardCount, optionIndex) {
+    console.log(foodId, optionIndex);
+    console.log(addedBtns.length);
+
+    [...addedBtns].forEach(btn => {
+        if (btn.id == `added-food-${foodId}` && btn.children[0].children[0].id == `card-plus-option-${optionIndex}`) {
+            let count = btn.children[0].children[1]
+            count.innerHTML = cardCount
+        }
+
+    })
+
+    // console.log(btnFind);
+    // let count = btnFind.children[0].children[1]
+    // console.log(count);
+    // count.innerHTML = cardCount
+    // console.log(count);
+}
+
+async function cardUpdateFunc(btns) {
 
     console.log(btns.length);
-    if (CardItems.length > 0) {
+    if (cardItems.length > 0) {
 
 
 
         btns.forEach((addBtn, index) => {
 
             const foodId = addBtn.id.split('-')[2]
-            foodId ? foodToCard = CardItems.find(item => item.id == foodId) : null
-            const optionIndex = addBtn.previousElementSibling.previousElementSibling.id.split('-')[2]
+            foodId ? foodToCard = cardItems.find(item => item.id == foodId) : null
+            const optionIndex = addBtn.previousElementSibling.previousElementSibling.id.split('-')[2] || 0
+
             let flag = false
 
             // foodToCard && console.log(foodToCard.quantity.length);
@@ -503,14 +673,16 @@ function cardUpdateFunc(btns) {
 }
 
 async function getCardItems() {
-    localStorage.getItem('cardItems') ? CardItems = JSON.parse(localStorage.getItem('cardItems')) : null
+    localStorage.getItem('cardItems') ? cardItems = JSON.parse(localStorage.getItem('cardItems')) : null
     addBtns = document.querySelectorAll('.add-btn')
+    console.log(addBtns.length);
     cardUpdateFunc(addBtns)
+
 }
-function changeAddBtn(e) {
+async function changeAddBtn(e) {
     const addBtn = e.target.closest('.add-btn')
     if (addBtn) {
-        const optionIndex = e.target.previousElementSibling.previousElementSibling.id.split('-')[2]
+        const optionIndex = e.target.previousElementSibling.previousElementSibling.id.split('-')[2] || 0
         const foodId = addBtn.id.split('-')[2]
         foodToCard = foods.find(item => item.id == foodId)
         const addCard = `
@@ -552,6 +724,10 @@ document.addEventListener('click', e => {
             }, 600);
         }
     }
+
+
+
+
 })
 
 document.addEventListener('keydown', e => {
@@ -561,6 +737,21 @@ document.addEventListener('keydown', e => {
         dialog && setTimeout(() => {
             dialog.remove()
         }, 600);
+
+
+
+        orderListBody.classList.remove('fade-in')
+        orderListBody.classList.add('fade-out')
+        orderListHeader.classList.remove('fade-in')
+        orderListHeader.classList.add('fade-out')
+        setTimeout(() => {
+            orderListContent && orderListContent.classList.remove('fade-in-width');
+            orderListContent && orderListContent.classList.add('fade-out-width');
+        }, 170);
+
+        setTimeout(() => {
+            orderListContent && orderListContent.classList.add('visually-hidden');
+        }, 1000);
     }
 })
 
@@ -582,6 +773,20 @@ document.addEventListener('click', e => {
 })
 
 
+orderListIcon.addEventListener('click', e => {
+    orderListContent.classList.remove('visually-hidden');
+    orderListContent.classList.remove('w-0');
+    orderListContent && orderListContent.classList.remove('fade-out-width');
+    orderListContent && orderListContent.classList.add('fade-in-width');
+    setTimeout(() => {
+        orderListBody.classList.remove('fade-out')
+        orderListBody.classList.add('fade-in')
+        orderListHeader.classList.remove('fade-out')
+        orderListHeader.classList.add('fade-in')
+    }, 500);
+    generateCard(cardItems)
+
+})
 
 
 
@@ -659,69 +864,4 @@ async function getJson(arrayStringName) {
 
 // callApiFunctions(); // Fetch data from FireBase 
 callJsonFunctions() // Fetch data from dbJSON
-
-// generateCategoryItems();
-// generateMenuItems(...category);
-
-// Events
-
-// const categoty = document.querySelector('.category');
-// const catItems = document.querySelectorAll('.cat-item');
-// catItems.forEach((cat, index) => {
-//     cat.addEventListener('click', e => {
-
-//         e.preventDefault();
-//         const catLink = e.target.closest('.category a')
-//         const catHref = catLink.getAttribute('href').split('#')[1];
-//         const section = document.getElementById(catHref);
-//         console.log(section);
-//         section && section.scrollIntoView({ behavior: 'smooth' });
-
-//         // Remove 'black' class from all cat elements
-//         catItems.forEach(d => d.classList.remove('black'));
-//         // Add 'black' class to the clicked cat element
-//         cat.classList.add('black');
-
-//         const rect = cat.getBoundingClientRect();
-
-//         // Get the width of the div element
-//         const categoryWidth = categoty.clientWidth;
-//         const catItemWidth = rect.width;
-//         const scrollableWidth = categoty.scrollWidth;
-
-//         // Calculate the scroll position to center the clicked cat element
-//         const scrollX = rect.left + categoty.scrollLeft - (categoryWidth / 2) + (catItemWidth / 2);
-
-//         // Ensure the scroll position is within the bounds of the scrollable area
-//         const maxScrollX = scrollableWidth - categoryWidth;
-//         const finalScrollX = Math.max(0, Math.min(maxScrollX, scrollX));
-
-//         // Scroll the div element horizontally to position the clicked cat element in the middle
-
-//         categoty.scrollTo({
-//             left: finalScrollX,
-//             behavior: 'smooth'
-//         });
-//     });
-// });
-
-// console.log('Delete: ' + deleteRequest('foods'));
-// console.log('Delete: ' + deleteRequest('category'));
-
-// console.log('Post: ' + postRequest( foods , 'foods'));
-// console.log('Post: ' + postRequest( category , 'category'));
-
-//  console.log(getRequest('foods'));
-//  console.log(getRequest('category'));
-
-
-
-
-
-
-
-
-
-
-
 
