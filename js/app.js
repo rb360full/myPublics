@@ -8,6 +8,8 @@ const orderListIcon = document.querySelector('.order-list-icon');
 const orderListContent = document.querySelector('.order-list-content')
 const orderListBody = document.querySelector('.order-list-body')
 const orderListHeader = document.querySelector('.order-list-header')
+const orderListFooter = document.querySelector('.order-list-footer')
+let foodCardSum;
 const myFirebaseApi = "https://digital-online-menu-default-rtdb.firebaseio.com/";
 const myJsonDb = "./databaseJSON/db.json"
 let foodToCard;
@@ -17,6 +19,7 @@ let cardCount;
 let cardMinus;
 let cardItems = []
 let addBtns = []
+
 
 let headerHeight = document.querySelector(".header").offsetHeight;
 // categoryElem.addEventListener("click", (e) => {
@@ -241,12 +244,13 @@ async function generateMenuItems(...categoryArray) {
 
 async function generateCard(cardItemsArray) {
     console.log(cardItemsArray);
+    let addCard;
+    let cardItem;
 
 
     cardItemsArray.forEach(item => {
         orderListBody.innerHTML = ''
-        let addCard;
-        let cardItem;
+        orderListFooter.innerHTML = ''
 
         if (cardItemsArray.length > 0) {
             cardItemsArray.forEach((item, index) => {
@@ -269,7 +273,7 @@ async function generateCard(cardItemsArray) {
                         <div class="menu-item-text col-8 col-sm-9 d-flex align-items-center p-0 h-100">
                             ${addCard}
                             <span class="fs-6l mt-2 mb-2  px-4 ">
-                                <b>${item.price[0]}</b>
+                                <b>${item.price[optionIndex]}</b>
                                 <small>هزار تومان</small>
                             </span>
                         </div>
@@ -314,52 +318,28 @@ async function generateCard(cardItemsArray) {
                     })
 
                 }
-
-
-
-
-
-
-
-
-
-                // if (flag) {
-
-                //     cardItem = `
-                //     <div class="menu-item h-7vh row w-95  bg-secondary-subtle2 text-white mx-auto my-2  px-4 rounded rounded-5 overflow-hidden" id="food-${item.id}">
-                //         <div class="menu-item-text col-8 col-sm-9 d-flex align-items-center p-0 h-100">
-                //             ${addCard}
-                //             <span class="fs-6l mt-2 mb-2  px-4 ">
-                //                 <b>${item.price[0]}</b>
-                //                 <small>هزار تومان</small>
-                //             </span>
-                //         </div>
-                //         <div class="col-4 col-sm-3 d-flex p-0 py-2 align-items-center">
-                //             <h5 class="menu-item-title p-0 m-0">${item.title}</h5>
-                //         </div>
-                //     </div>`
-                //     orderListBody.insertAdjacentHTML('beforeend', cardItem)
-
-                // }
             })
 
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     })
+
+    const sumCardItems = `
+        <div class="menu-item h-7vh row w-95 justify-content-between bg-secondary-subtle2 text-white mx-auto my-2  px-4 rounded rounded-5 overflow-hidden">
+                <div class="col-4 col-sm-3 d-flex p-0 py-2 align-items-center">
+                    <h3 class="menu-item-title text-warning fw-bolder p-0 ps-5 m-0">مجموع</h3>
+                </div>
+                <div class="menu-item-text col-8 col-sm-9 d-flex align-items-center p-0 h-100 text-end w-auto">
+                    <span class="fs-6l mt-2 mb-2  px-4 ">
+                        <b id="food-card-sum">${(cardSumFunc(cardItems) * 1000).toLocaleString()}</b>
+                        <small>تومان</small>
+                    </span>
+                </div>
+        </div>`
+    orderListFooter.insertAdjacentHTML('beforeend', sumCardItems)
+    foodCardSum = document.getElementById('food-card-sum')
+
+
+
 }
 
 
@@ -495,6 +475,26 @@ async function carouselHandler() {
     categoryContainer.scrollLeft = categoryElem.scrollWidth - categoryElem.clientWidth;
 }
 
+function cardSumFunc(cardArray) {
+    let sum = 0
+    cardArray.forEach(item => {
+        if (!item.isOptional) {
+            sum += Number(item.price) * Number(item.quantity)
+        }
+        else {
+            item.quantity.forEach((q, index) => {
+                sum += Number(q) * Number(item.price[index])
+            })
+        }
+    })
+
+
+    console.log('sum = ', sum);
+    return sum
+}
+
+
+
 function cardPlusFunc(event, foodId, optionIndex) {
 
     foodToCard = cardItems.find(item => item.id == foodId) || foods.find(item => item.id == foodId)
@@ -544,6 +544,7 @@ function cardPlusFunc(event, foodId, optionIndex) {
     addBtns = document.querySelectorAll('.add-btn')
     addedBtns = document.querySelectorAll('.added-to-card')
     cardCount && btnUpdateFunc(foodId, optionIndex, cardCount.innerHTML)
+    foodCardSum.innerHTML = (cardSumFunc(cardItems) * 1000).toLocaleString();
 }
 
 function cardMinusFunc(event, foodId) {
@@ -613,7 +614,7 @@ function cardMinusFunc(event, foodId) {
     localStorage.setItem('cardItems', JSON.stringify(cardItems))
     addedBtns = document.querySelectorAll('.added-to-card')
     btnUpdateFunc(foodId, optionIndex, cardCount.innerHTML)
-
+    foodCardSum.innerHTML = (cardSumFunc(cardItems) * 1000).toLocaleString();
 }
 
 
