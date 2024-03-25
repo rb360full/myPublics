@@ -495,7 +495,7 @@ async function carouselHandler() {
     categoryContainer.scrollLeft = categoryElem.scrollWidth - categoryElem.clientWidth;
 }
 
-function cardPlusFunc(event, foodId, optionIndex, optionPrice) {
+function cardPlusFunc(event, foodId, optionIndex) {
 
     foodToCard = cardItems.find(item => item.id == foodId) || foods.find(item => item.id == foodId)
     const index = cardItems.indexOf(foodToCard)
@@ -543,10 +543,10 @@ function cardPlusFunc(event, foodId, optionIndex, optionPrice) {
     localStorage.setItem('cardItems', JSON.stringify(cardItems))
     addBtns = document.querySelectorAll('.add-btn')
     addedBtns = document.querySelectorAll('.added-to-card')
-    btnUpdateFunc(foodId, cardCount.innerHTML, optionIndex)
+    cardCount && btnUpdateFunc(foodId, optionIndex, cardCount.innerHTML)
 }
 
-function cardMinusFunc(event, foodId,) {
+function cardMinusFunc(event, foodId) {
     foodToCard = cardItems.find(item => item.id == foodId) || foods.find(item => item.id == foodId)
 
     const optionIndex = event.target.id.split('-')[3]
@@ -577,7 +577,7 @@ function cardMinusFunc(event, foodId,) {
             const addCard = event.target.closest('.added-to-card')
             const addBtn = `
                     <a href="##" class="add-btn fade-in float-end text-white fs-6 px-4 py-2 bg-primary-dark rounded rounded-5" id="add-food-${foodToCard.id}"
-                            onclick="cardPlusFunc(event, ${foodToCard.id})">افزودن</a>`
+                            onclick="cardPlusFunc(event, ${foodToCard.id},${optionIndex})">افزودن</a>`
 
             addCard.outerHTML = addBtn
         }
@@ -590,10 +590,13 @@ function cardMinusFunc(event, foodId,) {
             const addCard = event.target.closest('.added-to-card')
             const addBtn = `
                 <a href="##" class="add-btn fade-in float-end text-white fs-6 px-4 py-2 bg-primary-dark rounded rounded-5" id="add-food-${foodToCard.id}"
-                        onclick="cardPlusFunc(event, ${foodToCard.id})">افزودن</a>`
+                        onclick="cardPlusFunc(event, ${foodToCard.id},${optionIndex})">افزودن</a>`
 
 
             addCard.outerHTML = addBtn
+            generateCard(cardItems)
+            addedBtns = document.querySelectorAll('.added-to-card')
+            btnUpdateFunc(foodId, optionIndex, cardCount.innerHTML)
         }
 
 
@@ -601,15 +604,20 @@ function cardMinusFunc(event, foodId,) {
     console.log(cardItems);
 
     const quantityArray = foodToCard.quantity[optionIndex]
-    const maxQuantity = Math.max(...foodToCard.quantity)
-    if (!quantityArray && maxQuantity == 0) cardItems.splice(index, 1)
+    const maxQuantity = quantityArray && Math.max(...foodToCard.quantity) || foodToCard.quantity
+    if (!quantityArray && maxQuantity == 0) {
+        cardItems.splice(index, 1)
+        generateCard(cardItems)
+    }
+
     localStorage.setItem('cardItems', JSON.stringify(cardItems))
-    addBtns = document.querySelectorAll('.add-btn')
+    addedBtns = document.querySelectorAll('.added-to-card')
+    btnUpdateFunc(foodId, optionIndex, cardCount.innerHTML)
 
 }
 
 
-function btnUpdateFunc(foodId, cardCount, optionIndex) {
+function btnUpdateFunc(foodId, optionIndex, cardCount) {
     console.log(foodId, optionIndex);
     console.log(addedBtns.length);
 
@@ -617,15 +625,21 @@ function btnUpdateFunc(foodId, cardCount, optionIndex) {
         if (btn.id == `added-food-${foodId}` && btn.children[0].children[0].id == `card-plus-option-${optionIndex}`) {
             let count = btn.children[0].children[1]
             count.innerHTML = cardCount
+            if (cardCount == 0) {
+                count.remove()
+                const addBtn = `
+                    <a href="##" class="add-btn fade-in float-end text-white fs-6 px-4 py-2 bg-primary-dark rounded rounded-5" id="add-food-${foodId}"
+                        onclick="cardPlusFunc(event, ${foodId},${optionIndex})">افزودن</a>`
+
+
+
+                btn.outerHTML = addBtn
+            }
         }
 
     })
 
-    // console.log(btnFind);
-    // let count = btnFind.children[0].children[1]
-    // console.log(count);
-    // count.innerHTML = cardCount
-    // console.log(count);
+
 }
 
 async function cardUpdateFunc(btns) {
@@ -664,6 +678,7 @@ async function cardUpdateFunc(btns) {
                     </ul>
                 </a>`
                 addBtn.outerHTML = addCard
+
             }
         })
 
