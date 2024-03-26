@@ -9,6 +9,10 @@ const orderListContent = document.querySelector('.order-list-content')
 const orderListBody = document.querySelector('.order-list-body')
 const orderListHeader = document.querySelector('.order-list-header')
 const orderListFooter = document.querySelector('.order-list-footer')
+const themeItems = document.querySelectorAll('.theme-item')
+const themes = document.querySelector('.themes')
+const themeSettingsIcon = document.querySelector('.theme-settings-icon')
+const themeContainer = document.querySelector('.theme-container')
 let foodCardSum;
 const myFirebaseApi = "https://digital-online-menu-default-rtdb.firebaseio.com/";
 const myJsonDb = "./databaseJSON/db.json"
@@ -19,8 +23,6 @@ let cardCount;
 let cardMinus;
 let cardItems = []
 let addBtns = []
-
-
 let headerHeight = document.querySelector(".header").offsetHeight;
 // categoryElem.addEventListener("click", (e) => {
 //     e.target.closest("a")
@@ -113,7 +115,37 @@ let category = [];
 let foods = [];
 
 
+
+
+
+
+themeSettingsIcon.addEventListener('click', e => {
+    themeContainer.classList.toggle('theme-hide')
+    themeContainer.classList.toggle('theme-active')
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Functions
+
+function changeTheme(themeId) {
+    document.documentElement.className = themeId
+    localStorage.setItem('theme', themeId)
+}
+
 
 function generateCategoryItems() {
     category.forEach((catItem) => {
@@ -544,7 +576,7 @@ function cardPlusFunc(event, foodId, optionIndex) {
     addBtns = document.querySelectorAll('.add-btn')
     addedBtns = document.querySelectorAll('.added-to-card')
     cardCount && btnUpdateFunc(foodId, optionIndex, cardCount.innerHTML)
-    foodCardSum.innerHTML = (cardSumFunc(cardItems) * 1000).toLocaleString();
+    foodCardSum.innerHTML = cardItems ? (cardSumFunc(cardItems) * 1000).toLocaleString() : 0
 }
 
 function cardMinusFunc(event, foodId) {
@@ -803,6 +835,21 @@ orderListIcon.addEventListener('click', e => {
     generateCard(cardItems)
 
 })
+
+
+themes.addEventListener('click', e => {
+    if (e.target.classList.contains("theme-item")) {
+        const themeId = e.target.id
+        changeTheme(themeId)
+    }
+})
+
+window.addEventListener('load', () => {
+    themeId = localStorage.getItem('theme') || 'default-theme'
+    changeTheme(themeId)
+})
+
+
 
 
 

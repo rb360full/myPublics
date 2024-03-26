@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="far" dir="rtl">
+<html class="default-theme" lang="far" dir="rtl">
 
 
 <head>
@@ -14,6 +14,21 @@
 
 <body class="bg-secondary">
 
+    <div class="theme-container theme-hide h-100vh w-10 w-sm-7 w-md-4 w-lg-3 bg-dark position-fixed top-0 ">
+        <div class="theme-settings-icon bg-dark position-relative end-100 top-50 translate-middle-y rounded-start rounded-start-5 px-2 py-1">
+            <img class="img-fluid w-100 w-sm-75 w-md-100 w-lg-80 rotate" src="images/icons/settings.svg" alt="">
+        </div>
+        <div class="themes h-100 d-flex flex-column justify-content-center align-items-center position-absolute top-0 start-50 translate-middle-x">
+            <span class="theme-item rounded-circle p-2 my-3" style="background-color: #dc5f00;" id="default-theme"></span>
+            <span class="theme-item rounded-circle  p-2 my-3" style="background-color: #bb2f98;" id="theme1"></span>
+            <span class="theme-item rounded-circle  p-2 my-3" style="background-color: #3c1ccd;" id="theme2"></span>
+            <span class="theme-item rounded-circle  p-2 my-3" style="background-color: #8c0fa2;" id="theme3"></span>
+            <span class="theme-item rounded-circle  p-2 my-3" style="background-color: #e3ee0e;" id="theme4"></span>
+            <span class="theme-item rounded-circle  p-2 my-3" style="background-color: #d30808;" id="theme5"></span>
+        </div>
+
+    </div>
+
     <div class="header container-fluid mx-auto bg-primary row fixed-top ">
 
         <!-- سبد سفارش -->
@@ -23,29 +38,7 @@
             <div class="order-list-content h-100vh  bg-dark position-absolute end-0 top-0 z-n1 text-white w-0">
                 <p class="order-list-header text-center py-2 fade-out">لیست سفارش مشتری</p>
                 <div class="order-list-body fade-out"></div>
-                <div class="order-list-footer w-100 position-absolute bottom-0 end-0 ">
-
-
-
-                    <!-- <div class="menu-item h-7vh row w-95 justify-content-between bg-secondary-subtle2 text-white mx-auto my-2  px-4 rounded rounded-5 overflow-hidden"
-                        id="food-${item.id}">
-                        <div class="col-4 col-sm-3 d-flex p-0 py-2 align-items-center">
-                            <h3 class="menu-item-title text-warning fw-bolder p-0 ps-5 m-0">مجموع</h3>
-                        </div>
-                        <div class="menu-item-text col-8 col-sm-9 d-flex align-items-center p-0 h-100 text-end w-auto">
-
-                            <span class="fs-6l mt-2 mb-2  px-4 ">
-                                <b>${item.price[0]}</b>
-                                <small>هزار تومان</small>
-                            </span>
-                        </div>
-                    </div> -->
-
-
-                </div>
-
-
-
+                <div class="order-list-footer w-100 position-absolute bottom-0 end-0 "></div>
             </div>
         </div>
 
