@@ -7635,6 +7635,9 @@ fieldset:disabled .btn {
   bottom: 100% !important;
 }
 
+.start-5-minus {
+  right: -5% !important;
+}
 .start-0 {
   right: 0 !important;
 }

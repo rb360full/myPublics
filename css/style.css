@@ -116,22 +116,25 @@ body {
 
 .header {
   height: 40vh;
+  height: 20vh;
 }
 .main {
   margin-top: 44vh !important;
+  margin-top: 23vh !important;
 }
 
 .title-a {
   position: absolute;
   margin-top: -43vh;
+  margin-top: -23vh;
 }
 .title-p {
   position: relative;
 }
 
 .cat-item {
-  width: 150px;
-  height: 150px;
+  /* width: 150px;
+  height: 150px; */
   transition: all 0.4s;
 }
 
@@ -168,7 +171,7 @@ a {
 }
 
 .category {
-  height: 200px;
+  /* height: 200px; */
   overflow-x: scroll;
   scrollbar-width: none;
   -webkit-scrollbar: none;
@@ -250,12 +253,12 @@ li {
     width: 0;
   }
   100% {
-    width: 80vw;
+    width: 100vw;
   }
 }
 @keyframes fade-out-width {
   0% {
-    width: 80vw;
+    width: 100vw;
   }
   100% {
     width: 0;
