@@ -1,0 +1,256 @@
+{
+  "category": [
+    {
+      "id": 1,
+      "imgName": "hot-drink_2387020.png",
+      "title": "نوشیدنی های گرم"
+    },
+    {
+      "id": 2,
+      "imgName": "ice-cream_938012.png",
+      "title": "نوشیدنی های سرد"
+    },
+    {
+      "id": 3,
+      "imgName": "tea.png",
+      "title": "چای و دمنوش  "
+    },
+    {
+      "id": 4,
+      "imgName": "smoothies_.png",
+      "title": "فراپه و اسموتی "
+    },
+    {
+      "id": 5,
+      "imgName": "cake.png",
+      "title": "کیک و دسر "
+    },
+    {
+      "id": 6,
+      "imgName": "mocktail.png",
+      "title": "ماکتیل "
+    }
+  ],
+  "foodOptionType": [
+    {
+      "options": [
+        "نیویورکی",
+        "فندق",
+        "کارامل",
+        "نوتلا"
+      ],
+      "type": "طعم"
+    },
+    {
+      "options": [
+        "سینه",
+        "ران"
+      ],
+      "type": "نوع مرغ"
+    },
+    {
+      "options": [
+        "مرغ گریل",
+        "مرغ سوخاری"
+      ],
+      "type": "نوع پخت مرغ"
+    },
+    {
+      "options": [
+        "مالایی",
+        "هندی (تند)",
+        "ایرانی"
+      ],
+      "type": "ادویه مخصوص"
+    },
+    {
+      "options": [
+        "گوشت",
+        "مرغ"
+      ],
+      "type": "نوع پروتئین"
+    },
+    {
+      "options": [
+        "شاتوت",
+        "بلوبری",
+        "تمشک"
+      ],
+      "type": "طعم بستنی"
+    },
+    {
+      "options": [
+        "سینگل",
+        "دبل"
+      ],
+      "type": "کاپ"
+    }
+  ],
+  "orders": [
+    {
+      "OptionType": "",
+      "categoryId": 1,
+      "description": "شکلات , شیر فرم گرفته , اسپرسو و خامه زده شده ",
+      "id": 1,
+      "imgName": "mocha.jpg",
+      "isOptional": false,
+      "name": "موکا | Mocha",
+      "price": 80000
+    },
+    {
+      "OptionType": "",
+      "categoryId": 2,
+      "description": " سکنجبین , زعفران و آب سودا",
+      "id": 2,
+      "imgName": "shiraz.jpg",
+      "isOptional": false,
+      "name": "شیراز | Shiraz",
+      "price": 1000
+    },
+    {
+      "OptionType": "",
+      "categoryId": 3,
+      "description": "چای سبز و عسل",
+      "id": 3,
+      "imgName": "green.jpg",
+      "isOptional": false,
+      "name": "چای سبز| Green tea",
+      "price": 40000
+    },
+    {
+      "OptionType": "",
+      "categoryId": 4,
+      "description": "شاتوت , توت فرنگی و آلبالو ",
+      "id": 4,
+      "imgName": "chery.jpg",
+      "isOptional": false,
+      "name": "چری بری|Cherry berry",
+      "price": 1000
+    },
+    {
+      "OptionType": "",
+      "categoryId": 1,
+      "description": "شکلات سفید , وانیل و شیر ",
+      "id": 5,
+      "imgName": "mint.jpg",
+      "isOptional": false,
+      "name": " وایت چاکلت | Chocolate",
+      "price": 95000
+    },
+    {
+      "OptionType": "",
+      "categoryId": 2,
+      "description": "زعفران , تخم شربتی, پنیرک و خاکشیر",
+      "id": 6,
+      "imgName": "kashan.jpg",
+      "isOptional": false,
+      "name": "کاشان  | Kashan",
+      "price": 1000
+    },
+    {
+      "OptionType": "",
+      "categoryId": 6,
+      "description": "زنجبیل و لیمو",
+      "id": 7,
+      "imgName": "ginger.jpg",
+      "isOptional": false,
+      "name": "جینجر لایم | Gingerlime",
+      "price": 1000
+    },
+    {
+      "OptionType": false,
+      "categoryId": 3,
+      "description": " میخک , وانیل , دارچین و سیب زرد",
+      "id": 8,
+      "imgName": "vanill.jpg",
+      "isOptional": false,
+      "name": "گلدن وانیلا | Golden vanila",
+      "options": [
+        ""
+      ],
+      "price": 2000
+    },
+    {
+      "OptionType": "",
+      "categoryId": 4,
+      "description": " توت فرنگی , آب انبه و پرتقال",
+      "id": 9,
+      "imgName": "mongo.jpg",
+      "isOptional": false,
+      "name": "مانگو بری| Mongo berry",
+      "price": 1000
+    },
+    {
+      "OptionType": "",
+      "categoryId": 5,
+      "description": " بیسکوییت , پنیر خامه ای و کافی میکس",
+      "id": 10,
+      "imgName": "tramiso.jpg",
+      "isOptional": false,
+      "name": "ترامیسو | Tiramisu",
+      "price": 1000
+    },
+    {
+      "OptionType": "",
+      "categoryId": 4,
+      "description": " آب گازدار , برگ نعناع , شکر , رام سفید و آبلیمو ",
+      "id": 11,
+      "imgName": "mohito.jpg",
+      "isOptional": false,
+      "name": "موهیتو | Mojito",
+      "price": 125000
+    },
+    {
+      "OptionType": "",
+      "categoryId": 3,
+      "description": " چای سیاه، چای سبز،برگ نعناع، تکه های میوه های استوایی",
+      "id": 12,
+      "imgName": "marakeshi.jpg",
+      "isOptional": false,
+      "name": "چای مراکشی | Moroccan ",
+      "price": 72000
+    },
+    {
+      "OptionType": "",
+      "categoryId": 1,
+      "description": "چای سیاه، شیر ,زنجبیل , هل , دارچین و فلفل سیاه",
+      "id": 13,
+      "imgName": "masala.jpg",
+      "isOptional": false,
+      "name": "ماسالا| Masala",
+      "price": 95000
+    },
+    {
+      "OptionType": "",
+      "categoryId": 2,
+      "description": "شیر, بستنی , نسکافه و سس شکلات",
+      "id": 14,
+      "imgName": "glaseh.jpg",
+      "isOptional": false,
+      "name": "کافه گلاسه|Cafe glace",
+      "price": 111000
+    },
+    {
+      "OptionType": "",
+      "categoryId": 2,
+      "description": "اسپرسو , یخ و شیر سرد ",
+      "id": 15,
+      "imgName": "icelate.jpg",
+      "isOptional": false,
+      "name": "آیس لته|iced latte",
+      "price": 110000
+    },
+    {
+      "OptionType": "",
+      "categoryId": 0,
+      "description": "",
+      "id": 0,
+      "imgName": "",
+      "isOptional": false,
+      "price": [
+        0
+      ],
+      "title": "deleted"
+    }
+  ]
+}
