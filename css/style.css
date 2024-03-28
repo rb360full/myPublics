@@ -393,8 +393,7 @@ li {
   animation: rotate 3s linear infinite;
 }
 
-
-.close-card-btn{
+.close-card-btn,
+.close-dialog-btn {
   cursor: pointer;
-  z-index: 4000;
 }

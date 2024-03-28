@@ -14,6 +14,7 @@ const themeItems = document.querySelectorAll('.theme-item')
 const themes = document.querySelector('.themes')
 const themeSettingsIcon = document.querySelector('.theme-settings-icon')
 const themeContainer = document.querySelector('.theme-container')
+// let closeDialogBtn = document.querySelector('.close-dialog-btn')
 let foodCardSum;
 const myFirebaseApi = "https://digital-online-menu-default-rtdb.firebaseio.com/";
 const myJsonDb = "./databaseJSON/db.json"
@@ -372,14 +373,15 @@ async function generateCard(cardItemsArray) {
 
 
 
-function generateModal(item) {
+function generateDialog(item) {
     const minPrice = Math.min(...item.price);
     const smallElem = item.price.length > 1 ? `<small class="text-primary fs-6s"> از </small> ` : ''
 
     const dialogElement = `
     <div class="dialog fade-in col-11 col-sm-10 col-md-7 col-lg-5 col-xl-3 w-xl-30 d-flex flex-column mx-auto rounded rounded-4 overflow-hidden position-fixed">
         <div class=" w-100 d-flex justify-content-center align-items-center rounded rounded-top-4 overflow-hidden ">
-            <img src="images/${item.imgName}" class="rounded-top-4 w-100" alt="" />
+        <b class="close-dialog-btn text-danger text-center position-absolute top-1 start-5 fs-2 translate-middle rounded-4 px-3 pt-1" >✕</b>    
+        <img src="images/${item.imgName}" class="rounded-top-4 w-100" alt="" />
         </div>
         <div class="dialog-cart py-3 w-100 d-flex justify-content-center  rounded-bottom-4 overflow-hidden align-items-center bg-secondary">
             <div class="dialog-desc w-90 h-80 rounded rounded-3">
@@ -404,6 +406,8 @@ function generateModal(item) {
 
     dialogContainer.insertAdjacentHTML('afterbegin', dialogElement)
     dialogContainer.querySelector('.dialog').classList.add('dialog-show');
+    const closeDialogBtn = document.querySelector('.close-dialog-btn')
+    closeDialogBtn.addEventListener('click', closeDialog)
 
 }
 
@@ -758,6 +762,18 @@ function closeCard() {
     }, 1000);
 }
 
+
+function closeDialog() {
+    const dialog = document.querySelector('.dialog')
+    dialog && dialog.classList.add('fade-out')
+    dialog && setTimeout(() => {
+        dialog.remove()
+    }, 600);
+}
+
+
+
+
 // Events
 
 document.addEventListener('click', e => {
@@ -769,7 +785,7 @@ document.addEventListener('click', e => {
         const foodId = foodItem.id.split('-')[1]
         const food = foods.find(item => item.id == foodId)
         let isSummaryClicked = e.target.closest('details')
-        !isSummaryClicked && generateModal(food)
+        !isSummaryClicked && generateDialog(food)
     }
 
 
@@ -803,7 +819,7 @@ document.addEventListener('keydown', e => {
 })
 
 closeCardBtn.addEventListener('click', closeCard)
-closeCardBtn.addEventListener('touchstart', closeCard)
+
 
 
 mainContainer.addEventListener('click', e => {
