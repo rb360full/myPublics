@@ -802,9 +802,8 @@ document.addEventListener('keydown', e => {
     }
 })
 
-closeCardBtn.addEventListener('click', e => {
-    closeCard()
-})
+closeCardBtn.addEventListener('click', closeCard)
+closeCardBtn.addEventListener('touchstart', closeCard)
 
 
 mainContainer.addEventListener('click', e => {
