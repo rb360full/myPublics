@@ -396,4 +396,5 @@ li {
 
 .close-card-btn{
   cursor: pointer;
+  z-index: 4000;
 }
