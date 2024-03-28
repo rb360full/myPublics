@@ -392,3 +392,8 @@ li {
 .rotate {
   animation: rotate 3s linear infinite;
 }
+
+
+.close-card-btn{
+  cursor: pointer;
+}
