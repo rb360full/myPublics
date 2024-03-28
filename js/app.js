@@ -324,7 +324,7 @@ async function generateCard(cardItemsArray) {
                                 </ul>
                             </a>`
 
-                            cardItem= `
+                            cardItem = `
                             <div class="menu-item h-7vh row w-95  bg-secondary-subtle2 text-white mx-auto my-2  px-1 px-lg-5 rounded rounded-5 overflow-hidden " id="food-${item.id}">
                                 <div class="menu-item-text col-8 col-sm-9 d-flex align-items-center p-0 h-100 ">
                                     ${addCard}
@@ -926,3 +926,7 @@ async function getJson(arrayStringName) {
 // callApiFunctions(); // Fetch data from FireBase 
 callJsonFunctions() // Fetch data from dbJSON
 
+window.addEventListener('popstate', function () {
+
+    this.alert('ok')
+})
