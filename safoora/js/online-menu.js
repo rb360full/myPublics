@@ -235,86 +235,72 @@ function createModalCategory(itemCategory) {
         });
     });
 }
-displayCategory.addEventListener('click', () => {
+function showCategoryModal() {
+    document.body.style.overflow = "hidden";
     containerModal.style.display = "flex";
     createModalCategory(category)
-})
-
+}
 
 function closeContainerModal() {
     containerModal.classList.add('fade-out');
     const itemNavModals = document.querySelectorAll('.itemNav-modal');
     itemNavModals.forEach(itemNavModal => {
         itemNavModal.style.visibility = "hidden";
-
     });
-
     setTimeout(() => {
         containerModal.style.display = "none";
         containerModal.classList.remove('fade-out');
     }, 2000);
+    document.body.style.overflow = "auto";
+
 }
-
-
-
-
 
 function createModalOrder(order) {
     containerModalBaverage.innerHTML = "";
-    // containerModalBaverage.style.visibility = "visible"
     containerModalBaverage.classList.remove('hidden');
     containerModalBaverage.classList.remove('fade-out')
     const tagModal = `
     <div class="display-box-baverage">
-    <img src="images/${order.imgName}">
-    <h2 class="Beverage-title-modal" > ${order.name}</h2>
-    <div class="Beverage-modal">
-    <span> محتویات : </span>
-    <p id="Beverage-modal">${order.description}</p>
-    <div class="baverage-add-modal">
-    <p class="close-modal"> بستن </p>
-    <p id="Beverage-modal"><span>قیمت : </span> ${order.price.toLocaleString()} تومان </p>
-    </div>
-    <button class="addModal" id ="add-${order.id}">افزودن</button>
-    </div>
+        <p class="close-modal"> بستن </p>
+        <img src="images/${order.imgName}">
+        <h2 class="Beverage-title-modal" > ${order.name}</h2>
+        <div class="Beverage-modal">
+            <span> محتویات : </span>
+            <p id="Beverage-modal">${order.description}</p>
+            <div class="baverage-add-modal">
+            <button class="addModal" id ="add-${order.id}">افزودن</button>
+            <p id="Beverage-modal"><span>قیمت : </span> ${order.price.toLocaleString()} تومان </p>
+            </div>
+        </div>
     </div> 
     `;
     containerModalBaverage.insertAdjacentHTML('beforeend', tagModal);
 }
-main.addEventListener('click', e => {
+
+function showModalOrder(e) {
     if (!e.target.classList.contains('add')) {
-        console.log(e.target)
+        document.body.style.overflow = "hidden";
         const orderElement = e.target.closest('.container-Beverages');
-        console.log(orderElement)
         const orderElementId = orderElement && orderElement.id;
         const order = orders.find(item => `beverage-${item.id}` == orderElementId);
         order && createModalOrder(order)
-    }
-})
-
+    } 
+}
 
 let isModalOpen = true;
 
 containerModalBaverage.addEventListener('click', (e) => {
+    document.body.style.overflow = "hidden";
     closeMmodal = document.querySelector('.close-modal')
-    console.log(closeMmodal)
     const modalBox = document.querySelector('.display-box-baverage')
     console.log(modalBox)
     if (e.target.classList.contains('close-modal')) {
-        // containerModalBaverage.style.visibility = "hidden";
         containerModalBaverage.classList.add('fade-out');
-        // modalBox.remove()
         setTimeout(() => {
             containerModalBaverage.classList.add('hidden')
-            // containerModalBaverage.classList.remove('fade-out');
         }, 1000);
         isModalOpen = false;
-        // } else {
-        //     if (!isModalOpen) {
-        //         containerModalBaverage.style.visibility = "visible";
-        //         containerModalBaverage.classList.remove('fade-out');
-        //         isModalOpen = true;
-        //     }
+        document.body.style.overflow = "auto";
     }
 })
 
@@ -360,31 +346,32 @@ function displayMainProducts() {
 // displayMainProducts();
 
 
-const addButtons = document.querySelectorAll('.add');
 const ordersList = document.querySelector('.orders-list');
 const total = document.querySelector('#total');
 const quantity = document.querySelector('#quantity');
-const orderItem = document.querySelector('.order-item');
 const shopping = document.querySelector('#shopping');
 const closeShopping = document.querySelector('#closeShopping');
 const count = document.querySelector('#count');
 const containerOrderList = document.querySelector('.container-order-list');
 
 
-shopping.addEventListener('click', () => {
+function showOrderList() {
+    document.body.style.overflow = "hidden";
+    totalPrice = JSON.parse(localStorage.getItem('totalPrice'))
+    total.textContent = `قیمت کل : ${totalPrice.toLocaleString()} تومان`;
     containerOrderList.classList.remove('fade-out');
     containerOrderList.classList.add('scale-in-ver-center');
     containerOrderList.classList.add('display');
-})
+};
 
-closeShopping.addEventListener('click', () => {
+function closeOrderList() {
     containerOrderList.classList.remove('scale-in-ver-center');
     containerOrderList.classList.add('fade-out');
     containerOrderList.classList.remove('display');
-
-    // Save shopping cart to local storage
     localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
-});
+    document.body.style.overflow = "auto";
+
+};
 
 let shoppingCart = [];
 let totalPrice = 0;
@@ -394,7 +381,6 @@ function addToCart(itemId) {
     const selectedProduct = orders.find(product => product.id == itemId);
     const existingItem = shoppingCart.find(item => item.id === selectedProduct.id);
 
-    // Retrieve shopping cart from local storage if it exists
     if (localStorage.getItem('shoppingCart')) {
         const storedShoppingCart = JSON.parse(localStorage.getItem('shoppingCart'));
         if (storedShoppingCart.length > 0) {
@@ -411,12 +397,11 @@ function addToCart(itemId) {
     updateCart();
 
     buttonStates[itemId] = true;
-
-    // Save shopping cart to local storage
     localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
+    localStorage.setItem('totalPrice', JSON.stringify(totalPrice));
 }
 
-main.addEventListener('click', e => {
+function checkAddButtonState(e) {
     if (e.target.className == 'add') {
         const itemId = e.target.id.split('-')[2];
 
@@ -426,11 +411,10 @@ main.addEventListener('click', e => {
             buttonStates[itemId] = true;
         }
     }
-})
-containerModalBaverage.addEventListener('click', e => {
+}
+function checkAddModalButtonState(e) {
     if (e.target.className == 'addModal') {
         const itemId = e.target.id.split('-')[1];
-        console.log(itemId)
 
         if (!buttonStates[itemId]) {
             addToCart(itemId);
@@ -438,7 +422,7 @@ containerModalBaverage.addEventListener('click', e => {
             buttonStates[itemId] = true;
         }
     }
-})
+}
 
 function changeQuantity(index, newQuantity) {
     if (newQuantity <= 0) {
@@ -452,6 +436,7 @@ function changeQuantity(index, newQuantity) {
         totalPrice = shoppingCart.reduce((acc, item) => acc + item.price, 0);
     }
     updateCart();
+    localStorage.setItem('totalPrice', JSON.stringify(totalPrice))
 }
 
 function updateCart() {
@@ -473,9 +458,9 @@ function updateCart() {
         `;
         ordersList.appendChild(listItem);
     });
-
-    total.textContent = `قیمت کل : ${totalPrice} تومان`;
+    total.textContent = `قیمت کل : ${totalPrice.toLocaleString()} تومان`;
     quantity.textContent = shoppingCart.reduce((acc, item) => acc + item.quantity, 0);
+
 }
 
 
@@ -502,7 +487,14 @@ function hideModalTheme() {
     containerModalTheme.style.visibility = 'hidden';
 }
 
-theme.addEventListener('click', () => {
+function checkTheme() {
+    if (localStorage.getItem('theme')) {
+        document.documentElement.className = localStorage.getItem('theme');
+    }
+}
+checkTheme();
+
+function displayHideTheme() {
     if (containerModalTheme.style.visibility === 'visible') {
         hideModalTheme();
         setTimeout(() => {
@@ -516,7 +508,16 @@ theme.addEventListener('click', () => {
             button.style.visibility = 'visible';
         });
     }
-})
+}
+
+theme.addEventListener('click', displayHideTheme);
+shopping.addEventListener('click', showOrderList);
+closeShopping.addEventListener('click', closeOrderList);
+main.addEventListener('click', checkAddButtonState);
+main.addEventListener('click', showModalOrder);
+containerModalBaverage.addEventListener('click', checkAddModalButtonState);
+displayCategory.addEventListener('click', showCategoryModal);
+
 
 
 
