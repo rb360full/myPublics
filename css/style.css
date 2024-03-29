@@ -307,10 +307,12 @@ li {
   cursor: pointer;
   z-index: 3000 !important;
 }
-.order-list-content,
+.order-list-content {
+  z-index: 1 !important;
+}
+
 .theme-container {
-  z-index: 9999 !important;
-  
+  z-index: 1040 !important;
 }
 .theme-active {
   left: 0%;
@@ -371,9 +373,8 @@ li {
 }
 
 .theme-settings-icon {
-  z-index: -50 !important;
+  z-index: 2050 !important;
   cursor: pointer;
-  opacity: 0.2;
 }
 .themes span {
   cursor: pointer;
@@ -389,7 +390,7 @@ li {
 }
 
 .rotate {
-  animation: rotate 100s linear infinite;
+  animation: rotate 3s linear infinite;
 }
 
 .close-card-btn,
