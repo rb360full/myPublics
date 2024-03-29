@@ -281,8 +281,10 @@ li {
 
 .order-list-icon {
   cursor: pointer;
-  z-index: 999999999 !important;
+  z-index: 1000 !important;
 }
+
+
 .order-list-content {
   z-index: 1 !important;
 }
