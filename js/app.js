@@ -271,6 +271,7 @@ async function generateMenuItems(...categoryArray) {
 
 
 async function generateCard(cardItemsArray) {
+
     console.log(cardItemsArray);
     let addCard;
     let cardItem;
@@ -342,6 +343,7 @@ async function generateCard(cardItemsArray) {
                             </div>`
                             orderListBody.insertAdjacentHTML('beforeend', cardItem)
 
+
                         }
                     })
 
@@ -368,6 +370,7 @@ async function generateCard(cardItemsArray) {
 
 
 
+
 }
 
 
@@ -378,9 +381,9 @@ function generateDialog(item) {
     const smallElem = item.price.length > 1 ? `<small class="text-primary fs-6s"> از </small> ` : ''
 
     const dialogElement = `
-    <div class="dialog fade-in col-11 col-sm-10 col-md-7 col-lg-5 col-xl-3 w-xl-30 d-flex flex-column mx-auto rounded rounded-4 overflow-hidden position-fixed">
+    <div class="dialog fade-in col-12 col-sm-10 col-md-7 col-lg-5 col-xl-3 w-xl-30 d-flex flex-column mx-auto rounded rounded-4 overflow-hidden position-fixed">
         <div class=" w-100 d-flex justify-content-center align-items-center rounded rounded-top-4 overflow-hidden ">
-        <b class="close-dialog-btn text-danger text-center position-absolute top-1 start-5 fs-2 translate-middle rounded-4 px-3 pt-1" >✕</b>    
+        <b class="close-dialog-btn text-primary text-center position-absolute top-1 start-5 fs-2 translate-middle rounded-4 px-3 pt-1" >✕</b>    
         <img src="images/${item.imgName}" class="rounded-top-4 w-100" alt="" />
         </div>
         <div class="dialog-cart py-3 w-100 d-flex justify-content-center  rounded-bottom-4 overflow-hidden align-items-center bg-secondary">
@@ -397,17 +400,20 @@ function generateDialog(item) {
                 <div class="d-flex justify-content-center w-100">
                 <!-- <button class="bg-primary py-3 w-80 border-0 rounded rounded-5 user-select-none mt-4 fs-6s fs-sm-6l" id="add-to-card">افزودن به یادداشت سفارش</button>  -->
                 <div class="text-white text-justify lh-lg pt-0 fs-6s">${item.description}</div>
-                        
                 </div>
             </div>
          </div>
     </div>
+    
     `
 
     dialogContainer.insertAdjacentHTML('afterbegin', dialogElement)
     dialogContainer.querySelector('.dialog').classList.add('dialog-show');
     const closeDialogBtn = document.querySelector('.close-dialog-btn')
     closeDialogBtn.addEventListener('click', closeDialog)
+    document.body.classList.remove('overflow-auto')
+    document.body.classList.add('overflow-hidden')
+
 
 }
 
@@ -760,6 +766,8 @@ function closeCard() {
     setTimeout(() => {
         orderListContent && orderListContent.classList.add('visually-hidden');
     }, 1000);
+    document.body.classList.remove('overflow-hidden')
+    document.body.classList.add('overflow-auto')
 }
 
 
@@ -769,6 +777,9 @@ function closeDialog() {
     dialog && setTimeout(() => {
         dialog.remove()
     }, 600);
+    document.body.classList.remove('overflow-hidden')
+    document.body.classList.add('overflow-auto')
+
 }
 
 
@@ -797,6 +808,8 @@ document.addEventListener('click', e => {
                 dialog.remove()
             }, 600);
         }
+        document.body.classList.remove('overflow-hidden')
+    document.body.classList.add('overflow-auto')
     }
 
 
@@ -816,6 +829,9 @@ document.addEventListener('keydown', e => {
 
         closeCard()
     }
+    document.body.classList.remove('overflow-hidden')
+    document.body.classList.add('overflow-auto')
+
 })
 
 closeCardBtn.addEventListener('click', closeCard)
@@ -840,17 +856,22 @@ document.addEventListener('click', e => {
 
 
 orderListIcon.addEventListener('click', e => {
+    document.body.classList.remove('overflow-auto')
+    document.body.classList.add('overflow-hidden')
     orderListContent.classList.remove('visually-hidden');
     orderListContent.classList.remove('w-0');
     orderListContent && orderListContent.classList.remove('fade-out-width');
     orderListContent && orderListContent.classList.add('fade-in-width');
     setTimeout(() => {
+        document.body.classList.remove('overflow-auto')
+    document.body.classList.add('overflow-hidden')
         orderListBody.classList.remove('fade-out')
         orderListBody.classList.add('fade-in')
         orderListHeader.classList.remove('fade-out')
         orderListHeader.classList.add('fade-in')
     }, 500);
     generateCard(cardItems)
+
 
 })
 
@@ -949,6 +970,3 @@ async function getJson(arrayStringName) {
 
 // callApiFunctions(); // Fetch data from FireBase 
 callJsonFunctions() // Fetch data from dbJSON
-
-
-
