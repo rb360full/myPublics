@@ -14,7 +14,7 @@ const themeItems = document.querySelectorAll('.theme-item')
 const themes = document.querySelector('.themes')
 const themeSettingsIcon = document.querySelector('.theme-settings-icon')
 const themeContainer = document.querySelector('.theme-container')
-// let closeDialogBtn = document.querySelector('.close-dialog-btn')
+let closeDialogBtn = document.querySelector('.close-dialog-btn')
 let foodCardSum;
 const myFirebaseApi = "https://digital-online-menu-default-rtdb.firebaseio.com/";
 const myJsonDb = "./databaseJSON/db.json"
@@ -415,6 +415,7 @@ function generateDialog(item) {
     document.body.classList.add('overflow-hidden')
 
 
+
 }
 
 async function callApiFunctions() {
@@ -809,11 +810,19 @@ document.addEventListener('click', e => {
             }, 600);
         }
         document.body.classList.remove('overflow-hidden')
-    document.body.classList.add('overflow-auto')
+        document.body.classList.add('overflow-auto')
     }
 
+    if (e.target.closest('.dialog-container') || e.target.closest('.order-list-content') || e.target.closest('.order-list-icon')) {
+        document.body.classList.remove('overflow-auto')
+        document.body.classList.add('overflow-hidden')
 
+    }
 
+    if (e.target.closest('.close-dialog-btn') || e.target.closest('.close-card-btn')) {
+        document.body.classList.remove('overflow-hidden')
+        document.body.classList.add('overflow-auto')
+    }
 
 })
 
@@ -864,7 +873,7 @@ orderListIcon.addEventListener('click', e => {
     orderListContent && orderListContent.classList.add('fade-in-width');
     setTimeout(() => {
         document.body.classList.remove('overflow-auto')
-    document.body.classList.add('overflow-hidden')
+        document.body.classList.add('overflow-hidden')
         orderListBody.classList.remove('fade-out')
         orderListBody.classList.add('fade-in')
         orderListHeader.classList.remove('fade-out')
