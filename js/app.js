@@ -499,13 +499,15 @@ async function carouselHandler() {
 
             // Scroll the div element horizontally to position the clicked cat element in the middle
 
-            categoty.scrollTo({
-                left: finalScrollX,
-                behavior: "smooth",
-            });
 
-            e.target.click()
+            setTimeout(() => {
+                categoty.scrollTo({
+                    left: finalScrollX,
+                    behavior: "smooth",
+                });
+            }, 500);
 
+            //  e.target.click()
 
         });
     });
