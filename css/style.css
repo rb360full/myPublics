@@ -1,4 +1,25 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
+:root {
+  --om-primary: #dc5f00;
+  --om-primary-dark: #c15300;
+  --om-primary-dark2: #70380d;
+  --om-primary-subtle: #e0721f;
+  --om-primary-subtle2: #e78f4d;
+  --om-primary-subtle3: #eeaf80;
+
+  --om-secondary: #2d2d2e;
+  --om-secondary-subtle: #3b3b3c;
+  --om-secondary-subtle2: #444446;
+  --om-secondary-subtle3: #a4a4a4;
+
+  --om-success: #551bf8;
+  --om-dark: #1b263b;
+  --om-dark-subtle: #2c3a56;
+  --om-info: #04c4c9;
+  --om-info-dark: #0e8590;
+  --om-blue: #081d40;
+}
+
 :root.default-theme {
   --om-primary: #dc5f00;
   --om-primary-dark: #c15300;
@@ -139,7 +160,12 @@ body {
 }
 
 .category-title > div {
-  background: linear-gradient(to right, var(--om-secondary), transparent, var(--om-secondary));
+  background: linear-gradient(
+    to right,
+    var(--om-secondary),
+    transparent,
+    var(--om-secondary)
+  );
 }
 
 a {
@@ -310,7 +336,6 @@ li {
 .order-list-content,
 .theme-container {
   z-index: 9999 !important;
-  
 }
 .theme-active {
   left: 0%;
