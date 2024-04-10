@@ -423,7 +423,6 @@ li {
 }
 
 .all-cat-items {
-  overflow: scroll !important;
   background-color: var(--om-secondary-subtle2);
   z-index: 2500;
   width: 100%;
