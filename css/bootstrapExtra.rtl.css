@@ -787,8 +787,20 @@
   .w-sm-20 {
     width: 20% !important;
   }
-  .w-sm-25 {
-    width: 25% !important;
+  .w-sm-21 {
+    width: 21% !important;
+  }
+  .w-sm-22 {
+    width: 22% !important;
+  }
+  .w-sm-20 {
+    width: 20% !important;
+  }
+  .w-sm-23 {
+    width: 23% !important;
+  }
+  .w-sm-24 {
+    width: 24% !important;
   }
   .w-sm-30 {
     width: 30% !important;
@@ -977,6 +989,18 @@
   .w-sm-20vw {
     width: 20vw !important;
   }
+  .w-sm-21vw {
+    width: 21vw !important;
+  }
+  .w-sm-22vw {
+    width: 22vw !important;
+  }
+  .w-sm-23vw {
+    width: 23vw !important;
+  }
+  .w-sm-24vw {
+    width: 24vw !important;
+  }
   .w-sm-25vw {
     width: 25vw !important;
   }
@@ -1079,6 +1103,18 @@
   }
   .h-sm-10vh {
     height: 10vh !important;
+  }
+  .h-sm-11vh {
+    height: 11vh !important;
+  }
+  .h-sm-12vh {
+    height: 12vh !important;
+  }
+  .h-sm-13vh {
+    height: 13vh !important;
+  }
+  .h-sm-14vh {
+    height: 14vh !important;
   }
   .h-sm-15vh {
     height: 15vh !important;

@@ -421,3 +421,22 @@ li {
 .close-dialog-btn {
   cursor: pointer;
 }
+
+.all-cat-items {
+  overflow: scroll !important;
+  background-color: var(--om-secondary-subtle2);
+  z-index: 2500;
+  width: 100%;
+  max-width: 500px;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  row-gap: 0rem;
+  column-gap: 1.2rem;
+  place-items: center;
+}
+@media (min-width: 800px) {
+  .all-cat-items .cat-item {
+    max-width: 125px !important;
+  }
+}
