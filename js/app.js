@@ -452,10 +452,11 @@ async function carouselHandler() {
     const catItems = document.querySelectorAll(".cat-item");
     catItems.forEach((cat, index) => {
         cat.addEventListener("click", (e) => {
-             e.preventDefault();
+            e.preventDefault();
 
             const catLink = e.target.closest(".category a");
             const catHref = catLink.getAttribute("href").split("#")[1];
+
             const section = document.getElementById(catHref);
             section && section.scrollIntoView({ behavior: "smooth" });
 
@@ -486,6 +487,7 @@ async function carouselHandler() {
                     left: finalScrollX,
                     behavior: "smooth",
                 });
+                window.location.href = `#${catHref}`
             }, 500);
 
             //  e.target.click()
