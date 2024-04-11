@@ -994,7 +994,7 @@ function allCatItemsGenerate() {
         const castItem = `
                 <div class="cat-item bg-primary-subtle2 d-flex flex-column justify-content-center align-items-center rounded rounded-4 pt-1 w-33vw h-13vh w-sm-18vw h-sm-14vh w-md-16vw h-md-70">
                     <a href="#cat-${catItem.id}" class="d-flex flex-column justify-content-center align-items-center">
-                        <img class="cat-item-image w-45 w-md-50 border" src="images/icons/${catItem.imgName}" alt="" />
+                        <img class="cat-item-image w-45 w-md-50" src="images/icons/${catItem.imgName}" alt="" />
                         <p class="text-center">${catTitleShort}</p>
                     </a>
                 </div>`
