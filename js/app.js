@@ -487,6 +487,10 @@ async function carouselHandler() {
                     left: finalScrollX,
                     behavior: "smooth",
                 });
+                
+            }, 1000);
+
+            setTimeout(() => {
                 window.location.href = `#${catHref}`
             }, 500);
 
