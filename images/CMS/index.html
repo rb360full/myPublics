@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMS Panel</title>
+    <link rel="stylesheet" href="../css/bootstrap.rtl.css">
+    <link rel="stylesheet" href="../css/bootstrapExtra.rtl.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/cms.css">
+
+
+</head>
+
+<body>
+
+    <div class="container-fluid p-3">
+        <div class="row justify-content-around ">
+
+            <h2 class="text-center "><a class="text-center text-dark-emphasis bg-info d-inline-block px-4 py-2 rounded rounded-3 border p-0"
+                    href="../index.html">Home</a></h2>
+
+            <div class="col-7 ">
+                <form class="border border-2 rounded rounded-4 p-4 sticky-top " action="">
+                    <legend class="text-center mb-4 fw-bold rounded py-2 bg-warning text-primary">پنل مدیریت</legend>
+
+                    <!-- Category -->
+                    <div class="mb-3" id="category">
+                        <label for="" class="form-label fs-5 fw-semibold">دسته بندی</label>
+                        <select class="form-select form-select-lg" name="" id="category-selection">
+                            <option selected value="">Select one</option>
+                        </select>
+                    </div>
+
+                    <!-- Name -->
+                    <div class="mb-3">
+                        <label for="" class="form-label fs-5 fw-semibold">نام آیتم</label>
+                        <input type="text" name="" id="food-name" class="form-control py-2" placeholder="نام غذا ، سالاد ، قهوه و ..." />
+                        <input type="number" value="" id="food-id-edit" class="d-none">
+                    </div>
+
+
+
+                    <!-- Options -->
+                    <div class="mb-3">
+                        <label for="" class="form-label fs-5 fw-semibold">قابلیت انتخاب برای مشتری</label>
+                        <select class="form-select form-select-lg" name="" id="optionallity">
+                            <option selected value="">Select one</option>
+                        </select>
+                    </div>
+
+
+                    <!-- Option Items -->
+                    <div class="mb-3">
+                        <label for="" class="form-label fs-5 fw-semibold">انتخاب مشتری</label>
+                        <select class="form-select form-select-lg" name="" id="food-option">
+                            <option selected value="">Select one</option>
+                        </select>
+                    </div>
+
+
+                    <!-- Price -->
+                    <div class="mb-3">
+                        <label for="" class="form-label fs-5 fw-semibold">قیمت</label>
+                        <input type="number" name="" id="food-price" class="form-control py-2" placeholder="تومان" />
+                    </div>
+
+                    <!-- Photo -->
+
+                    <div class="mb-3">
+                        <label for="" class="form-label fs-5 fw-semibold " id="upload-photo-label">آپلود عکس</label>
+                        <input type="file" class="form-control" name="" id="food-photo" placeholder=""  />
+                        <!-- <input type="file" class="form-control" name="" id="change-food-photo" style="display: none;" /> -->
+                    </div>
+
+                    <!-- Description -->
+
+                    <div class="mb-3">
+                        <label for="" class="form-label fs-5 fw-semibold">توضیحات</label>
+                        <textarea class="form-control" name="" id="food-desc" rows="4"></textarea>
+                    </div>
+
+                    <!-- Submit -->
+                    <button type="submit" class="btn btn-primary col-12 py-2 fs-5">تائید</button>
+
+
+
+
+                </form>
+            </div>
+
+            <div class="col-5 overflow-y-scroll" id="main-container">
+                <h2 class="text-center fw-bolder ">لیست کامل محصولات</h2>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+    
+    <script src="js/cms.js"></script>
+    
+    
+
+</body>
+
+</html>
